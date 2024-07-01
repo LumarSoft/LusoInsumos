@@ -11,6 +11,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import Link from "next/link";
 
 export const Navbar = () => {
   return (
@@ -25,9 +26,9 @@ export const Navbar = () => {
       {/* aca irian las categorias */}
 
       <div className="flex gap-2 md:gap-4 items-center text-red">
-        <a>
+        <Link href="/login">
           <FaUser className="text-red-800 hidden lg:block" />
-        </a>
+        </Link>
         <a>
           <FaShoppingCart className="text-cyan-600" />
         </a>
@@ -43,12 +44,10 @@ const DropdownComponent = () => {
         <GiHamburgerMenu />
       </DropdownMenuTrigger>
       <DropdownMenuContent>
-        <DropdownMenuLabel>My Account</DropdownMenuLabel>
-        <DropdownMenuSeparator />
-        <DropdownMenuItem>Profile</DropdownMenuItem>
-        <DropdownMenuItem>Billing</DropdownMenuItem>
-        <DropdownMenuItem>Team</DropdownMenuItem>
-        <DropdownMenuItem>Subscription</DropdownMenuItem>
+        <DropdownMenuItem>Categoria 1</DropdownMenuItem>
+        <DropdownMenuItem>Categoria 2</DropdownMenuItem>
+        <DropdownMenuItem>Categoria 3</DropdownMenuItem>
+        <DropdownMenuItem>Categoria 4</DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );
