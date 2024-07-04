@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,10 +21,11 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          `${inter.className} min-h-screen bg-background font-sans antialiased`
+          `${inter.className} min-h-screen bg-background font-sans antialiased h-screen`
         )}
       >
         {children}
+        <ToastContainer />
       </body>
     </html>
   );

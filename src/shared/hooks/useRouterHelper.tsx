@@ -1,39 +1,32 @@
 import { usePathname } from "next/navigation";
-import { IRoute, ROUTES } from "@/shared/routes/routes";
+import { ROUTES } from "../routes/routes";
 
 export const useRouterHelper = () => {
   const pathname = usePathname();
 
   const getCurrentRoute = () => {
-    return ROUTES.find((route) => {
-      const routeParts = route.path.split("/");
-      const pathnameParts = pathname.split("/");
+    const route = ROUTES.find((route) => route.path === pathname);
+    if (route) return route;
 
-      if (routeParts.length !== pathnameParts.length) {
-        return false;
+    for (const parentRoute of ROUTES) {
+      if (parentRoute.subroutes) {
+        const subroute = parentRoute.subroutes.find(
+          (subroute) => pathname.startsWith(parentRoute.path) && pathname.includes(subroute.path)
+        );
+        if (subroute) return subroute;
       }
+    }
 
-      return routeParts.every((part, index) => {
-        return part.startsWith(":") || part === pathnameParts[index];
-      });
-    });
+    return null;
   };
 
-  const isOnRoute = (route: string) => pathname === route;
-
-  const getRouteExcluding = (routeToExclude: IRoute) =>
-    ROUTES.filter((route) => route.name !== routeToExclude.name);
-
-  const getOneRoute = (routeName: string) =>
-    ROUTES.find((route) => route.name === routeName);
-
-  const getHome = () => getOneRoute("Home");
-
-  return {
-    getCurrentRoute,
-    isOnRoute,
-    getRouteExcluding,
-    getOneRoute,
-    getHome,
+  const getRouteExcluding = (routeToExclude: string) => {
+    return ROUTES.filter((route) => route.name !== routeToExclude);
   };
+
+  const getOneRoute = (routeName: string) => {
+    return ROUTES.find((route) => route.path === routeName);
+  };
+
+  return { getCurrentRoute, getRouteExcluding, getOneRoute };
 };

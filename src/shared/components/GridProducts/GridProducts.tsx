@@ -56,6 +56,7 @@ export const GridProducts = () => {
         const querySnapshot: QuerySnapshot<IProduct> = await getDocs(
           productsQuery
         );
+
         const productsData: IProduct[] = [];
 
         querySnapshot.forEach((doc) => {

@@ -13,7 +13,7 @@ import Link from "next/link";
 
 export const Navbar = () => {
   return (
-    <div className="h-16 w-full flex justify-between px-4 md:px-28 2xl:px-80 2xl:h-28 items-center py-4 fixed text-4xl top-0 left-0">
+    <div className="h-16 w-full flex justify-between px-4 md:px-28 2xl:px-80 2xl:h-28 items-center py-4 fixed text-4xl top-0 left-0 bg-white">
       {/* Dropdown aparece nada mas en caso de responsive */}
       <DropdownComponent />
 
