@@ -25,10 +25,9 @@ import Link from "next/link";
 
 export const SidebarComponent = () => {
   const actualRoute = useRouterHelper().getCurrentRoute();
-  const routesForDashboard =
-    useRouterHelper().getOneRoute("/admin")?.subroutes;
+  const routesForDashboard = useRouterHelper().getOneRoute("/admin")?.subroutes;
   const { clearUser } = useUserStore();
-  const dashboardRoute = useRouterHelper().getOneRoute("/dashboard");
+  const adminRoute = useRouterHelper().getOneRoute("/admin");
 
   return (
     <section>
@@ -37,24 +36,27 @@ export const SidebarComponent = () => {
         <h1 className="text-2xl tracking-tighter">{actualRoute?.name}</h1>
         <div className="flex items-center gap-4">
           <LogoutModal clearUser={clearUser} />
-          <DropDown routes={routesForDashboard ?? []} />
+          <DropDown
+            routes={routesForDashboard ?? []}
+            adminRoute={adminRoute || {}}
+          />
         </div>
       </div>
 
       {/* Desktop */}
-      <div className="h-screen w-80 border-r hidden lg:flex flex-col py-10 gap-4">
+      <div className="h-screen w-80 border-r hidden lg:flex flex-col py-10 gap-4 shadow-2xl">
         <h4 className="font-bold text-3xl text-center">Opciones</h4>
         <div className="flex flex-col h-full ">
-          {dashboardRoute && (
+          {adminRoute && (
             <Link
-              href={dashboardRoute?.path}
+              href={adminRoute?.path}
               className={`${
-                actualRoute?.name === dashboardRoute.name
-                  ? "border border-x-0"
+                actualRoute?.name === adminRoute.name
+                  ? "border border-x-0 shadow"
                   : ""
               } px-4 py-4`}
             >
-              {dashboardRoute?.name}
+              {adminRoute?.name}
             </Link>
           )}
           {routesForDashboard &&
@@ -63,7 +65,9 @@ export const SidebarComponent = () => {
                 href={route.path}
                 key={index}
                 className={`${
-                  actualRoute?.name === route.name ? "border border-x-0" : ""
+                  actualRoute?.name === route.name
+                    ? "border border-x-0 shadow"
+                    : ""
                 } px-4 py-4`}
               >
                 {route.name}
@@ -76,13 +80,25 @@ export const SidebarComponent = () => {
   );
 };
 
-const DropDown = ({ routes }: { routes: IRoute[] }) => {
+const DropDown = ({
+  routes,
+  adminRoute,
+}: {
+  routes: IRoute[];
+  adminRoute: IRoute | {};
+}) => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
         <RxHamburgerMenu className="text-2xl" />
       </DropdownMenuTrigger>
       <DropdownMenuContent>
+        {adminRoute && (
+          <Link href={(adminRoute as IRoute).path}>
+            <DropdownMenuItem>{(adminRoute as IRoute).name}</DropdownMenuItem>
+          </Link>
+        )}
+
         {routes.map((route, index) => (
           <Link href={route.path} key={index}>
             <DropdownMenuItem>{route.name}</DropdownMenuItem>

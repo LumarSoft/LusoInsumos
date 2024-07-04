@@ -22,7 +22,9 @@ export const LoginCard = () => {
   const router = useRouter();
   const { setUser } = useUserStore();
 
-  const handleLogin = async () => {
+  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault(); // Evita el envío estándar del formulario
+
     if (email.length === 0 || password.length === 0) {
       toast.error("Por favor complete todos los campos");
       return;
@@ -35,35 +37,39 @@ export const LoginCard = () => {
         setUser(user.email ?? "");
         router.push("/admin");
       }
-    } catch (error: any) {
-      toast.error("Error al iniciar sesion");
+    } catch (error) {
+      toast.error("Error al iniciar sesión");
     }
   };
 
   return (
     <Card className="w-full max-w-xl shadow-2xl">
-      <CardHeader>
-        <CardTitle>Iniciar sesión</CardTitle>
-        <CardDescription>Acceda al panel de administrador</CardDescription>
-      </CardHeader>
-      <CardContent>
-        <Label>
-          Email
-          <Input type="email" onChange={(e) => setEmail(e.target.value)} />
-        </Label>
-        <Label>
-          Contraseña
-          <Input
-            type="password"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </Label>
-      </CardContent>
-      <CardFooter>
-        <Button className="w-full" onClick={handleLogin}>
-          Iniciar sesión
-        </Button>
-      </CardFooter>
+      <form onSubmit={handleLogin}>
+        <CardHeader>
+          <CardTitle className="text-center">Iniciar sesión</CardTitle>
+          <CardDescription className="text-center">
+            Acceda al panel de administrador
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <Label>
+            Email
+            <Input type="email" onChange={(e) => setEmail(e.target.value)} />
+          </Label>
+          <Label>
+            Contraseña
+            <Input
+              type="password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </Label>
+        </CardContent>
+        <CardFooter>
+          <Button className="w-full" type="submit">
+            Iniciar sesión
+          </Button>
+        </CardFooter>
+      </form>
     </Card>
   );
 };

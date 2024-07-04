@@ -1,3 +1,4 @@
+"use client";
 import { FaUser } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
 
@@ -10,16 +11,41 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import Link from "next/link";
+import { useRouterHelper } from "@/shared/hooks/useRouterHelper";
+import { useEffect, useState } from "react";
 
 export const Navbar = () => {
+  const homeRoute = useRouterHelper().getOneRoute("/");
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.pageYOffset > 0) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <div className="h-16 w-full flex justify-between px-4 md:px-28 2xl:px-80 2xl:h-28 items-center py-4 fixed text-4xl top-0 left-0 bg-white">
+    <div
+      className={`h-16 w-full flex justify-between px-4 md:px-28 2xl:px-80 2xl:h-28 items-center py-4 fixed text-4xl top-0 left-0 z-50 bg-white transition-shadow duration-500 ${
+        scrolled ? "shadow-xl" : ""
+      }`}
+    >
       {/* Dropdown aparece nada mas en caso de responsive */}
       <DropdownComponent />
 
-      <a>
+      <Link href={homeRoute?.path || "/"}>
         <img src="/logo.png" className="w-auto h-14 md:h-16 2xl:h-24 block" />
-      </a>
+      </Link>
 
       {/* aca irian las categorias */}
 

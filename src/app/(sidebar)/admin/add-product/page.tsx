@@ -1,3 +1,5 @@
+import AddProductModule from "@/shared/modules/AddProduct";
+
 export default function AddProductPage() {
-  return <></>;
+  return <AddProductModule />;
 }

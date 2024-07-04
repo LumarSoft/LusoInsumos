@@ -14,8 +14,8 @@ export type TRoutes =
   | "Product"
   | "Login"
   | "Admin"
-  | "File"
-  | "AddProduct";
+  | "Archivo de productos"
+  | "Producto manualmente";
 
 export interface IRoute {
   name: TRoutes;
@@ -45,11 +45,11 @@ export const ROUTES: IRoute[] = [
     path: ERoutes.ADMIN,
     subroutes: [
       {
-        name: "File",
+        name: "Archivo de productos",
         path: ERoutes.FILE,
       },
       {
-        name: "AddProduct",
+        name: "Producto manualmente",
         path: ERoutes.ADDPRODUCT,
       },
     ],

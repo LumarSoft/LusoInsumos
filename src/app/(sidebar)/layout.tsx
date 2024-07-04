@@ -5,7 +5,7 @@ import { ReactNode } from "react";
 export default function SidebarLayout({ children }: { children: ReactNode }) {
   return (
     <ValidateAuth>
-      <div className="flex flex-col md:flex-row">
+      <div className="flex flex-col lg:flex-row">
         <SidebarComponent />
         <div className="flex-1">{children}</div>
       </div>
