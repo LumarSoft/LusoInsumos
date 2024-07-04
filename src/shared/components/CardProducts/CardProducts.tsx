@@ -1,22 +1,7 @@
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import React from "react";
+import { IProduct } from "@/shared/type/IProduct";
 
-interface ICardProductProps {
-  title: string;
-  description: string;
-  image: string;
-  price: number;
-  stock: number;
-  color: string;
-}
-
-export const CardProduct: React.FC<ICardProductProps> = ({
+export const CardProduct: React.FC<IProduct> = ({
   title,
   description,
   image,

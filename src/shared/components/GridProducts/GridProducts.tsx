@@ -7,19 +7,15 @@ import {
   QuerySnapshot,
   DocumentData,
   FirestoreDataConverter,
+  query,
+  where,
+  CollectionReference,
+  Query,
 } from "firebase/firestore";
 import { CardProduct } from "../CardProducts/CardProducts";
-
-interface IProduct {
-  title: string;
-  description: string;
-  image: string;
-  price: number;
-  stock: number;
-  color: string;
-}
-
-type SortOrder = "asc" | "desc" | "none";
+import CategoryFilter from "../CategoryFilter/CategoryFilter";
+import { IProduct } from "@/shared/type/IProduct";
+import { SortOrder } from "@/shared/type/SortOrder";
 
 const productConverter: FirestoreDataConverter<IProduct> = {
   toFirestore: (product: IProduct) => ({ ...product }),
@@ -32,6 +28,8 @@ const productConverter: FirestoreDataConverter<IProduct> = {
       price: data.price,
       stock: data.stock,
       color: data.color,
+      brand: data.brand,
+      category: data.category,
     } as IProduct;
   },
 };
@@ -39,12 +37,24 @@ const productConverter: FirestoreDataConverter<IProduct> = {
 export const GridProducts = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
   const [sortOrder, setSortOrder] = useState<SortOrder>("none");
+  const [selectedBrand, setSelectedBrand] = useState<string>("Todos");
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
+        let productsQuery: CollectionReference<IProduct> | Query<IProduct> =
+          collection(db, "celulares").withConverter(productConverter);
+
+        if (selectedBrand !== "Todos") {
+          productsQuery = query(
+            productsQuery,
+            where("brand", "==", selectedBrand)
+          );
+        }
+
         const querySnapshot: QuerySnapshot<IProduct> = await getDocs(
-          collection(db, "celulares").withConverter(productConverter)
+          productsQuery
         );
         const productsData: IProduct[] = [];
 
@@ -66,37 +76,62 @@ export const GridProducts = () => {
     };
 
     fetchProducts();
-  }, [sortOrder]);
+  }, [sortOrder, selectedBrand]);
 
-  const handleChangeSort = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const order = event.target.value as SortOrder;
+  const handleSortOrderChange = (order: SortOrder) => {
     setSortOrder(order);
+    setDropdownOpen(false);
   };
 
   return (
     <div className="mt-4 w-full h-full">
-      <div className="mb-4 flex items-center">
-        <label className="mr-2">Ordenar por precio:</label>
-        <select
-          value={sortOrder}
-          onChange={handleChangeSort}
-          className="p-2 border rounded-md cursor-pointer"
-        >
-          <option value="none" className="bg-gray-100 hover:bg-gray-2003">
-            Novedades
-          </option>
-          <option
-            value="asc"
-            className="px-2 py-2 bg-gray-100 hover:bg-gray-200"
+      <div className="mb-4 flex items-center space-x-4 justify-end max-md:justify-center">
+        <div className="relative">
+          <button
+            onClick={() => setDropdownOpen(!dropdownOpen)}
+            className="flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400"
           >
-            Menor a Mayor
-          </option>
-          <option value="desc" className="bg-gray-100 hover:bg-gray-200">
-            Mayor a Menor
-          </option>
-        </select>
+            <img src="./sortLogo.png" alt="" className="w-5 mr-2" />
+            {sortOrder === "none"
+              ? "Más relevante"
+              : sortOrder === "asc"
+              ? "Menor a Mayor"
+              : "Mayor a Menor"}
+          </button>
+          {dropdownOpen && (
+            <div className="absolute max-sm:left-3 right-0 mt-2 max-sm:w-32 w-48 rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5">
+              <div
+                className="py-1"
+                role="menu"
+              >
+                <button
+                  onClick={() => handleSortOrderChange("none")}
+                  className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 w-full text-left hover:bg-gray-100 dark:hover:bg-gray-700"
+                >
+                  Más relevante
+                </button>
+                <button
+                  onClick={() => handleSortOrderChange("asc")}
+                  className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 w-full text-left hover:bg-gray-100 dark:hover:bg-gray-700"
+                >
+                  Menor a Mayor
+                </button>
+                <button
+                  onClick={() => handleSortOrderChange("desc")}
+                  className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 w-full text-left hover:bg-gray-100 dark:hover:bg-gray-700"
+                >
+                  Mayor a Menor
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
+        <CategoryFilter
+          selectedBrand={selectedBrand}
+          onSelectBrand={setSelectedBrand}
+        />
       </div>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 max-md:place-items-center">
         {products.map((product, index) => (
           <CardProduct
             key={index}
@@ -106,6 +141,8 @@ export const GridProducts = () => {
             price={product.price}
             stock={product.stock}
             color={product.color}
+            brand={product.brand}
+            category={product.category}
           />
         ))}
       </div>
