@@ -46,6 +46,7 @@ export const Navbar = () => {
       <Link href={homeRoute?.path || "/"}>
         <img src="/logo.png" className="w-auto h-14 md:h-16 2xl:h-24 block" />
       </Link>
+      <Link href={"/usados"}>Celulares usados</Link>
 
       {/* aca irian las categorias */}
 
