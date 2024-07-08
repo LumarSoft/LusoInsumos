@@ -5,7 +5,7 @@ export enum ERoutes {
   LOGIN = "/login",
   ADMIN = "/admin",
   FILE = "/admin/file",
-  ADDPRODUCT = "/admin/add-product",
+  ADDPRODUCT = "/admin/add-product"
 }
 
 export type TRoutes =
@@ -31,6 +31,9 @@ export const ROUTES: IRoute[] = [
   {
     name: "Category",
     path: ERoutes.CATEGORY,
+    subroutes: [
+      
+    ]
   },
   {
     name: "Product",

@@ -5,7 +5,7 @@ export default function UsadosModule({ celulares }: { celulares: IProduct[] }) {
   return (
     <div>
       <h1>Celulares Usados</h1>
-      <GridProducts products={celulares} />
+      <GridProducts products={celulares} brands={[]} />
     </div>
   );
 }
