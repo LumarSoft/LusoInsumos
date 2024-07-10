@@ -7,12 +7,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDbsry21Kr9qZc9hA5jSlq4jHMpw11Ht-0",
-  authDomain: "luso-dd67e.firebaseapp.com",
-  projectId: "luso-dd67e",
-  storageBucket: "luso-dd67e.appspot.com",
-  messagingSenderId: "467029301112",
-  appId: "1:467029301112:web:0019b52be6deb077b19a8d"
+  apiKey: "AIzaSyAlRUPJgwZtWtmjqnxzHi0_GNdvmGT0x0U",
+  authDomain: "lusoweb-540d4.firebaseapp.com",
+  projectId: "lusoweb-540d4",
+  storageBucket: "lusoweb-540d4.appspot.com",
+  messagingSenderId: "59530160109",
+  appId: "1:59530160109:web:cc86398a6dc6347b4129e4",
 };
 
 // Initialize Firebase

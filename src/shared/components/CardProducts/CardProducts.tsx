@@ -1,9 +1,9 @@
 import React from "react";
-import { IProduct } from "@/shared/type/IProduct";
+import { ProductType } from "@/shared/type/ProductTypes";
 
-export const CardProduct = ({ product }: { product: IProduct }) => {
+export const CardProduct = ({ product }: { product: ProductType }) => {
   return (
-    <div className="rounded-lg shadow-lg overflow-hidden w-full max-w-md flex flex-col">
+    <div className="rounded-lg border border-zinc-300 py-3 overflow-hidden w-full max-w-md flex flex-col hover:shadow-lg hover:border-zinc-100">
       <div>
         <img
           src={product.image}

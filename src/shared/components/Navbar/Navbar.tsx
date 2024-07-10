@@ -36,7 +36,7 @@ export const Navbar = () => {
 
   return (
     <div
-      className={`h-16 w-full flex justify-between px-4 md:px-28 2xl:px-80 2xl:h-28 items-center py-4 fixed text-4xl top-0 left-0 z-50 bg-white transition-shadow duration-500 ${
+      className={`h-16 w-full flex justify-between px-4 md:px-28 2xl:px-80 2xl:h-28 items-center py-4 fixed text-3xl top-0 left-0 z-50 bg-white transition-shadow duration-500 ${
         scrolled ? "shadow-xl" : ""
       }`}
     >
@@ -48,6 +48,8 @@ export const Navbar = () => {
       </Link>
       <Link href={"/category/celulares-usados"}>Celulares usados</Link>
       <Link href={"/category/hardware"}>Hardware</Link>
+      <Link href={"/category/monitores"}>Monitores</Link>
+      <Link href={"/category/equiposarmados"}>Equipos</Link>
 
       {/* aca irian las categorias */}
 
