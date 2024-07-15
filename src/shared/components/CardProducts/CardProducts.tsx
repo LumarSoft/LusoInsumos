@@ -19,40 +19,54 @@ export const CardProduct = ({ product }: { product: ProductType }) => {
     });
   };
   return (
-    <div className="rounded-lg border border-zinc-300 py-3 overflow-hidden w-full max-w-md flex flex-col hover:shadow-lg hover:border-zinc-100">
-      <div>
+    <div className="rounded-lg border border-zinc-300 overflow-hidden flex flex-col hover:shadow-lg hover:border-zinc-100 transition-all duration-300">
+      <div className="aspect-w-1 aspect-h-1">
         <img
           src={product.image}
-          alt="Product Image"
-          width={400}
-          height={300}
+          alt={product.title}
           className="w-full h-full object-cover"
         />
       </div>
-      <div className="p-6 flex flex-col flex-grow">
-        <h3 className="text-center text-lg font-bold text-black">
+      <div className="p-2 sm:p-3 md:p-4 flex flex-col flex-grow">
+        <h3 className="text-center text-sm sm:text-base font-bold text-black mb-1 sm:mb-2 truncate">
           {product.title}
         </h3>
-        <p className="text-gray-600 text-sm font-semibold text-center mt-2 flex-grow">
+        <p className="text-gray-600 text-xs sm:text-sm text-center mb-2 flex-grow line-clamp-2">
           {product.description}
         </p>
-        <hr className="mt-2" />
-        <div className="flex items-center justify-between mt-4">
-          <div className="grid gap-1">
-            <p className="text-sm font-medium text-gray-600">Precio</p>
-            <p className="text-lg font-semibold text-black">${product.price}</p>
+        <hr className="my-1 sm:my-2" />
+        <div className="flex flex-col sm:flex-row sm:flex-wrap items-center justify-between mt-1 sm:mt-2 gap-1">
+          <div className="grid grid-cols-2 sm:grid-cols-1 gap-2 w-full sm:w-auto text-center">
+            <div className="grid gap-0.5">
+              <p className="text-xs sm:text-sm font-medium text-gray-600">
+                Stock
+              </p>
+              <p className="text-sm sm:text-base font-semibold text-black">
+                {product.stock}
+              </p>
+            </div>
+            {product.color && (
+              <div className="grid gap-0.5">
+                <p className="text-xs sm:text-sm font-medium text-gray-600">
+                  Color
+                </p>
+                <p className="text-sm sm:text-base font-semibold text-black">
+                  {product.color}
+                </p>
+              </div>
+            )}
           </div>
-          <div className="grid gap-1">
-            <p className="text-sm font-medium text-gray-600">Stock</p>
-            <p className="text-lg font-semibold text-black">{product.stock}</p>
-          </div>
-          <div className="grid gap-1">
-            <p className="text-sm font-medium text-gray-600">Color</p>
-            <p className="text-lg font-semibold text-black">{product.color}</p>
+          <div className="grid gap-0.5 mt-2 sm:mt-0">
+            <p className="text-xs sm:text-sm font-medium text-gray-600">
+              Precio
+            </p>
+            <p className="text-sm sm:text-base font-semibold text-black">
+              ${product.price}
+            </p>
           </div>
         </div>
         <button
-          className="mt-4 w-full bg-black rounded-md py-1.5 text-white font-semibold hover:bg-zinc-700 transition duration-300 ease-in-out"
+          className="mt-2 sm:mt-3 w-full bg-black rounded-md py-1 sm:py-1.5 text-white text-xs sm:text-sm font-semibold hover:bg-zinc-700 transition duration-300 ease-in-out"
           onClick={handleAddToCart}
         >
           Agregar a carrito
