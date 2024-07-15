@@ -1,7 +1,7 @@
 "use client";
 import { FaUser } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
-
+import { cartStore } from "@/shared/stores/CartStore";
 // Dropdown
 import { GiHamburgerMenu } from "react-icons/gi";
 import {
@@ -17,7 +17,7 @@ import { useEffect, useState } from "react";
 export const Navbar = () => {
   const homeRoute = useRouterHelper().getOneRoute("/");
   const [scrolled, setScrolled] = useState(false);
-
+  const totalItems = cartStore((state) => state.getTotalItems());
   useEffect(() => {
     const handleScroll = () => {
       if (window.pageYOffset > 0) {
@@ -57,9 +57,12 @@ export const Navbar = () => {
         <Link href="/login">
           <FaUser className="text-red-800 hidden lg:block" />
         </Link>
-        <a>
-          <FaShoppingCart className="text-cyan-600" />
-        </a>
+        <Link href={"/cart"}>
+          <span className="bg-red-600 rounded-2xl text-white text-sm font-semibold h-5 w-5 absolute translate-x-7 -translate-y-2 text-center">
+            {totalItems}
+          </span>
+          <FaShoppingCart className="text-cyan-600 cursor-pointer" />
+        </Link>
       </div>
     </div>
   );

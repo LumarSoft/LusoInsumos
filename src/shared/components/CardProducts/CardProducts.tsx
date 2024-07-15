@@ -1,7 +1,23 @@
 import React from "react";
 import { ProductType } from "@/shared/type/ProductTypes";
+import { cartStore } from "@/shared/stores/CartStore";
+import { toast } from "react-toastify";
 
 export const CardProduct = ({ product }: { product: ProductType }) => {
+  const addToCart = cartStore((state) => state.addToCart);
+
+  const handleAddToCart = () => {
+    addToCart({
+      title: product.title || "",
+      price: product.price || 0,
+      image: product.image || "",
+      cant: 1,
+    });
+    toast.success("Producto agregado al carrito", {
+      position: "top-center",
+      autoClose: 2000,
+    });
+  };
   return (
     <div className="rounded-lg border border-zinc-300 py-3 overflow-hidden w-full max-w-md flex flex-col hover:shadow-lg hover:border-zinc-100">
       <div>
@@ -35,7 +51,10 @@ export const CardProduct = ({ product }: { product: ProductType }) => {
             <p className="text-lg font-semibold text-black">{product.color}</p>
           </div>
         </div>
-        <button className="mt-4 w-full bg-black rounded-md py-1.5 text-white font-semibold hover:bg-zinc-700 transition duration-300 ease-in-out">
+        <button
+          className="mt-4 w-full bg-black rounded-md py-1.5 text-white font-semibold hover:bg-zinc-700 transition duration-300 ease-in-out"
+          onClick={handleAddToCart}
+        >
           Agregar a carrito
         </button>
       </div>
