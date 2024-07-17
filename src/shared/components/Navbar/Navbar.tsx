@@ -13,6 +13,7 @@ import {
 import Link from "next/link";
 import { useRouterHelper } from "@/shared/hooks/useRouterHelper";
 import { useEffect, useState } from "react";
+import { CartIcon } from "./CartIcon";
 
 export const Navbar = () => {
   const homeRoute = useRouterHelper().getOneRoute("/");
@@ -40,7 +41,6 @@ export const Navbar = () => {
         scrolled ? "shadow-xl" : ""
       }`}
     >
-      {/* Dropdown aparece nada mas en caso de responsive */}
       <DropdownComponent />
 
       <Link href={homeRoute?.path || "/"}>
@@ -51,18 +51,11 @@ export const Navbar = () => {
       <Link href={"/category/monitores"}>Monitores</Link>
       <Link href={"/category/equiposarmados"}>Equipos</Link>
 
-      {/* aca irian las categorias */}
-
       <div className="flex gap-2 md:gap-4 items-center text-red">
         <Link href="/login">
           <FaUser className="text-red-800 hidden lg:block" />
         </Link>
-        <Link href={"/cart"}>
-          <span className="bg-red-600 rounded-2xl text-white text-sm font-semibold h-5 w-5 absolute translate-x-7 -translate-y-2 text-center">
-            {totalItems}
-          </span>
-          <FaShoppingCart className="text-cyan-600 cursor-pointer" />
-        </Link>
+        <CartIcon />
       </div>
     </div>
   );
