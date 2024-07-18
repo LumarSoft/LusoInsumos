@@ -1,7 +1,7 @@
 "use client";
 import { FaUser } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
-
+import { cartStore } from "@/shared/stores/CartStore";
 // Dropdown
 import { GiHamburgerMenu } from "react-icons/gi";
 import {
@@ -13,11 +13,12 @@ import {
 import Link from "next/link";
 import { useRouterHelper } from "@/shared/hooks/useRouterHelper";
 import { useEffect, useState } from "react";
+import { CartIcon } from "./CartIcon";
 
 export const Navbar = () => {
   const homeRoute = useRouterHelper().getOneRoute("/");
   const [scrolled, setScrolled] = useState(false);
-
+  const totalItems = cartStore((state) => state.getTotalItems());
   useEffect(() => {
     const handleScroll = () => {
       if (window.pageYOffset > 0) {
@@ -40,7 +41,6 @@ export const Navbar = () => {
         scrolled ? "shadow-xl" : ""
       }`}
     >
-      {/* Dropdown aparece nada mas en caso de responsive */}
       <DropdownComponent />
 
       <Link href={homeRoute?.path || "/"}>
@@ -51,15 +51,11 @@ export const Navbar = () => {
       <Link href={"/category/monitores"}>Monitores</Link>
       <Link href={"/category/equiposarmados"}>Equipos</Link>
 
-      {/* aca irian las categorias */}
-
       <div className="flex gap-2 md:gap-4 items-center text-red">
         <Link href="/login">
           <FaUser className="text-red-800 hidden lg:block" />
         </Link>
-        <a>
-          <FaShoppingCart className="text-cyan-600" />
-        </a>
+        <CartIcon />
       </div>
     </div>
   );
