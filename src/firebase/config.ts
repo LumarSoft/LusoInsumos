@@ -9,13 +9,12 @@ import { getStorage } from "firebase/storage"; // Add this line to import getSto
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyACxFSmTAdkrK3QzkbpdIev2j0iAzzb1h8",
-  authDomain: "lusoinsumosdevelopversion.firebaseapp.com",
-  projectId: "lusoinsumosdevelopversion",
-  storageBucket: "lusoinsumosdevelopversion.appspot.com",
-  messagingSenderId: "270244699311",
-  appId: "1:270244699311:web:2c86b60e34889deaa6c85a",
-  measurementId: "G-3PP72M45L4",
+  apiKey: "AIzaSyAlRUPJgwZtWtmjqnxzHi0_GNdvmGT0x0U",
+  authDomain: "lusoweb-540d4.firebaseapp.com",
+  projectId: "lusoweb-540d4",
+  storageBucket: "lusoweb-540d4.appspot.com",
+  messagingSenderId: "59530160109",
+  appId: "1:59530160109:web:cc86398a6dc6347b4129e4"
 };
 
 // Initialize Firebase
