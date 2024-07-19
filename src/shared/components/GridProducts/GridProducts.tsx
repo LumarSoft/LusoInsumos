@@ -4,6 +4,7 @@ import { CardProduct } from "../CardProducts/CardProducts";
 import { IBrands } from "@/shared/type/IBrands";
 import { FilterButtons } from "../FilterButtons/FilterButtons";
 import { ProductType } from "@/shared/type/ProductTypes";
+import { FramerComponent } from "../Framer/FramerComponent";
 
 export const GridProducts = ({
   products,
@@ -15,6 +16,18 @@ export const GridProducts = ({
   const [sortOrder, setSortOrder] = useState("Novedades");
   const [selectedBrand, setSelectedBrand] = useState("Todos");
   const [arrayProducts, setArrayProducts] = useState(products);
+
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        delayChildren: 0.1,
+        staggerChildren: 0.1,
+        viewport: { once: true, offset: 0.4 },
+      },
+    },
+  };
 
   useEffect(() => {
     let array = [...products];
@@ -51,11 +64,17 @@ export const GridProducts = ({
         setSortOrder={setSortOrder}
         setSelectedBrand={setSelectedBrand}
       />
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-4 md:gap-6 p-2 sm:p-4">
+      <FramerComponent
+        style="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-4 md:gap-6 p-2 sm:p-4"
+        animationVariants={container}
+        animationInitial="hidden"
+        animationWhileInView="show"
+        animationViewPort={{ once: true, offset: 0.4 }}
+      >
         {arrayProducts.map((product, index) => (
           <CardProduct key={index} product={product} />
         ))}
-      </div>
+      </FramerComponent>
     </div>
   );
 };

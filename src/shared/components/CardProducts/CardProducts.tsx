@@ -2,6 +2,7 @@ import React from "react";
 import { ProductType } from "@/shared/type/ProductTypes";
 import { cartStore } from "@/shared/stores/CartStore";
 import { toast } from "react-toastify";
+import { FramerComponent } from "../Framer/FramerComponent";
 
 export const CardProduct = ({ product }: { product: ProductType }) => {
   const addToCart = cartStore((state) => state.addToCart);
@@ -19,8 +20,26 @@ export const CardProduct = ({ product }: { product: ProductType }) => {
     });
   };
 
+  const itemAnimado = {
+    hidden: {
+      opacity: 0,
+      y: 20,
+      scale: 0.9,
+    },
+    show: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { duration: 0.5 },
+    },
+  };
+
   return (
-    <div className="rounded-lg border border-zinc-300 overflow-hidden flex flex-col hover:shadow-lg hover:border-zinc-100 transition-all duration-300 w-full max-w-lg">
+    <FramerComponent
+      style="rounded-lg border border-zinc-300 overflow-hidden flex flex-col hover:shadow-lg hover:border-zinc-100 transition-all duration-300 w-full max-w-lg"
+      animationInitial={{ opacity: 0 }}
+      animationVariants={itemAnimado}
+    >
       <div className="aspect-w-1 aspect-h-1">
         <img
           src={product.image}
@@ -59,6 +78,6 @@ export const CardProduct = ({ product }: { product: ProductType }) => {
           En Stock: <b>{product.stock}</b>
         </div>
       </div>
-    </div>
+    </FramerComponent>
   );
 };
