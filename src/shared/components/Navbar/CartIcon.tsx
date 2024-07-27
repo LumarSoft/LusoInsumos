@@ -16,7 +16,7 @@ export const CartIcon = () => {
 
   return (
     <Link href={"/cart"}>
-      <span className="bg-red-600 rounded-2xl text-white text-sm font-semibold h-5 w-5 absolute translate-x-5 -translate-y-2 text-center">
+      <span className="bg-red-600 rounded-2xl text-white text-sm font-semibold h-5 w-5 absolute translate-x-5 -translate-y-2 text-center lg:translate-x-9">
         {totalItems}
       </span>
       <FaShoppingCart className="text-cyan-600 cursor-pointer" />

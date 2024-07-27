@@ -34,13 +34,10 @@ export const CardProduct = ({ product }: { product: ProductType }) => {
     },
   };
 
+
   return (
-    <FramerComponent
-      style="rounded-lg border border-zinc-300 overflow-hidden flex flex-col hover:shadow-lg hover:border-zinc-100 transition-all duration-300 w-full max-w-lg"
-      animationInitial={{ opacity: 0 }}
-      animationVariants={itemAnimado}
-    >
-      <div className="aspect-w-1 aspect-h-1">
+   <div>
+     <div className="aspect-w-1 aspect-h-1">
         <img
           src={product.image}
           alt={product.title}
@@ -64,7 +61,7 @@ export const CardProduct = ({ product }: { product: ProductType }) => {
 
         <hr className="my-1 sm:my-2" />
         <div className="flex items-center justify-around">
-          <div className="text-lg font-bold">${product.price}</div>
+          <div className="text-lg font-bold">{product.currency && product.currency} $ {product.price}</div>
         </div>
 
         <button
@@ -78,6 +75,8 @@ export const CardProduct = ({ product }: { product: ProductType }) => {
           En Stock: <b>{product.stock}</b>
         </div>
       </div>
-    </FramerComponent>
+   </div>
+     
+   
   );
 };

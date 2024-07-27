@@ -1,28 +1,14 @@
-import CategoryModule from "@/shared/modules/CategoryModule";
-import {
-  getAllProducts,
-  getBrandsPhones,
-} from "@/firebase/firestore/firestore";
+import { getAllDocs, getAllProducts } from "@/firebase/firestore/firestore";
+import HomeModule from "@/shared/modules/Home";
 import { IBrands } from "@/shared/type/IBrands";
-import { ProductType } from "@/shared/type/ProductTypes";
-
-const loadHome = async (): Promise<{
-  products: ProductType[];
-  brands: IBrands[];
-}> => {
-  try {
-    const products = await getAllProducts("celulares");
-    const brands = await getBrandsPhones("celulares");
-
-    return { products, brands };
-  } catch (error) {
-    console.log("Ha ocurrido un error inesperado al retornar productos", error);
-    return { products: [], brands: [] };
-  }
-};
+import { getBrands } from "@/shared/utils/getBrands";
 
 export default async function Home() {
-  const { products, brands } = await loadHome();
+  const products = await getAllProducts("celulares-nuevos");
 
-  return <CategoryModule products={products} brands={brands} category="" />;
+  const brands = getBrands(products) as unknown as IBrands[];
+
+  const banners = await getAllDocs("banners");
+
+  return <HomeModule products={products} brands={brands} banners={banners} />;
 }

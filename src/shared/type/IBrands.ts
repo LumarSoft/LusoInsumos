@@ -1,3 +1,3 @@
 export interface IBrands {
-  brand: string[];
+  brand: string;
 }

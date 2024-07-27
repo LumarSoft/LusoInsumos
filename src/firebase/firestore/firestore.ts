@@ -7,13 +7,19 @@ import { uploadFile } from "../storage/storage";
 const collectionNames = [
   "celulares",
   "celulares-usados",
-  "equiposarmados",
+  "computadoras",
   "hardware",
+  "impresoras",
+  "liquidacion",
   "monitores",
+  "notebooks",
+  "sillas",
+  "soluciones-termicas",
 ];
 
 export const getAllProducts = async (
-  collectionName: string
+  collectionName: string,
+  condition?: string
 ): Promise<ProductType[]> => {
   try {
     const collectionRef = collection(db, collectionName);
@@ -21,6 +27,12 @@ export const getAllProducts = async (
     const data: ProductType[] = documentos.docs.map(
       (doc) => doc.data() as ProductType
     );
+
+    // Si la condicion es por ejemplo que sean celulares apple
+    if (condition) {
+      return data.filter((doc) => doc.brand === condition);
+    }
+
     return data;
   } catch (error) {
     console.log("Ha ocurrido un error", error);
@@ -102,5 +114,34 @@ export const addProductEditable = async (collectionName: string, data: any) => {
   } catch (error) {
     console.log("Ha ocurrido un error", error);
     return false;
+  }
+};
+
+export const getProductsByCondition = async (
+  collectionName: string,
+  condition: string
+) => {
+  try {
+    const collectionRef = collection(db, collectionName);
+
+    // Si condition es "multimarcas" no hacer ningun filtro
+
+    console.log(collectionName, condition);
+
+    if (condition === "multimarcas") {
+      // Si es multimarcas, traer todos los celulares de la coleccion collectionName menos los que en brand tienen apple
+      const q = query(collectionRef, where("brand", "!=", "apple"));
+      const documentos = await getDocs(q);
+      const data = documentos.docs.map((doc) => doc.data());
+      return data;
+    } else {
+      const q = query(collectionRef, where("brand", "==", condition));
+      const documentos = await getDocs(q);
+      const data = documentos.docs.map((doc) => doc.data());
+      return data;
+    }
+  } catch (error) {
+    console.log("Ha ocurrido un error", error);
+    return [];
   }
 };

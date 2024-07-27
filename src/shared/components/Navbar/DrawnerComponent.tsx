@@ -12,6 +12,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import Link from "next/link";
 
 export const DrawnerComponent = () => {
   const renderAccordionItems = (items: any[], paddingLeft = "pl-4") => {
@@ -21,7 +22,7 @@ export const DrawnerComponent = () => {
           hasContent={!!item.children}
           paddingLeft={paddingLeft}
         >
-          {item.label}
+          {item.href ? <Link href={item.href}>{item.label}</Link> : item.label}
         </AccordionTrigger>
         {item.children && (
           <AccordionContent>
@@ -33,6 +34,7 @@ export const DrawnerComponent = () => {
       </AccordionItem>
     ));
   };
+
   const getNextPadding = (currentPadding: string) => {
     switch (currentPadding) {
       case "pl-4":
@@ -49,6 +51,7 @@ export const DrawnerComponent = () => {
       value: "item-1",
       label: "Liquidacion",
       children: null,
+      href: "/category/liquidacion",
     },
     {
       value: "item-2",
@@ -62,11 +65,13 @@ export const DrawnerComponent = () => {
               value: "6",
               label: "iPhone",
               children: null,
+              href: "/category/celulares/celulares-nuevos/apple",
             },
             {
               value: "7",
               label: "Multimarcas",
               children: null,
+              href: "/category/celulares/celulares-nuevos/multimarcas",
             },
           ],
         },
@@ -78,11 +83,13 @@ export const DrawnerComponent = () => {
               value: "8",
               label: "iPhone",
               children: null,
+              href: "/category/celulares/celulares-usados/apple",
             },
             {
               value: "9",
               label: "Multimarcas",
               children: null,
+              href: "/category/celulares/celulares-usados/multimarcas",
             },
           ],
         },
@@ -100,11 +107,13 @@ export const DrawnerComponent = () => {
               value: "15",
               label: "Oficina",
               children: null,
+              href: "/category/informatica/computadoras/hogar",
             },
             {
               value: "16",
               label: "Gamer/Diseño",
               children: null,
+              href: "/category/informatica/computadoras/gaming",
             },
           ],
         },
@@ -116,11 +125,13 @@ export const DrawnerComponent = () => {
               value: "17",
               label: "Oficina",
               children: null,
+              href: "/category/informatica/notebooks/hogar",
             },
             {
               value: "18",
               label: "Gamer/Diseño",
               children: null,
+              href: "/category/informatica/notebooks/gaming",
             },
           ],
         },
@@ -132,46 +143,55 @@ export const DrawnerComponent = () => {
               value: "19",
               label: "Procesadores",
               children: null,
+              href: "/category/informatica/hardware/procesador",
             },
             {
               value: "20",
               label: "Motherboards",
               children: null,
+              href: "/category/informatica/hardware/motherboard",
             },
             {
               value: "21",
               label: "Memorias RAM",
               children: null,
+              href: "/category/informatica/hardware/ram",
             },
             {
               value: "22",
               label: "Almacenamiento",
               children: null,
+              href: "/category/informatica/hardware/discmecanico",
             },
             {
               value: "23",
               label: "Placas de video",
               children: null,
+              href: "/category/informatica/hardware/placavideo",
             },
             {
               value: "24",
               label: "Gabinetes",
               children: null,
+              href: "/category/informatica/hardware/gabinete",
             },
             {
               value: "25",
               label: "Fuentes",
               children: null,
+              href: "/category/informatica/hardware/fuente",
             },
             {
               value: "26",
               label: "Sillas gamer",
               children: null,
+              href: "/category/informatica/sillas",
             },
             {
               value: "27",
               label: "Soluciones termicas",
               children: null,
+              href: "/category/informatica/soluciones-termicas",
             },
           ],
         },
@@ -179,33 +199,39 @@ export const DrawnerComponent = () => {
           value: "13",
           label: "Monitores",
           children: null,
+          href: "/category/informatica/monitores",
         },
         {
           value: "14",
           label: "Impresoras",
           children: null,
+          href: "/category/informatica/impresoras",
         },
       ],
     },
     {
       value: "28",
       label: "Electronica",
-      childre: null,
+      children: null,
+      href: "/category/electronica",
     },
     {
       value: "29",
       label: "Juegos digitales",
-      childre: null,
+      children: null,
+      href: "/category/juegos-digitales",
     },
     {
       value: "30",
       label: "Impresion 3D",
-      childre: null,
+      children: null,
+      href: "/category/impresion-3d",
     },
     {
       value: "31",
       label: "Servicio tecnico",
-      childre: null,
+      children: null,
+      href: "/servicio-tecnico",
     },
   ];
 

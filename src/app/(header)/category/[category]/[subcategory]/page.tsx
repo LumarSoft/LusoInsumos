@@ -2,21 +2,20 @@ import { getAllProducts } from "@/firebase/firestore/firestore";
 import CategoryModule from "@/shared/modules/CategoryModule";
 import { getBrands } from "@/shared/utils/getBrands";
 
-export default async function Category({
+export default async function Subcategory({
   params,
 }: {
-  params: { category: string };
+  params: { category: string; subcategory: string };
 }) {
-  // aca se podrian ver correctamente paginas como localhost:3000/liquidacion, electronica, juegos digitales, etc
-  const products = await getAllProducts(params.category);
+  const products = await getAllProducts(params.subcategory);
 
   const brands = getBrands(products);
 
   return (
     <CategoryModule
       products={products || []}
-      category={params.category}
-      brands={brands || []}
+      category={params.subcategory}
+      brands={brands}
     />
   );
 }

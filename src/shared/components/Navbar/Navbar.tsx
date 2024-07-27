@@ -33,17 +33,17 @@ export const Navbar = () => {
 
   return (
     <div
-      className={`h-16 w-full flex justify-between px-4 md:px-28 2xl:px-80 2xl:h-28 items-center py-4 fixed text-3xl top-0 left-0 z-50 bg-white transition-shadow duration-500 ${
+      className={`w-full fixed flex lg:flex-col lg:items-center px-4 md:px-28 2xl:px-80 py-4 justify-between top-0 left-0 right-0 z-50 transition-shadow duration-500 bg-white ${
         scrolled ? "shadow-xl" : ""
       }`}
     >
       <Link href={homeRoute?.path || "/"}>
-        <img src="/logo.png" className="w-auto h-14 md:h-16 2xl:h-24 block" />
+        <img src="/logo.png" className="h-20" />
       </Link>
 
       <MenuDrowdown />
 
-      <div className="flex gap-4">
+      <div className="flex items-center text-3xl gap-6 lg:fixed bottom-10 right-10 lg:text-5xl">
         <CartIcon />
         <DrawnerComponent />
       </div>

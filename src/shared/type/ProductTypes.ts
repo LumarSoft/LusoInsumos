@@ -9,4 +9,5 @@ export interface ProductType {
   brand?: string;
   category?: string;
   code?: string;
+  currency?: string;
 }
