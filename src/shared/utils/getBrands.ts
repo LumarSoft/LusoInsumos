@@ -1,6 +1,7 @@
+import { IBrands } from "../type/IBrands";
 import { ProductType } from "../type/ProductTypes";
 
-export const getBrands = (arrProducts: ProductType[]): string[] => {
+export const getBrands = (arrProducts: ProductType[]): IBrands[] => {
   const brands = arrProducts
     .map((product) => product.brand)
     .filter((brand): brand is string => brand !== undefined);
@@ -9,5 +10,5 @@ export const getBrands = (arrProducts: ProductType[]): string[] => {
     (brand, index) => brands.indexOf(brand) === index
   );
 
-  return uniqueBrands;
+  return uniqueBrands.map((brand) => ({ brand: [brand] }));
 };

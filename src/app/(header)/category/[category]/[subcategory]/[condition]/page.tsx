@@ -2,7 +2,6 @@ import { getProductsByCondition } from "@/firebase/firestore/firestore";
 import CategoryModule from "@/shared/modules/CategoryModule";
 import { ProductType } from "@/shared/type/ProductTypes";
 import { getBrands } from "@/shared/utils/getBrands";
-import { IBrands } from "@/shared/type/IBrands";
 
 interface SubcategoryParams {
   category: string;
@@ -16,12 +15,10 @@ export default async function Subcategory({
   params: SubcategoryParams;
 }) {
   let products: ProductType[] = [];
-  let brands: IBrands[] = [];
 
   products = await getProductsByCondition(params.subcategory, params.condition);
 
-  const brandStrings = getBrands(products);
-  brands = brandStrings.map((brand) => ({ brand }));
+  const brands = getBrands(products);
 
   return (
     <CategoryModule

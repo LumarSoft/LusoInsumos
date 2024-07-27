@@ -12,6 +12,7 @@ export default async function Category({
 
   const brands = getBrands(products);
 
+
   return (
     <CategoryModule
       products={products || []}
