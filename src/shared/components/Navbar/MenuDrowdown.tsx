@@ -32,12 +32,12 @@ export const MenuDrowdown = () => {
             <MenubarSubTrigger>Sellados</MenubarSubTrigger>
             <MenubarSubContent>
               <MenubarItem>
-                <Link href={"/category/celulares/celulares-nuevos/apple"}>
+                <Link href={"/category/celulares/celulares_nuevos/apple"}>
                   Apple IPhones
                 </Link>
               </MenubarItem>
               <MenubarItem>
-                <Link href={"/category/celulares/celulares-nuevos/multimarcas"}>
+                <Link href={"/category/celulares/celulares_nuevos/multimarcas"}>
                   Multimarcas
                 </Link>
               </MenubarItem>
@@ -47,12 +47,12 @@ export const MenuDrowdown = () => {
             <MenubarSubTrigger>Usados</MenubarSubTrigger>
             <MenubarSubContent>
               <MenubarItem>
-                <Link href={"/category/celulares/celulares-usados/apple"}>
+                <Link href={"/category/celulares/celulares_usados/apple"}>
                   Apple Iphones
                 </Link>
               </MenubarItem>
               <MenubarItem>
-                <Link href={"/category/celulares/celulares-usados/multimarcas"}>
+                <Link href={"/category/celulares/celulares_usados/multimarcas"}>
                   Multimarca
                 </Link>
               </MenubarItem>

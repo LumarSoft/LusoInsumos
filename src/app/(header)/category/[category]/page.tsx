@@ -1,4 +1,4 @@
-import { getAllProducts } from "@/firebase/firestore/firestore";
+import { fetchData } from "@/services/axios/request";
 import CategoryModule from "@/shared/modules/CategoryModule";
 import { getBrands } from "@/shared/utils/getBrands";
 
@@ -7,11 +7,9 @@ export default async function Category({
 }: {
   params: { category: string };
 }) {
-  // aca se podrian ver correctamente paginas como localhost:3000/liquidacion, electronica, juegos digitales, etc
-  const products = await getAllProducts(params.category);
+  const products = await fetchData(`getAllTable/${params.category}`);
 
   const brands = getBrands(products);
-
 
   return (
     <CategoryModule

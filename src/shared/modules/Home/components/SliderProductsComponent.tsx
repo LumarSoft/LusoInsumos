@@ -33,9 +33,7 @@ export const SliderProductsComponent = ({
       animationWhileInView="show"
       animationViewPort={{ once: true, offset: 0.4 }}
     >
-      <h3 className="text-xl 2xl:text-4xl text-center pb-6 font-semibold">
-        PRODUCTOS DESTACADOS
-      </h3>
+
 
       <Carousel
         className="w-full"

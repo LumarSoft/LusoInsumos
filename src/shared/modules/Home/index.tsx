@@ -8,19 +8,43 @@ const HomeModule = ({
   products,
   brands,
   banners,
+  computer,
 }: {
   products: ProductType[];
   brands: IBrands[];
   banners: any[];
+  computer: ProductType[];
 }) => {
-  const productsForSlider = products.slice(0, 10);
+  // agarrar 10 productos random para slider
+
+  const productsForSlider = products
+    .sort(() => Math.random() - 0.5)
+    .slice(0, 10);
+
   return (
     <main className="w-full h-full">
       <SliderBanner banners={banners} />
       <div className="px-4 md:px-28 2xl:px-80 pt-16">
-        <SliderProductsComponent items={productsForSlider} />
+        <div>
+          <h3 className="text-xl 2xl:text-4xl text-center pb-6 font-semibold">
+            Celulares destacados
+          </h3>
+          <SliderProductsComponent items={productsForSlider} />
+        </div>
 
-        <GridProducts products={products} brands={brands} />
+        <div>
+          <h3 className="text-xl 2xl:text-4xl text-center pb-6 font-semibold">
+            Computadoras destacadas
+          </h3>
+          <SliderProductsComponent items={computer} />
+        </div>
+
+        <div>
+          <h3 className="text-xl 2xl:text-4xl text-center pb-6 font-semibold">
+            Catalogo de celulares
+          </h3>
+          <GridProducts products={products} brands={brands} />
+        </div>
       </div>
     </main>
   );

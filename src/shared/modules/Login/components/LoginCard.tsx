@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { LoginAdmin } from "@/firebase/auth/auth";
+import { LoginAdmin } from "@/services/firebase/auth/auth";
 import { useUserStore } from "@/shared/stores/userStore";
 import { useRouter } from "next/navigation";
 import { useState } from "react";

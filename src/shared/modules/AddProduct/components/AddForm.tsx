@@ -1,18 +1,15 @@
 "use client";
-
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { addProductEditable, getAllDocs } from "@/firebase/firestore/firestore";
-import { useEffect, useState } from "react";
 import {
   Select,
   SelectContent,
@@ -20,31 +17,25 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { ICategoryQuery } from "@/shared/type/ICategoryQuery";
+import { addProducts } from "@/services/mysql/querys";
+import { categories } from "@/shared/constant/categories";
 
 export const AddForm = () => {
-  const [categories, setCategories] = useState<ICategoryQuery[]>([]);
-
-  const [loading, setLoading] = useState(false);
-
   const [title, setTitle] = useState("");
-  const [price, setPrice] = useState(0);
-  const [brand, setBrand] = useState("");
-  const [image, setImage] = useState<File | null>(null);
   const [category, setCategory] = useState("");
+  const [brand, setBrand] = useState("");
   const [description, setDescription] = useState("");
+  const [price, setPrice] = useState("");
+  const [image, setImage] = useState<File | null>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value, type, files } = e.target;
-    if (type === "file" && files) {
-      setImage(files[0]);
+    const { name, value, files } = e.target;
+    if (name === "image" && files) {
+      setImage(files[0]); // Asignar el archivo de imagen
     } else {
       switch (name) {
         case "title":
           setTitle(value);
-          break;
-        case "price":
-          setPrice(Number(value));
           break;
         case "category":
           setCategory(value);
@@ -55,42 +46,30 @@ export const AddForm = () => {
         case "description":
           setDescription(value);
           break;
-        default:
+        case "price":
+          setPrice(value);
           break;
       }
     }
   };
 
-  useEffect(() => {
-    const fetchCategories = async () => {
-      const data = await getAllDocs("categorias");
-      setCategories(data as ICategoryQuery[]);
-    };
-
-    fetchCategories();
-  }, []);
-
   const handleSave = async () => {
-    try {
-      setLoading(true);
-      const finish = await addProductEditable(category, {
+    if (image) {
+      const result = await addProducts(category, {
         title,
+        brand,
+        description,
         price,
         image,
-        description,
-        brand,
       });
-      if (finish === true) {
-        setTitle("");
-        setPrice(0);
-        setImage(null);
-        setCategory("");
-        setBrand("");
-        setDescription("");
+
+      if (result) {
+        alert("Producto cargado correctamente");
+      } else {
+        alert("Error al cargar el producto");
       }
-      setLoading(false);
-    } catch (error) {
-      console.log("Ha ocurrido un error", error);
+    } else {
+      alert("Por favor, seleccione una imagen.");
     }
   };
 
@@ -99,7 +78,6 @@ export const AddForm = () => {
       <form>
         <CardHeader className="text-center">
           <CardTitle>Agregar un producto</CardTitle>
-          <CardDescription></CardDescription>
         </CardHeader>
         <CardContent className="flex flex-col gap-4">
           <Label className="w-full">
@@ -117,12 +95,12 @@ export const AddForm = () => {
             Categoría
             <Select onValueChange={setCategory}>
               <SelectTrigger className="w-full">
-                <SelectValue placeholder="Categoría" />
+                <SelectValue placeholder="Seleccione una categoria" />
               </SelectTrigger>
               <SelectContent>
                 {categories.map((category) => (
-                  <SelectItem key={category.id} value={category.nombre}>
-                    {category.nombre}
+                  <SelectItem key={category} value={category}>
+                    {category}
                   </SelectItem>
                 ))}
               </SelectContent>

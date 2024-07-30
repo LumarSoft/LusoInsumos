@@ -1,4 +1,4 @@
-import { getProductsByCondition } from "@/firebase/firestore/firestore";
+import { getProductsByCondition } from "@/services/mysql/querys";
 import CategoryModule from "@/shared/modules/CategoryModule";
 import { ProductType } from "@/shared/type/ProductTypes";
 import { getBrands } from "@/shared/utils/getBrands";
