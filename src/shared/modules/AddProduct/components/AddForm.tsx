@@ -17,8 +17,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { addProducts } from "@/services/mysql/querys";
 import { categories } from "@/shared/constant/categories";
+import { toast } from "react-toastify";
+import { postData } from "@/services/axios/request";
+import { generateRandomString } from "@/shared/utils/generateIdProduct";
 
 export const AddForm = () => {
   const [title, setTitle] = useState("");
@@ -27,6 +29,7 @@ export const AddForm = () => {
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [image, setImage] = useState<File | null>(null);
+  const [currency, setCurrency] = useState("USD");
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, files } = e.target;
@@ -54,22 +57,21 @@ export const AddForm = () => {
   };
 
   const handleSave = async () => {
-    if (image) {
-      const result = await addProducts(category, {
-        title,
-        brand,
-        description,
-        price,
-        image,
-      });
+    const newObject = {
+      title,
+      brand,
+      description,
+      price,
+      currency,
+      image,
+    };
 
-      if (result) {
-        alert("Producto cargado correctamente");
-      } else {
-        alert("Error al cargar el producto");
-      }
+    const response = await postData(`addProduct/${category}`, newObject);
+
+    if (response.ok) {
+      toast.done("Producto cargado exitosamente");
     } else {
-      alert("Por favor, seleccione una imagen.");
+      toast.done("Ocurrió un error al cargar el producto");
     }
   };
 
@@ -106,6 +108,7 @@ export const AddForm = () => {
               </SelectContent>
             </Select>
           </Label>
+
           <Label className="w-full">
             Marca
             <Input
@@ -126,6 +129,18 @@ export const AddForm = () => {
               onChange={handleInputChange}
               value={description}
             />
+          </Label>
+          <Label>
+            Moneda
+            <Select onValueChange={setCurrency}>
+              <SelectTrigger>
+                <SelectValue placeholder="Seleccione una moneda" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="ARS">ARS</SelectItem>
+                <SelectItem value="USD">USD</SelectItem>
+              </SelectContent>
+            </Select>
           </Label>
           <Label className="w-full">
             Precio

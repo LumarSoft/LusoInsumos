@@ -15,7 +15,6 @@ const HomeModule = ({
   banners: any[];
   computer: ProductType[];
 }) => {
-  // agarrar 10 productos random para slider
 
   const productsForSlider = products
     .sort(() => Math.random() - 0.5)

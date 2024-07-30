@@ -36,11 +36,28 @@ export const MenuDrowdown = () => {
                   Apple IPhones
                 </Link>
               </MenubarItem>
-              <MenubarItem>
-                <Link href={"/category/celulares/celulares_nuevos/multimarcas"}>
-                  Multimarcas
-                </Link>
-              </MenubarItem>
+              <MenubarSub>
+                <MenubarSubTrigger>Multimarcas</MenubarSubTrigger>
+                <MenubarSubContent>
+                  <MenubarItem>
+                    <Link href={"/category/celulares/celulares_nuevos/samsung"}>
+                      Samsung
+                    </Link>
+                  </MenubarItem>
+                  <MenubarItem>
+                    <Link href={"/category/celulares/celulares_nuevos/xiaomi"}>
+                      Xiaomi
+                    </Link>
+                  </MenubarItem>
+                  <MenubarItem>
+                    <Link
+                      href={"/category/celulares/celulares_nuevos/motorola"}
+                    >
+                      Motorola
+                    </Link>
+                  </MenubarItem>
+                </MenubarSubContent>
+              </MenubarSub>
             </MenubarSubContent>
           </MenubarSub>
           <MenubarSub>
@@ -51,11 +68,15 @@ export const MenuDrowdown = () => {
                   Apple Iphones
                 </Link>
               </MenubarItem>
-              <MenubarItem>
-                <Link href={"/category/celulares/celulares_usados/multimarcas"}>
-                  Multimarca
-                </Link>
-              </MenubarItem>
+
+              <MenubarSub>
+                <MenubarSubTrigger>Multimarcas</MenubarSubTrigger>
+                <MenubarSubContent>
+                  <MenubarItem>Samsung</MenubarItem>
+                  <MenubarItem>Xiaomi</MenubarItem>
+                  <MenubarItem>Motorola</MenubarItem>
+                </MenubarSubContent>
+              </MenubarSub>
             </MenubarSubContent>
           </MenubarSub>
         </MenubarContent>
@@ -101,79 +122,45 @@ export const MenuDrowdown = () => {
             <MenubarSubTrigger>Hardware-Componentes</MenubarSubTrigger>
             <MenubarSubContent>
               <MenubarItem>
-                <Link
-                  href={
-                    "/category/informatica/hardware/procesador"
-                  }
-                >
+                <Link href={"/category/informatica/hardware/procesador"}>
                   Procesadores
                 </Link>
               </MenubarItem>
               <MenubarItem>
-                <Link
-                  href={
-                    "/category/informatica/hardware/motherboard"
-                  }
-                >
+                <Link href={"/category/informatica/hardware/motherboard"}>
                   Motherboard
                 </Link>
               </MenubarItem>
               <MenubarItem>
-                <Link
-                  href={
-                    "/category/informatica/hardware/ram"
-                  }
-                >
+                <Link href={"/category/informatica/hardware/ram"}>
                   Memorias RAM
                 </Link>
               </MenubarItem>
               <MenubarItem>
-                <Link
-                  href={
-                    "/category/informatica/hardware/discmecanico"
-                  }
-                >
+                <Link href={"/category/informatica/hardware/discmecanico"}>
                   Almacenamiento
                 </Link>
               </MenubarItem>
               <MenubarItem>
-                <Link
-                  href={
-                    "/category/informatica/hardware/placavideo"
-                  }
-                >
+                <Link href={"/category/informatica/hardware/placavideo"}>
                   Placas de video
                 </Link>
               </MenubarItem>
               <MenubarItem>
-                <Link
-                  href={"/category/informatica/hardware/gabinete"}
-                >
+                <Link href={"/category/informatica/hardware/gabinete"}>
                   Gabinetes
                 </Link>
               </MenubarItem>
               <MenubarItem>
-                <Link
-                  href={"/category/informatica/hardware/fuente"}
-                >
+                <Link href={"/category/informatica/hardware/fuente"}>
                   Fuentes
                 </Link>
               </MenubarItem>
               <MenubarItem>
-                <Link
-                  href={
-                    "/category/informatica/sillas"
-                  }
-                >
-                  Sillas gamer
-                </Link>
+                <Link href={"/category/informatica/sillas"}>Sillas gamer</Link>
               </MenubarItem>
               <MenubarItem>
-                <Link
-                  href={
-                    "/category/informatica/soluciones-termicas"
-                  }
-                >
+                <Link href={"/category/informatica/soluciones-termicas"}>
                   Soluciones termicas
                 </Link>
               </MenubarItem>

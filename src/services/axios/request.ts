@@ -25,15 +25,16 @@ export const fetchOneRow = async (endpoint: string, id: number) => {
 
 export const postData = async (
   endpoint: string,
-  postData: Record<string, unknown>
+  postData: Record<string, unknown> | FormData
 ) => {
+  console.log(postData);
   try {
     const response = await httpMysqlClient({
       method: "POST",
       url: `/${endpoint}`,
       data: postData,
     });
-    console.log(response);
+    return response;
   } catch (error) {
     console.error("Error al enviar datos:", error);
   }

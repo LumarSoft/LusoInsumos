@@ -3,8 +3,11 @@ import { getValidTableName } from "@/shared/utils/getValidTableName";
 import { NextResponse } from "next/server";
 
 export async function POST(req: any, context: any) {
-  const { body } = req;
+  const { body } = req.FormData();
   const { params } = context;
+
+  console.log("Body de la petición:", body);
+  console.log(params.table);
 
   try {
     const tableName = getValidTableName(params.table);
@@ -17,14 +20,16 @@ export async function POST(req: any, context: any) {
       };
     }
 
-    const query = `INSERT INTO \`${tableName}\` SET ?`;
+    // const query = `INSERT INTO \`${tableName}\` SET ?`;
 
-    await pool.query(query, body);
+    // await pool.query(query, body);
 
-    let response = NextResponse.json({
-      message: "Product added",
-    });
+    // let response = NextResponse.json({
+    //   message: "Product added",
+    // });
 
-    return enableCors(response);
-  } catch (error) {}
+    // return enableCors(response);
+  } catch (error) {
+    console.error("Error al procesar la solicitud:", error);
+  }
 }
