@@ -1,4 +1,4 @@
-import { fetchData } from "@/services/axios/request";
+import { fetchData } from "@/services/request";
 import CategoryModule from "@/shared/modules/CategoryModule";
 import { getBrands } from "@/shared/utils/getBrands";
 
@@ -8,6 +8,8 @@ export default async function Category({
   params: { category: string };
 }) {
   const products = await fetchData(`getAllTable/${params.category}`);
+
+  console.log("Esta es la pagina de [category]")
 
   const brands = getBrands(products);
 

@@ -10,4 +10,6 @@ export const categories = [
   "notebooks",
   "sillas",
   "soluciones_termicas",
+  "juegos_digitales",
+  "impresion_3d",
 ];

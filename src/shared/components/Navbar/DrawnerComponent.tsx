@@ -50,7 +50,6 @@ export const DrawnerComponent = () => {
     {
       value: "item-1",
       label: "Liquidacion",
-      children: null,
       href: "/category/liquidacion",
     },
     {
@@ -63,15 +62,29 @@ export const DrawnerComponent = () => {
           children: [
             {
               value: "6",
-              label: "iPhone",
-              children: null,
+              label: "Apple IPhones",
               href: "/category/celulares/celulares_nuevos/apple",
             },
             {
               value: "7",
               label: "Multimarcas",
-              children: null,
-              href: "/category/celulares/celulares_nuevos/multimarcas",
+              children: [
+                {
+                  value: "8",
+                  label: "Samsung",
+                  href: "/category/celulares/celulares_nuevos/samsung",
+                },
+                {
+                  value: "9",
+                  label: "Xiaomi",
+                  href: "/category/celulares/celulares_nuevos/xiaomi",
+                },
+                {
+                  value: "10",
+                  label: "Motorola",
+                  href: "/category/celulares/celulares_nuevos/motorola",
+                },
+              ],
             },
           ],
         },
@@ -80,16 +93,30 @@ export const DrawnerComponent = () => {
           label: "Usados",
           children: [
             {
-              value: "8",
-              label: "iPhone",
-              children: null,
+              value: "11",
+              label: "Apple Iphones",
               href: "/category/celulares/celulares_usados/apple",
             },
             {
-              value: "9",
+              value: "12",
               label: "Multimarcas",
-              children: null,
-              href: "/category/celulares/celulares_usados/multimarcas",
+              children: [
+                {
+                  value: "13",
+                  label: "Samsung",
+                  href: "/category/celulares/celulares_usados/samsung",
+                },
+                {
+                  value: "14",
+                  label: "Xiaomi",
+                  href: "/category/celulares/celulares_usados/xiaomi",
+                },
+                {
+                  value: "15",
+                  label: "Motorola",
+                  href: "/category/celulares/celulares_usados/motorola",
+                },
+              ],
             },
           ],
         },
@@ -100,138 +127,119 @@ export const DrawnerComponent = () => {
       label: "Informatica",
       children: [
         {
-          value: "10",
+          value: "16",
           label: "Computadoras",
-          children: [
-            {
-              value: "15",
-              label: "Oficina",
-              children: null,
-              href: "/category/informatica/computadoras/hogar",
-            },
-            {
-              value: "16",
-              label: "Gamer/Diseño",
-              children: null,
-              href: "/category/informatica/computadoras/gaming",
-            },
-          ],
-        },
-        {
-          value: "11",
-          label: "Notebook",
           children: [
             {
               value: "17",
               label: "Oficina",
-              children: null,
-              href: "/category/informatica/notebooks/hogar",
+              href: "/category/computadoras/hogar",
             },
             {
               value: "18",
               label: "Gamer/Diseño",
-              children: null,
-              href: "/category/informatica/notebooks/gaming",
+              href: "/category/computadoras/gaming",
             },
           ],
         },
         {
-          value: "12",
-          label: "Hardware-Componente",
+          value: "19",
+          label: "Notebooks",
           children: [
             {
-              value: "19",
-              label: "Procesadores",
-              children: null,
-              href: "/category/informatica/hardware/procesador",
-            },
-            {
               value: "20",
-              label: "Motherboards",
-              children: null,
-              href: "/category/informatica/hardware/motherboard",
+              label: "Oficina",
+              href: "/category/notebooks/hogar",
             },
             {
               value: "21",
-              label: "Memorias RAM",
-              children: null,
-              href: "/category/informatica/hardware/ram",
-            },
-            {
-              value: "22",
-              label: "Almacenamiento",
-              children: null,
-              href: "/category/informatica/hardware/discmecanico",
-            },
-            {
-              value: "23",
-              label: "Placas de video",
-              children: null,
-              href: "/category/informatica/hardware/placavideo",
-            },
-            {
-              value: "24",
-              label: "Gabinetes",
-              children: null,
-              href: "/category/informatica/hardware/gabinete",
-            },
-            {
-              value: "25",
-              label: "Fuentes",
-              children: null,
-              href: "/category/informatica/hardware/fuente",
-            },
-            {
-              value: "26",
-              label: "Sillas gamer",
-              children: null,
-              href: "/category/informatica/sillas",
-            },
-            {
-              value: "27",
-              label: "Soluciones termicas",
-              children: null,
-              href: "/category/informatica/soluciones-termicas",
+              label: "Gamer/Diseño",
+              href: "/category/notebooks/gaming",
             },
           ],
         },
         {
-          value: "13",
-          label: "Monitores",
-          children: null,
-          href: "/category/informatica/monitores",
+          value: "22",
+          label: "Hardware-Componentes",
+          children: [
+            {
+              value: "23",
+              label: "Procesadores",
+              href: "/category/hardware/procesador",
+            },
+            {
+              value: "24",
+              label: "Motherboard",
+              href: "/category/hardware/motherboard",
+            },
+            {
+              value: "25",
+              label: "Memorias RAM",
+              href: "/category/hardware/ram",
+            },
+            {
+              value: "26",
+              label: "Almacenamiento",
+              href: "/category/hardware/discmecanico",
+            },
+            {
+              value: "27",
+              label: "Placas de video",
+              href: "/category/hardware/placavideo",
+            },
+            {
+              value: "28",
+              label: "Gabinetes",
+              href: "/category/hardware/gabinete",
+            },
+            {
+              value: "29",
+              label: "Fuentes",
+              href: "/category/hardware/fuente",
+            },
+            {
+              value: "30",
+              label: "Sillas gamer",
+              href: "/category/sillas",
+            },
+            {
+              value: "31",
+              label: "Soluciones termicas",
+              href: "/category/soluciones-termicas",
+            },
+          ],
         },
         {
-          value: "14",
+          value: "32",
+          label: "Monitores",
+          href: "/category/monitores",
+        },
+        {
+          value: "33",
           label: "Impresoras",
-          children: null,
-          href: "/category/informatica/impresoras",
+          href: "/category/impresoras",
         },
       ],
     },
     {
-      value: "28",
+      value: "34",
       label: "Electronica",
-      children: null,
       href: "/category/electronica",
     },
     {
-      value: "29",
+      value: "35",
       label: "Juegos digitales",
-      children: null,
-      href: "/category/juegos-digitales",
+      href: "/category/juegos_digitales",
     },
     {
-      value: "30",
+      value: "36",
       label: "Impresion 3D",
-      children: null,
-      href: "/category/impresion-3d",
+      href: "/category/impresion_3d",
     },
     {
-      value: "31",
+      value: "37",
       label: "Servicio tecnico",
-      children: null,
-      href: "/servicio-tecnico",
+      href: "/servicio_tecnico",
     },
   ];
 

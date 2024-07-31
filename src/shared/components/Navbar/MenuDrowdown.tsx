@@ -92,12 +92,12 @@ export const MenuDrowdown = () => {
             <MenubarSubTrigger>Computadoras</MenubarSubTrigger>
             <MenubarSubContent>
               <MenubarItem>
-                <Link href={"/category/informatica/computadoras/hogar"}>
+                <Link href={"/category/computadoras/hogar"}>
                   Oficina
                 </Link>
               </MenubarItem>
               <MenubarItem>
-                <Link href={"/category/informatica/computadoras/gaming"}>
+                <Link href={"/category/computadoras/gaming"}>
                   Gamer/diseño
                 </Link>
               </MenubarItem>
@@ -107,12 +107,12 @@ export const MenuDrowdown = () => {
             <MenubarSubTrigger>Notebooks</MenubarSubTrigger>
             <MenubarSubContent>
               <MenubarItem>
-                <Link href={"/category/informatica/notebooks/hogar"}>
+                <Link href={"/category/notebooks/hogar"}>
                   Oficina
                 </Link>
               </MenubarItem>
               <MenubarItem>
-                <Link href={"/category/informatica/notebooks/gaming"}>
+                <Link href={"/category/notebooks/gaming"}>
                   Gamer/diseño
                 </Link>
               </MenubarItem>
@@ -122,55 +122,55 @@ export const MenuDrowdown = () => {
             <MenubarSubTrigger>Hardware-Componentes</MenubarSubTrigger>
             <MenubarSubContent>
               <MenubarItem>
-                <Link href={"/category/informatica/hardware/procesador"}>
+                <Link href={"/category/hardware/procesador"}>
                   Procesadores
                 </Link>
               </MenubarItem>
               <MenubarItem>
-                <Link href={"/category/informatica/hardware/motherboard"}>
+                <Link href={"/category/hardware/motherboard"}>
                   Motherboard
                 </Link>
               </MenubarItem>
               <MenubarItem>
-                <Link href={"/category/informatica/hardware/ram"}>
+                <Link href={"/category/hardware/ram"}>
                   Memorias RAM
                 </Link>
               </MenubarItem>
               <MenubarItem>
-                <Link href={"/category/informatica/hardware/discmecanico"}>
+                <Link href={"/category/hardware/discmecanico"}>
                   Almacenamiento
                 </Link>
               </MenubarItem>
               <MenubarItem>
-                <Link href={"/category/informatica/hardware/placavideo"}>
+                <Link href={"/category/hardware/placavideo"}>
                   Placas de video
                 </Link>
               </MenubarItem>
               <MenubarItem>
-                <Link href={"/category/informatica/hardware/gabinete"}>
+                <Link href={"/category/hardware/gabinete"}>
                   Gabinetes
                 </Link>
               </MenubarItem>
               <MenubarItem>
-                <Link href={"/category/informatica/hardware/fuente"}>
+                <Link href={"/category/hardware/fuente"}>
                   Fuentes
                 </Link>
               </MenubarItem>
               <MenubarItem>
-                <Link href={"/category/informatica/sillas"}>Sillas gamer</Link>
+                <Link href={"/category/sillas"}>Sillas gamer</Link>
               </MenubarItem>
               <MenubarItem>
-                <Link href={"/category/informatica/soluciones-termicas"}>
+                <Link href={"/category/soluciones-termicas"}>
                   Soluciones termicas
                 </Link>
               </MenubarItem>
             </MenubarSubContent>
           </MenubarSub>
           <MenubarItem>
-            <Link href={"/category/informatica/monitores"}>Monitores</Link>
+            <Link href={"/category/monitores"}>Monitores</Link>
           </MenubarItem>
           <MenubarItem>
-            <Link href={"/category/informatica/impresoras"}>Impresoras</Link>
+            <Link href={"/category/impresoras"}>Impresoras</Link>
           </MenubarItem>
         </MenubarContent>
       </MenubarMenu>
@@ -185,21 +185,21 @@ export const MenuDrowdown = () => {
       {/* Quinto */}
       <MenubarMenu>
         <MenubarTrigger>
-          <Link href={"/category/juegos-digitales"}>JUEGOS DIGITALES</Link>
+          <Link href={"/category/juegos_digitales"}>JUEGOS DIGITALES</Link>
         </MenubarTrigger>
       </MenubarMenu>
 
       {/* Sexto */}
       <MenubarMenu>
         <MenubarTrigger>
-          <Link href={"/category/impresion-3d"}>IMPRESION 3D</Link>
+          <Link href={"/category/impresion_3d"}>IMPRESION 3D</Link>
         </MenubarTrigger>
       </MenubarMenu>
 
       {/* Septimo */}
       <MenubarMenu>
         <MenubarTrigger>
-          <Link href={"/servicio-tecnico"}>SERVICIO TECNICO</Link>
+          <Link href={"/servicio_tecnico"}>SERVICIO TECNICO</Link>
         </MenubarTrigger>
       </MenubarMenu>
     </Menubar>

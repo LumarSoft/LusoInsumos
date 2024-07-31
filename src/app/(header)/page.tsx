@@ -1,5 +1,5 @@
-import { fetchData } from "@/services/axios/request";
 import { getAllDocs } from "@/services/firebase/firestore/firestore";
+import { fetchData } from "@/services/request";
 import HomeModule from "@/shared/modules/Home";
 import { ProductType } from "@/shared/type/ProductTypes";
 import { getBrands } from "@/shared/utils/getBrands";

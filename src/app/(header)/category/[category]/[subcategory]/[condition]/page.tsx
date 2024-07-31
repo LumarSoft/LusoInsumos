@@ -1,6 +1,5 @@
-import { getProductsByCondition } from "@/services/mysql/querys";
+import { fetchData } from "@/services/request";
 import CategoryModule from "@/shared/modules/CategoryModule";
-import { ProductType } from "@/shared/type/ProductTypes";
 import { getBrands } from "@/shared/utils/getBrands";
 
 interface SubcategoryParams {
@@ -14,17 +13,17 @@ export default async function Subcategory({
 }: {
   params: SubcategoryParams;
 }) {
-  let products: ProductType[] = [];
 
-  products = await getProductsByCondition(params.subcategory, params.condition);
+
+
+  const products = await fetchData(`getProductsByCondition/${params.subcategory}/${params.condition}`);
 
   const brands = getBrands(products);
 
+
   return (
-    <CategoryModule
-      brands={brands}
-      products={products}
-      category={params.category}
-    />
-  );
+    <CategoryModule brand={brands} products={products} category={params.condition} />
+  )
+
+
 }

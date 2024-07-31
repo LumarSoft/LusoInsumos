@@ -6,9 +6,6 @@ export async function POST(req: any, context: any) {
   const { body } = req.FormData();
   const { params } = context;
 
-  console.log("Body de la petición:", body);
-  console.log(params.table);
-
   try {
     const tableName = getValidTableName(params.table);
     if (!tableName) {

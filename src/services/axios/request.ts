@@ -27,7 +27,6 @@ export const postData = async (
   endpoint: string,
   postData: Record<string, unknown> | FormData
 ) => {
-  console.log(postData);
   try {
     const response = await httpMysqlClient({
       method: "POST",
@@ -63,7 +62,6 @@ export const deleteData = async (endpoint: string, id: number) => {
       method: "DELETE",
       url: `/${endpoint}/${id}`,
     });
-    console.log(response);
   } catch (error) {
     console.error("Error al eliminar datos:", error);
   }
