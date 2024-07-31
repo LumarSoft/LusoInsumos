@@ -22,7 +22,7 @@ export default async function Subcategory({
 
 
   return (
-    <CategoryModule brand={brands} products={products} category={params.condition} />
+    <CategoryModule brands={brands} products={products} category={params.condition} />
   )
 
 

@@ -2,20 +2,16 @@ import { enableCors, pool } from "@/services/mysql/dbConfig";
 import { getValidTableName } from "@/shared/utils/getValidTableName";
 import { NextResponse } from "next/server";
 
-export async function GET(req: any, context: any) {
+export async function GET(req: Request, context: any) {
   const { params } = context;
-
-  console.log(params);
 
   try {
     const tableName = getValidTableName(params.nameTable);
     if (!tableName) {
-      return {
-        status: 400,
-        body: {
-          message: "Invalid table name",
-        },
-      };
+      return NextResponse.json(
+        { message: "Invalid table name" },
+        { status: 400 }
+      );
     }
 
     let query: string;
@@ -23,13 +19,17 @@ export async function GET(req: any, context: any) {
     if (params.condition === "multimarcas") {
       query = `SELECT * FROM \`${tableName}\` WHERE brand != 'multimarcas'`;
     } else {
-      query = `SELECT * FROM \`${tableName}\` WHERE brand = '${params.condition}'`;
+      query = `SELECT * FROM \`${tableName}\` WHERE brand = ?`;
     }
 
-    const [rows] = await pool.query(query);
+    const [rows] = await pool.query(query, params.condition === "multimarcas" ? [] : [params.condition]);
 
-    let response = NextResponse.json(rows);
-
-    return enableCors(response);
-  } catch (error) {}
+    return NextResponse.json(rows);
+  } catch (error) {
+    console.error("Error al procesar la solicitud:", error);
+    return NextResponse.json(
+      { message: "Internal Server Error" },
+      { status: 500 }
+    );
+  }
 }

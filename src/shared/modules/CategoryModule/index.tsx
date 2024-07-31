@@ -1,11 +1,10 @@
 import { GridProducts } from "@/shared/components/GridProducts/GridProducts";
-import { IBrands } from "@/shared/type/IBrands";
 import { ProductType } from "@/shared/type/ProductTypes";
 
 interface CategoryModuleProps {
   products: ProductType[];
   category: string;
-  brands: IBrands[];
+  brands: any[];
 }
 
 export default function CategoryModule({

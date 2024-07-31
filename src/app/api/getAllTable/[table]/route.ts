@@ -19,7 +19,7 @@ export async function GET(req: any, context: any) {
     const [rows] = await pool.query(query);
 
     return NextResponse.json(rows);
-  } catch (error) {
+  } catch (error: any) {
     return NextResponse.json(
       { message: "Error fetching data", error: error.message },
       { status: 500 }

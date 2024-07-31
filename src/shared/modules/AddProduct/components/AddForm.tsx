@@ -19,7 +19,6 @@ import {
 } from "@/components/ui/select";
 import { categories } from "@/shared/constant/categories";
 import { toast } from "react-toastify";
-import { postData } from "@/services/axios/request";
 import { generateRandomString } from "@/shared/utils/generateIdProduct";
 
 export const AddForm = () => {
@@ -66,13 +65,13 @@ export const AddForm = () => {
       image,
     };
 
-    const response = await postData(`addProduct/${category}`, newObject);
+    // const response = await postData(`addProduct/${category}`, newObject);
 
-    if (response.ok) {
-      toast.done("Producto cargado exitosamente");
-    } else {
-      toast.done("Ocurrió un error al cargar el producto");
-    }
+    // if (response.ok) {
+    //   toast.done("Producto cargado exitosamente");
+    // } else {
+    //   toast.done("Ocurrió un error al cargar el producto");
+    // }
   };
 
   return (
