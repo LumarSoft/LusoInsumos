@@ -7,7 +7,7 @@ export default function SidebarLayout({ children }: { children: ReactNode }) {
     <ValidateAuth>
       <div className="flex flex-col lg:flex-row">
         <SidebarComponent />
-        <div className="flex-1">{children}</div>
+        <div className="pl-80 w-full">{children}</div>
       </div>
     </ValidateAuth>
   );

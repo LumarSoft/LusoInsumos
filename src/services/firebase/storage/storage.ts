@@ -10,7 +10,7 @@ import {
   // Función para subir archivos
   export const uploadFile = async (file: File) => {
     try {
-      const storageRef = ref(storage, `images/${file.name}`);
+      const storageRef = ref(storage, `product/${file.name}`);
       const snapshot = await uploadBytes(storageRef, file);
       const url = await getDownloadURL(snapshot.ref);
       return url;

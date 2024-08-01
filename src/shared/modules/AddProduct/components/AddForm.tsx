@@ -20,6 +20,8 @@ import {
 import { categories } from "@/shared/constant/categories";
 import { toast } from "react-toastify";
 import { generateRandomString } from "@/shared/utils/generateIdProduct";
+import { postData } from "@/services/request";
+import { uploadFile } from "@/services/firebase/storage/storage";
 
 export const AddForm = () => {
   const [title, setTitle] = useState("");
@@ -27,6 +29,7 @@ export const AddForm = () => {
   const [brand, setBrand] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
+  const [stock, setStock] = useState("");
   const [image, setImage] = useState<File | null>(null);
   const [currency, setCurrency] = useState("USD");
 
@@ -51,28 +54,46 @@ export const AddForm = () => {
         case "price":
           setPrice(value);
           break;
+        case "stock":
+          setStock(value);
+          break;
       }
     }
   };
 
   const handleSave = async () => {
-    const newObject = {
-      title,
-      brand,
-      description,
-      price,
-      currency,
-      image,
-    };
 
-    // const response = await postData(`addProduct/${category}`, newObject);
+    //Primero subimos la imagen a storage
+    let url
+    if (image) {
+      url = await uploadFile(image);
+    }
 
-    // if (response.ok) {
-    //   toast.done("Producto cargado exitosamente");
-    // } else {
-    //   toast.done("Ocurrió un error al cargar el producto");
-    // }
+    console.log(url)
+
+
+    const formData = new FormData();
+    formData.append('id', generateRandomString());
+    formData.append('title', title);
+    formData.append('category', category);
+    formData.append('brand', brand);
+    formData.append('description', description);
+    formData.append('price', price);
+    formData.append('currency', currency);
+    formData.append('stock', stock);
+    if (image) {
+      formData.append('image', url ?? '');
+    }
+
+    const response = await postData(`addProduct/${category}`, formData);
+
+    if (response.ok) {
+      toast.done("Producto cargado exitosamente");
+    } else {
+      toast.done("Ocurrió un error al cargar el producto");
+    }
   };
+
 
   return (
     <Card className="max-w-3xl m-auto">
@@ -150,6 +171,16 @@ export const AddForm = () => {
               placeholder="Precio del producto"
               onChange={handleInputChange}
               value={price}
+            />
+          </Label>
+          <Label>
+            Stock
+            <Input
+              type="number"
+              name="stock"
+              className="input"
+              placeholder="Stock del producto"
+              onChange={handleInputChange}
             />
           </Label>
           <Label className="w-full">

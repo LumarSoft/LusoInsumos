@@ -1,4 +1,4 @@
-import { enableCors, pool } from "@/services/mysql/dbConfig";
+import {  pool } from "@/services/mysql/dbConfig";
 import { getValidTableName } from "@/shared/utils/getValidTableName";
 import { NextResponse } from "next/server";
 

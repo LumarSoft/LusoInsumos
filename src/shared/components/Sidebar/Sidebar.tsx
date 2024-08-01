@@ -30,7 +30,7 @@ export const SidebarComponent = () => {
   const adminRoute = useRouterHelper().getOneRoute("/admin");
 
   return (
-    <section>
+    <section className="lg:w-80 fixed">
       {/* responsive */}
       <div className="w-screen h-20 flex items-center px-4 justify-between border-b lg:hidden">
         <h1 className="text-2xl tracking-tighter">{actualRoute?.name}</h1>
@@ -44,7 +44,7 @@ export const SidebarComponent = () => {
       </div>
 
       {/* Desktop */}
-      <div className="h-screen w-80 border-r hidden lg:flex flex-col py-10 gap-4 shadow-2xl">
+      <div className="h-screen border-r hidden lg:flex flex-col py-10 gap-4 shadow-2xl">
         <h4 className="font-bold text-3xl text-center">Opciones</h4>
         <div className="flex flex-col h-full ">
           {adminRoute && (

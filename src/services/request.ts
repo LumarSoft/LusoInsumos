@@ -38,7 +38,7 @@ export const postData = async (
   postData: Record<string, unknown> | FormData
 ) => {
   try {
-    const response = await fetch(`${process.env.API_BASE_URL}/${endpoint}`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/${endpoint}`, {
       method: "POST",
       headers:
         postData instanceof FormData
