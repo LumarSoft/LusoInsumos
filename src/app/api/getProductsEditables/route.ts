@@ -2,7 +2,7 @@ import { pool } from "@/services/mysql/dbConfig";
 import { categories } from "@/shared/constant/categories";
 import { NextResponse } from "next/server";
 
-export async function GET(req: Request, context: any) {
+export async function GET() {
   try {
     const nameTables = categories;
     let editableProducts: any[] = [];

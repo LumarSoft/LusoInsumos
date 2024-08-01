@@ -1,8 +1,15 @@
+import { BASE_API_URL } from "@/shared/providers/envProvider";
+
 export const fetchData = async (endpoint: string) => {
+  if (!BASE_API_URL) {
+    return null;
+  }
+
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/${endpoint}`, {
+    const response = await fetch(`${BASE_API_URL}/${endpoint}`, {
       method: "GET",
     });
+
     if (!response.ok) {
       throw new Error("Error al obtener datos");
     }
@@ -15,13 +22,13 @@ export const fetchData = async (endpoint: string) => {
 };
 
 export const fetchOneRow = async (endpoint: string, id: number) => {
+  if (!BASE_API_URL) {
+    return null;
+  }
   try {
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_BASE_URL}/${endpoint}/${id}`,
-      {
-        method: "GET",
-      }
-    );
+    const response = await fetch(`${BASE_API_URL}/${endpoint}/${id}`, {
+      method: "GET",
+    });
     if (!response.ok) {
       throw new Error("Error al obtener datos");
     }
@@ -37,8 +44,11 @@ export const postData = async (
   endpoint: string,
   postData: Record<string, unknown> | FormData
 ) => {
+  if (!BASE_API_URL) {
+    return null;
+  }
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/${endpoint}`, {
+    const response = await fetch(`${BASE_API_URL}/${endpoint}`, {
       method: "POST",
       headers:
         postData instanceof FormData
@@ -61,15 +71,15 @@ export const updateData = async (
   id: number,
   updateData: Record<string, unknown>
 ) => {
+  if (!BASE_API_URL) {
+    return null;
+  }
   try {
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_BASE_URL}/${endpoint}/${id}`,
-      {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(updateData),
-      }
-    );
+    const response = await fetch(`${BASE_API_URL}/${endpoint}/${id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(updateData),
+    });
     if (!response.ok) {
       throw new Error("Error al actualizar datos");
     }
@@ -81,13 +91,13 @@ export const updateData = async (
 };
 
 export const deleteData = async (endpoint: string, id: number) => {
+  if (!BASE_API_URL) {
+    return null;
+  }
   try {
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_BASE_URL}/${endpoint}/${id}`,
-      {
-        method: "DELETE",
-      }
-    );
+    const response = await fetch(`${BASE_API_URL}/${endpoint}/${id}`, {
+      method: "DELETE",
+    });
     if (!response.ok) {
       throw new Error("Error al eliminar datos");
     }

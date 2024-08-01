@@ -8,6 +8,10 @@ export default async function Home() {
   const phones = await fetchData("getAllTable/celulares_nuevos");
 
 
+
+  if (!phones) {
+    return null;
+  }
   const brands = getBrands(phones as ProductType[]);
 
   const tenComputers = await fetchData("get10Products/computadoras");
