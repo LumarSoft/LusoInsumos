@@ -1,6 +1,6 @@
 export const fetchData = async (endpoint: string) => {
   try {
-    const response = await fetch(`${process.env.API_BASE_URL}/${endpoint}`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/${endpoint}`, {
       method: "GET",
     });
     if (!response.ok) {
@@ -17,7 +17,7 @@ export const fetchData = async (endpoint: string) => {
 export const fetchOneRow = async (endpoint: string, id: number) => {
   try {
     const response = await fetch(
-      `${process.env.API_BASE_URL}/${endpoint}/${id}`,
+      `${process.env.NEXT_PUBLIC_API_BASE_URL}/${endpoint}/${id}`,
       {
         method: "GET",
       }
@@ -63,7 +63,7 @@ export const updateData = async (
 ) => {
   try {
     const response = await fetch(
-      `${process.env.API_BASE_URL}/${endpoint}/${id}`,
+      `${process.env.NEXT_PUBLIC_API_BASE_URL}/${endpoint}/${id}`,
       {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
@@ -83,7 +83,7 @@ export const updateData = async (
 export const deleteData = async (endpoint: string, id: number) => {
   try {
     const response = await fetch(
-      `${process.env.API_BASE_URL}/${endpoint}/${id}`,
+      `${process.env.NEXT_PUBLIC_API_BASE_URL}/${endpoint}/${id}`,
       {
         method: "DELETE",
       }

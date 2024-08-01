@@ -10,16 +10,26 @@ export async function POST(req: Request, context: any) {
     const tableName = context.params.table;
 
     console.log("Table name:", tableName);
-    console.log("Body:", body);
 
     // Preparar los datos para la inserción
-    const {id, title, brand, description, price, currency,stock, image } = body;
+    const { id, title, brand, description, price, currency, stock, image } =
+      body;
 
     // Crear la consulta de inserción
-    const query = `INSERT INTO \`${tableName}\` (id, title, brand, description, price, currency,stock, image) VALUES (?, ?, ?, ?, ?, ?, ?,?)`;
+    const query = `INSERT INTO \`${tableName}\` (id, title, brand, description, price, currency,stock, image,editable) VALUES (?, ?, ?, ?, ?, ?, ?,?,?)`;
 
     // Ejecutar la consulta
-    await pool.query(query, [id, title, brand, description, price, currency,stock, image]);
+    await pool.query(query, [
+      id,
+      title,
+      brand,
+      description,
+      price,
+      currency,
+      stock,
+      image,
+      true,
+    ]);
 
     return NextResponse.json({
       message: "Product added",
