@@ -1,21 +1,17 @@
-import { GridProducts } from "@/shared/components/GridProducts/GridProducts";
-import { IBrands } from "@/shared/type/IBrands";
 import { ProductType } from "@/shared/type/ProductTypes";
 import { SliderBanner } from "./components/SliderBanner";
 import { SliderProductsComponent } from "./components/SliderProductsComponent";
 
 const HomeModule = ({
   products,
-  brands,
   banners,
   computer,
 }: {
   products: ProductType[];
-  brands: IBrands[];
+  brands: string[];
   banners: any[];
   computer: ProductType[];
 }) => {
-
   const productsForSlider = products
     .sort(() => Math.random() - 0.5)
     .slice(0, 10);

@@ -15,10 +15,10 @@ export const CartIcon = () => {
 
   return (
     <Link href={"/cart"}>
-      <span className="bg-red-600 rounded-2xl text-white text-sm font-semibold px-3 py-2 absolute translate-x-5 -translate-y-2 text-center lg:translate-x-9">
+      <span className=" flex items-center justify-center bg-red-600 rounded-2xl text-white text-sm font-semibold w-5 h-5 lg:w-8 lg:h-8 absolute translate-x-5 -translate-y-2 text-center lg:translate-x-9">
         {totalItems}
       </span>
-      <img src="/carrito.png" className="w-16"/>
+      <img src="/carrito.png" className="w-12 lg:w-16"/>
     </Link>
   );
 };

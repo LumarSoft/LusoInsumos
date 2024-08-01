@@ -1,6 +1,5 @@
 "use client";
 
-import * as React from "react";
 import Link from "next/link";
 
 import { cn } from "@/lib/utils";
@@ -14,47 +13,27 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 
-const components: { title: string; href: string; description: string }[] = [
-  {
-    title: "Alert Dialog",
-    href: "/docs/primitives/alert-dialog",
-    description:
-      "A modal dialog that interrupts the user with important content and expects a response.",
-  },
-  {
-    title: "Hover Card",
-    href: "/docs/primitives/hover-card",
-    description:
-      "For sighted users to preview content available behind a link.",
-  },
-  {
-    title: "Progress",
-    href: "/docs/primitives/progress",
-    description:
-      "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
-  },
-  {
-    title: "Scroll-area",
-    href: "/docs/primitives/scroll-area",
-    description: "Visually or semantically separates content.",
-  },
-  {
-    title: "Tabs",
-    href: "/docs/primitives/tabs",
-    description:
-      "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
-  },
-  {
-    title: "Tooltip",
-    href: "/docs/primitives/tooltip",
-    description:
-      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
-  },
-];
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card";
+import React, { useState } from "react";
+
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 export function NavigationMenuDemo() {
+  const [open, setopen] = useState(false);
+
   return (
-    <NavigationMenu>
+    <NavigationMenu className="lg:flex hidden">
       <NavigationMenuList>
         {/* Liquidacion */}
 
@@ -76,33 +55,131 @@ export function NavigationMenuDemo() {
                   Los mejores precios de celulares apple del mercado
                 </ListItem>
               </Link>
-              <ListItem title="APPLE USADO">
-                Celulares apple en el mejor estado del mercado
-              </ListItem>
-              <ListItem title="MULTIMARCAS SELLADOS">
-                Encontra el celular de tu marca favorita
-              </ListItem>
-              <ListItem title="MULTIMARCAS USADOS">
-                Encontra el celular de tu marca favorita
-              </ListItem>
+
+              <Link href={"/category/celulares/celulares_usados/apple"}>
+                <ListItem title="APPLE USADO">
+                  Celulares apple en el mejor estado del mercado
+                </ListItem>
+              </Link>
+              <Link href={"/category/calulares/celulares_nuevos/multimarcas"}>
+                <ListItem title="MULTIMARCAS SELLADOS">
+                  Encontra el celular de tu marca favorita
+                </ListItem>
+              </Link>
+              <Link href={"/category/celulares/celulares_usados/multimarcas"}>
+                <ListItem title="MULTIMARCAS USADOS">
+                  Encontra el celular de tu marca favorita
+                </ListItem>
+              </Link>
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
 
-        {/* Informatica */}
+        {/* Informatica de informatica tengo que sacar: Computadoras, de computadoras tiene que abrirse un submenu para seleccionar entre oficina y gamer*/}
+
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Components</NavigationMenuTrigger>
+          <NavigationMenuTrigger>INFORMATICA</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-              {components.map((component) => (
-                <ListItem
-                  key={component.title}
-                  title={component.title}
-                  href={component.href}
+            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+
+              
+              <ListItem className="w-full">
+                <HoverCard openDelay={200}>
+                  <HoverCardTrigger className="text-black font-semibold cursor-pointer w-full">
+                    Computadoras
+                  </HoverCardTrigger>
+                  <HoverCardContent className="flex flex-col">
+                    <Link href={"/category/computadoras/oficina"}>
+                      <ListItem title="Oficina">
+                        Disponible para trabajar desde donde quieras
+                      </ListItem>
+                    </Link>
+                    <Link href={"/category/computadoras/gaming"}>
+                      <ListItem title="Gaming">
+                        Las mejores computadoras gaming del mercado
+                      </ListItem>
+                    </Link>
+                  </HoverCardContent>
+                </HoverCard>
+              </ListItem>
+
+              <ListItem>
+                <HoverCard openDelay={200}>
+                  <HoverCardTrigger className="text-black font-semibold cursor-pointer">
+                    Notebooks
+                  </HoverCardTrigger>
+                  <HoverCardContent className="flex flex-col">
+                    <Link href={"/category/notebooks/hogar"}>
+                      <ListItem title="Oficina">
+                        Disponible para trabajar desde donde quieras
+                      </ListItem>
+                    </Link>
+                    <Link href={"/category/notebooks/gaming"}>
+                      <ListItem title="Gaming">
+                        Las mejores notebooks gaming del mercado
+                      </ListItem>
+                    </Link>
+                  </HoverCardContent>
+                </HoverCard>
+              </ListItem>
+
+              <ListItem>
+                <HoverCard openDelay={200}>
+                  <HoverCardTrigger className="text-black font-semibold cursor-pointer">
+                    Hardware
+                  </HoverCardTrigger>
+                  <HoverCardContent className="flex flex-col">
+                    <Link href={"/category/hardware/procesador"}>
+                      <ListItem title="Procesadores"></ListItem>
+                    </Link>
+                    <Link href={"/category/hardware/motherboard"}>
+                      <ListItem title="Moterboard"></ListItem>
+                    </Link>
+                    <Link href={"/category/hardware/ram"}>
+                      <ListItem title="Memorias RAM"></ListItem>
+                    </Link>
+                    <Link href={"/category/hardware/discmecanico"}>
+                      <ListItem title="Almacenamiento"></ListItem>
+                    </Link>
+                    <Link href={"/category/hardware/discsolido"}>
+                      <ListItem title="Disco solido"></ListItem>
+                    </Link>
+                    <Link href={"/category/hardware/placavideo"}>
+                      <ListItem title="Placas de video"></ListItem>
+                    </Link>
+                    <Link href={"/category/hardware/gabinete"}>
+                      <ListItem title="Gabinete"></ListItem>
+                    </Link>
+                    <Link href={"/category/hardware/fuente"}>
+                      <ListItem title="Fuentes"></ListItem>
+                    </Link>
+                    <Link href={"/category/sillas"}>
+                      <ListItem title="Sillas gamer"></ListItem>
+                    </Link>
+                    <Link href={"/category/soluciones_termicas"}>
+                      <ListItem title="Soluciones termincas"></ListItem>
+                    </Link>
+                  </HoverCardContent>
+                </HoverCard>
+              </ListItem>
+
+              <ListItem>
+                <Link
+                  href={"/category/monitores"}
+                  className="text-black font-semibold cursor-pointer"
                 >
-                  {component.description}
-                </ListItem>
-              ))}
+                  Monitores
+                </Link>
+              </ListItem>
+
+              <ListItem>
+                <Link
+                  href={"/category/impresoras"}
+                  className="text-black font-semibold cursor-pointer"
+                >
+                  Impresoras{" "}
+                </Link>
+              </ListItem>
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
@@ -110,9 +187,9 @@ export function NavigationMenuDemo() {
         {/* Electronica */}
 
         <NavigationMenuItem>
-          <Link href="/docs" legacyBehavior passHref>
+          <Link href="/category/electronica" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Documentation
+              ELECTRONICA
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
@@ -120,9 +197,9 @@ export function NavigationMenuDemo() {
         {/* Juegos digitales */}
 
         <NavigationMenuItem>
-          <Link href="/docs" legacyBehavior passHref>
+          <Link href="/category/juegos_digitales" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Documentation
+              JUEGOS DIGITALES
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
@@ -130,9 +207,9 @@ export function NavigationMenuDemo() {
         {/* IMpresion 3D */}
 
         <NavigationMenuItem>
-          <Link href="/docs" legacyBehavior passHref>
+          <Link href="/category/impresion_3d" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Documentation
+              IMPRESION 3D
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
@@ -140,9 +217,9 @@ export function NavigationMenuDemo() {
         {/* Servicio tecnico */}
 
         <NavigationMenuItem>
-          <Link href="/docs" legacyBehavior passHref>
+          <Link href="/servicio_tecnico" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Documentation
+              SERVICIO TECNICO
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>

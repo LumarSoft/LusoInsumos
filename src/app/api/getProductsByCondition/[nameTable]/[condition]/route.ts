@@ -5,6 +5,7 @@ import { NextResponse } from "next/server";
 export async function GET(req: Request, context: any) {
   const { params } = context;
 
+
   try {
     const tableName = getValidTableName(params.nameTable);
     if (!tableName) {
@@ -16,11 +17,16 @@ export async function GET(req: Request, context: any) {
 
     let query: string;
 
-    //SI params.condition es igual "multimarcas" traer todos los productos menos los que en brand tengan "Apple"
-    if (params.condition === "multimarcas") {
-      query = `SELECT * FROM ${tableName} WHERE brand != 'apple'`;
+    //En caso que params.nameTable sea celulares_usados o celulares_nuevos. Se debe tener en cuenta que tiene params.condition. Si params.conditions === "multimaras" traer todos los celulares menos los que brand === "apple"
+    if (
+      params.nameTable === "celulares_usados" ||
+      params.nameTable === "celulares_nuevos"
+    ) {
+      query = `SELECT * FROM ${tableName} WHERE brand ${
+        params.condition === "multimarcas" ? "!=" : "="
+      } ?`;
     } else {
-      query = `SELECT * FROM ${tableName} WHERE \`condition\` = ?`;
+      query = `SELECT * FROM ${tableName} WHERE brand = ?`;
     }
 
     const [rows] = await pool.query(

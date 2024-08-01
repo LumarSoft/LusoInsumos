@@ -1,6 +1,5 @@
 import { fetchData } from "@/services/request";
 import CategoryModule from "@/shared/modules/CategoryModule";
-import { IBrands } from "@/shared/type/IBrands";
 import { getBrands } from "@/shared/utils/getBrands";
 
 interface SubcategoryParams {
@@ -15,18 +14,21 @@ export default async function Subcategory({
   params: SubcategoryParams;
 }) {
 
+  let brands: string[] = [];
 
-  let brands: string[] = []
-
-
-  const products = await fetchData(`getProductsByCondition/${params.subcategory}/${params.condition}`);
+  const products = await fetchData(
+    `getProductsByCondition/${params.subcategory}/${params.condition}`
+  );
 
   if (products) {
     brands = getBrands(products);
   }
 
   return (
-    <CategoryModule brands={brands} products={products || []} category={params.condition} />
-  )
-
+    <CategoryModule
+      brands={brands}
+      products={products || []}
+      category={params.condition}
+    />
+  );
 }
