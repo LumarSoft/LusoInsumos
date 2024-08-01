@@ -9,9 +9,11 @@ export default async function Category({
 }) {
   const products = await fetchData(`getAllTable/${params.category}`);
 
+  let brands;
 
-
-  const brands = getBrands(products);
+  if (products) {
+    brands = getBrands(products);
+  }
 
   return (
     <CategoryModule
