@@ -38,7 +38,7 @@ export const Navbar = () => {
       }`}
     >
       <Link href={homeRoute?.path || "/"}>
-        <img src="/logo.png" className="h-20" />
+        <img src="/logo.png" className="h-14 2xl:h-20" />
       </Link>
 
       <MenuDrowdown />

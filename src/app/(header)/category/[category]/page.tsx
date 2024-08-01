@@ -9,7 +9,7 @@ export default async function Category({
 }) {
   const products = await fetchData(`getAllTable/${params.category}`);
 
-  console.log("Esta es la pagina de [category]")
+
 
   const brands = getBrands(products);
 

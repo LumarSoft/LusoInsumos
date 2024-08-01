@@ -133,7 +133,7 @@ export const DrawnerComponent = () => {
             {
               value: "17",
               label: "Oficina",
-              href: "/category/computadoras/hogar",
+              href: "/category/computadoras/oficina",
             },
             {
               value: "18",

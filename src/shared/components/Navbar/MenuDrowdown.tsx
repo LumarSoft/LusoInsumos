@@ -92,7 +92,7 @@ export const MenuDrowdown = () => {
             <MenubarSubTrigger>Computadoras</MenubarSubTrigger>
             <MenubarSubContent>
               <MenubarItem>
-                <Link href={"/category/computadoras/hogar"}>
+                <Link href={"/category/computadoras/oficina"}>
                   Oficina
                 </Link>
               </MenubarItem>
