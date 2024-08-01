@@ -14,9 +14,9 @@ export default function CategoryModule({
 }: CategoryModuleProps) {
 
   return (
-    <div className="px-4 md:px-28 2xl:px-80 pt-10">
+    <div className="px-4 md:px-28 2xl:px-80">
       {products.length > 0 ? (
-        <GridProducts products={products} brands={brands} />
+        <GridProducts products={products} brands={brands} category={category} />
       ) : (
         <h3 className="text-center">No se encontraron productos</h3>
       )}

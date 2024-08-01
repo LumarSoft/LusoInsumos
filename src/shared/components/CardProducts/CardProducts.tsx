@@ -18,9 +18,15 @@ export const CardProduct = ({ product }: { product: ProductType }) => {
       autoClose: 2000,
     });
   };
+
   const formatPrice = (price: number) => {
-    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/, ".");
+    // Convertir el número a una cadena sin decimales
+    const priceStr = Math.floor(price).toString();
+  
+    // Usar una expresión regular para colocar los puntos cada tres dígitos
+    return priceStr.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   };
+
 
   return (
     <div className="border border-zinc-200 rounded-md flex flex-col h-[500px] py-2">

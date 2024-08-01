@@ -1,209 +1,178 @@
-import React from "react";
-import {
-  Menubar,
-  MenubarContent,
-  MenubarItem,
-  MenubarMenu,
-  MenubarSub,
-  MenubarSubContent,
-  MenubarSubTrigger,
-  MenubarTrigger,
-} from "@/components/ui/menubar";
-import { ChevronRight } from "lucide-react";
+"use client";
+
+import * as React from "react";
 import Link from "next/link";
 
-export const MenuDrowdown = () => {
+import { cn } from "@/lib/utils";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu";
+
+const components: { title: string; href: string; description: string }[] = [
+  {
+    title: "Alert Dialog",
+    href: "/docs/primitives/alert-dialog",
+    description:
+      "A modal dialog that interrupts the user with important content and expects a response.",
+  },
+  {
+    title: "Hover Card",
+    href: "/docs/primitives/hover-card",
+    description:
+      "For sighted users to preview content available behind a link.",
+  },
+  {
+    title: "Progress",
+    href: "/docs/primitives/progress",
+    description:
+      "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
+  },
+  {
+    title: "Scroll-area",
+    href: "/docs/primitives/scroll-area",
+    description: "Visually or semantically separates content.",
+  },
+  {
+    title: "Tabs",
+    href: "/docs/primitives/tabs",
+    description:
+      "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+  },
+  {
+    title: "Tooltip",
+    href: "/docs/primitives/tooltip",
+    description:
+      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
+  },
+];
+
+export function NavigationMenuDemo() {
   return (
-    <Menubar className="hidden lg:flex">
-      {/*  Primero */}
-      <MenubarMenu>
-        <MenubarTrigger>
-          <Link href={"/category/liquidacion"}>LIQUIDACIÓN</Link>
-        </MenubarTrigger>
-      </MenubarMenu>
+    <NavigationMenu>
+      <NavigationMenuList>
+        {/* Liquidacion */}
 
-      {/* Segundo */}
-      <MenubarMenu>
-        <MenubarTrigger>
-          CELULARES <ChevronRight className="ml-auto h-4 w-4" />
-        </MenubarTrigger>
-        <MenubarContent>
-          <MenubarSub>
-            <MenubarSubTrigger>Sellados</MenubarSubTrigger>
-            <MenubarSubContent>
-              <MenubarItem>
-                <Link href={"/category/celulares/celulares_nuevos/apple"}>
-                  Apple IPhones
-                </Link>
-              </MenubarItem>
-              <MenubarSub>
-                <MenubarSubTrigger>Multimarcas</MenubarSubTrigger>
-                <MenubarSubContent>
-                  <MenubarItem>
-                    <Link href={"/category/celulares/celulares_nuevos/samsung"}>
-                      Samsung
-                    </Link>
-                  </MenubarItem>
-                  <MenubarItem>
-                    <Link href={"/category/celulares/celulares_nuevos/xiaomi"}>
-                      Xiaomi
-                    </Link>
-                  </MenubarItem>
-                  <MenubarItem>
-                    <Link
-                      href={"/category/celulares/celulares_nuevos/motorola"}
-                    >
-                      Motorola
-                    </Link>
-                  </MenubarItem>
-                </MenubarSubContent>
-              </MenubarSub>
-            </MenubarSubContent>
-          </MenubarSub>
-          <MenubarSub>
-            <MenubarSubTrigger>Usados</MenubarSubTrigger>
-            <MenubarSubContent>
-              <MenubarItem>
-                <Link href={"/category/celulares/celulares_usados/apple"}>
-                  Apple Iphones
-                </Link>
-              </MenubarItem>
+        <NavigationMenuItem>
+          <Link href="/category/liquidacion" legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              LIQUIDACION
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
 
-              <MenubarSub>
-                <MenubarSubTrigger>Multimarcas</MenubarSubTrigger>
-                <MenubarSubContent>
-                  <MenubarItem>Samsung</MenubarItem>
-                  <MenubarItem>Xiaomi</MenubarItem>
-                  <MenubarItem>Motorola</MenubarItem>
-                </MenubarSubContent>
-              </MenubarSub>
-            </MenubarSubContent>
-          </MenubarSub>
-        </MenubarContent>
-      </MenubarMenu>
+        {/* Celulares */}
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>CELULARES</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+              <Link href={"/category/celulares/celulares_nuevos/apple"}>
+                <ListItem title="APPLE SELLADO">
+                  Los mejores precios de celulares apple del mercado
+                </ListItem>
+              </Link>
+              <ListItem title="APPLE USADO">
+                Celulares apple en el mejor estado del mercado
+              </ListItem>
+              <ListItem title="MULTIMARCAS SELLADOS">
+                Encontra el celular de tu marca favorita
+              </ListItem>
+              <ListItem title="MULTIMARCAS USADOS">
+                Encontra el celular de tu marca favorita
+              </ListItem>
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
 
-      {/* Tercero */}
-      <MenubarMenu>
-        <MenubarTrigger>
-          INFORMATICA <ChevronRight className="ml-auto h-4 w-4" />
-        </MenubarTrigger>
-        <MenubarContent>
-          <MenubarSub>
-            <MenubarSubTrigger>Computadoras</MenubarSubTrigger>
-            <MenubarSubContent>
-              <MenubarItem>
-                <Link href={"/category/computadoras/oficina"}>
-                  Oficina
-                </Link>
-              </MenubarItem>
-              <MenubarItem>
-                <Link href={"/category/computadoras/gaming"}>
-                  Gamer/diseño
-                </Link>
-              </MenubarItem>
-            </MenubarSubContent>
-          </MenubarSub>
-          <MenubarSub>
-            <MenubarSubTrigger>Notebooks</MenubarSubTrigger>
-            <MenubarSubContent>
-              <MenubarItem>
-                <Link href={"/category/notebooks/hogar"}>
-                  Oficina
-                </Link>
-              </MenubarItem>
-              <MenubarItem>
-                <Link href={"/category/notebooks/gaming"}>
-                  Gamer/diseño
-                </Link>
-              </MenubarItem>
-            </MenubarSubContent>
-          </MenubarSub>
-          <MenubarSub>
-            <MenubarSubTrigger>Hardware-Componentes</MenubarSubTrigger>
-            <MenubarSubContent>
-              <MenubarItem>
-                <Link href={"/category/hardware/procesador"}>
-                  Procesadores
-                </Link>
-              </MenubarItem>
-              <MenubarItem>
-                <Link href={"/category/hardware/motherboard"}>
-                  Motherboard
-                </Link>
-              </MenubarItem>
-              <MenubarItem>
-                <Link href={"/category/hardware/ram"}>
-                  Memorias RAM
-                </Link>
-              </MenubarItem>
-              <MenubarItem>
-                <Link href={"/category/hardware/discmecanico"}>
-                  Almacenamiento
-                </Link>
-              </MenubarItem>
-              <MenubarItem>
-                <Link href={"/category/hardware/placavideo"}>
-                  Placas de video
-                </Link>
-              </MenubarItem>
-              <MenubarItem>
-                <Link href={"/category/hardware/gabinete"}>
-                  Gabinetes
-                </Link>
-              </MenubarItem>
-              <MenubarItem>
-                <Link href={"/category/hardware/fuente"}>
-                  Fuentes
-                </Link>
-              </MenubarItem>
-              <MenubarItem>
-                <Link href={"/category/sillas"}>Sillas gamer</Link>
-              </MenubarItem>
-              <MenubarItem>
-                <Link href={"/category/soluciones-termicas"}>
-                  Soluciones termicas
-                </Link>
-              </MenubarItem>
-            </MenubarSubContent>
-          </MenubarSub>
-          <MenubarItem>
-            <Link href={"/category/monitores"}>Monitores</Link>
-          </MenubarItem>
-          <MenubarItem>
-            <Link href={"/category/impresoras"}>Impresoras</Link>
-          </MenubarItem>
-        </MenubarContent>
-      </MenubarMenu>
+        {/* Informatica */}
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>Components</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+              {components.map((component) => (
+                <ListItem
+                  key={component.title}
+                  title={component.title}
+                  href={component.href}
+                >
+                  {component.description}
+                </ListItem>
+              ))}
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
 
-      {/* Cuarto */}
-      <MenubarMenu>
-        <MenubarTrigger>
-          <Link href={"/category/electronica"}>ELECTRONICA</Link>
-        </MenubarTrigger>
-      </MenubarMenu>
+        {/* Electronica */}
 
-      {/* Quinto */}
-      <MenubarMenu>
-        <MenubarTrigger>
-          <Link href={"/category/juegos_digitales"}>JUEGOS DIGITALES</Link>
-        </MenubarTrigger>
-      </MenubarMenu>
+        <NavigationMenuItem>
+          <Link href="/docs" legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              Documentation
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
 
-      {/* Sexto */}
-      <MenubarMenu>
-        <MenubarTrigger>
-          <Link href={"/category/impresion_3d"}>IMPRESION 3D</Link>
-        </MenubarTrigger>
-      </MenubarMenu>
+        {/* Juegos digitales */}
 
-      {/* Septimo */}
-      <MenubarMenu>
-        <MenubarTrigger>
-          <Link href={"/servicio_tecnico"}>SERVICIO TECNICO</Link>
-        </MenubarTrigger>
-      </MenubarMenu>
-    </Menubar>
+        <NavigationMenuItem>
+          <Link href="/docs" legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              Documentation
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+
+        {/* IMpresion 3D */}
+
+        <NavigationMenuItem>
+          <Link href="/docs" legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              Documentation
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+
+        {/* Servicio tecnico */}
+
+        <NavigationMenuItem>
+          <Link href="/docs" legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              Documentation
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+      </NavigationMenuList>
+    </NavigationMenu>
   );
-};
+}
 
-export default MenuDrowdown;
+const ListItem = React.forwardRef<
+  React.ElementRef<"a">,
+  React.ComponentPropsWithoutRef<"a">
+>(({ className, title, children, ...props }, ref) => {
+  return (
+    <li>
+      <NavigationMenuLink asChild>
+        <a
+          ref={ref}
+          className={cn(
+            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+            className
+          )}
+          {...props}
+        >
+          <div className="text-sm font-medium leading-none">{title}</div>
+          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+            {children}
+          </p>
+        </a>
+      </NavigationMenuLink>
+    </li>
+  );
+});
+ListItem.displayName = "ListItem";

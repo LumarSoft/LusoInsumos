@@ -14,7 +14,9 @@ export default async function Subcategory({
 }: {
   params: SubcategoryParams;
 }) {
-  let brands: IBrands[] = []
+
+
+  let brands: string[] = []
 
 
   const products = await fetchData(`getProductsByCondition/${params.subcategory}/${params.condition}`);
@@ -23,11 +25,8 @@ export default async function Subcategory({
     brands = getBrands(products);
   }
 
-
-
   return (
     <CategoryModule brands={brands} products={products || []} category={params.condition} />
   )
-
 
 }

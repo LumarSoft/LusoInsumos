@@ -7,6 +7,7 @@ export default async function Category({
 }: {
   params: { category: string };
 }) {
+
   const products = await fetchData(`getAllTable/${params.category}`);
 
   let brands;

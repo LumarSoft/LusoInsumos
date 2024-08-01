@@ -1,4 +1,4 @@
-import { enableCors, pool } from "@/services/mysql/dbConfig";
+import { pool } from "@/services/mysql/dbConfig";
 import { getValidTableName } from "@/shared/utils/getValidTableName";
 import { NextResponse } from "next/server";
 
@@ -16,13 +16,17 @@ export async function GET(req: Request, context: any) {
 
     let query: string;
 
+    //SI params.condition es igual "multimarcas" traer todos los productos menos los que en brand tengan "Apple"
     if (params.condition === "multimarcas") {
-      query = `SELECT * FROM \`${tableName}\` WHERE brand != 'multimarcas'`;
+      query = `SELECT * FROM ${tableName} WHERE brand != 'apple'`;
     } else {
-      query = `SELECT * FROM \`${tableName}\` WHERE brand = ?`;
+      query = `SELECT * FROM ${tableName} WHERE \`condition\` = ?`;
     }
 
-    const [rows] = await pool.query(query, params.condition === "multimarcas" ? [] : [params.condition]);
+    const [rows] = await pool.query(
+      query,
+      params.condition === "multimarcas" ? [] : [params.condition]
+    );
 
     return NextResponse.json(rows);
   } catch (error) {

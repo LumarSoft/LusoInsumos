@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { CardProduct } from "../CardProducts/CardProducts";
-import { IBrands } from "@/shared/type/IBrands";
 import { FilterButtons } from "../FilterButtons/FilterButtons";
 import { ProductType } from "@/shared/type/ProductTypes";
 import { FramerComponent } from "../Framer/FramerComponent";
@@ -9,13 +8,17 @@ import { FramerComponent } from "../Framer/FramerComponent";
 export const GridProducts = ({
   products,
   brands,
+  category
 }: {
   products: ProductType[];
-  brands: IBrands[];
+  brands: string[];
+  category: string;
 }) => {
   const [sortOrder, setSortOrder] = useState("Novedades");
   const [selectedBrand, setSelectedBrand] = useState("Todos");
   const [arrayProducts, setArrayProducts] = useState(products);
+
+
 
   const container = {
     hidden: { opacity: 0 },
@@ -59,6 +62,9 @@ export const GridProducts = ({
 
   return (
     <div className="mt-4 w-full h-full">
+
+      {/* Aca estaria la opcion de poner como titulo lo que estas buscando en cuestion con {category} */}
+
       <FilterButtons
         brands={brands}
         setSortOrder={setSortOrder}

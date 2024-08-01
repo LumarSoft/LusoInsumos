@@ -37,13 +37,6 @@ const HomeModule = ({
           </h3>
           <SliderProductsComponent items={computer} />
         </div>
-
-        <div>
-          <h3 className="text-xl 2xl:text-4xl text-center pb-6 font-semibold mt-4">
-            Catalogo de celulares
-          </h3>
-          <GridProducts products={products} brands={brands} />
-        </div>
       </div>
     </main>
   );
