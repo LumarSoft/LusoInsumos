@@ -18,6 +18,10 @@ export const AddBanner = () => {
 
     }
 
+    const handleSave = () => {
+        console.log("asd")
+    }
+
 
     return (
         <Card className="max-w-3xl m-auto">
