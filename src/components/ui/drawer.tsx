@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Drawer as DrawerPrimitive } from "vaul";
+import { Drawer as DrawerPrimitive } from "@/components/ui/vaulCopia/dist";
 
 import { cn } from "@/lib/utils";
 
@@ -53,7 +53,8 @@ const DrawerContent = React.forwardRef<
         className={cn(
           "fixed z-50 flex h-auto flex-col rounded-t-[10px] border bg-background",
           (!direction || direction === "bottom") && "inset-x-0 bottom-0 mt-24",
-          direction === "right" && "top-0 right-0 w-screen max-w-80 h-full overflow-auto",
+          direction === "right" &&
+            "top-0 right-0 w-screen max-w-80 h-full overflow-auto",
           className
         )}
         {...props}
