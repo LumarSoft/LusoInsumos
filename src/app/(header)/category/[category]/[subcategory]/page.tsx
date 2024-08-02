@@ -8,7 +8,9 @@ export default async function Subcategory({
   params: { category: string; subcategory: string };
 }) {
 
-  let brands
+
+  let brands;
+
 
   const products = await fetchData(
     `getProductsByCondition/${params.category}/${params.subcategory}`
@@ -17,7 +19,6 @@ export default async function Subcategory({
   if (products) {
     brands = getBrands(products);
   }
-
 
   return (
     <CategoryModule

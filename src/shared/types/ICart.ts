@@ -1,4 +1,5 @@
 import { CartItem } from "./ICartItem";
+
 export interface ICart {
   cart: CartItem[];
   addToCart: (item: CartItem) => void;

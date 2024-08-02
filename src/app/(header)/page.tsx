@@ -1,7 +1,7 @@
 import { getAllDocs } from "@/services/firebase/firestore/firestore";
 import { fetchData } from "@/services/request";
 import HomeModule from "@/shared/modules/Home";
-import { ProductType } from "@/shared/type/ProductTypes";
+import { ProductType } from "@/shared/types/IProduct";
 import { getBrands } from "@/shared/utils/getBrands";
 
 export default async function Home() {

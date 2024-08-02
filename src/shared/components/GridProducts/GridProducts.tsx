@@ -1,17 +1,18 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { CardProduct } from "../CardProducts/CardProducts";
-import { IBrands } from "@/shared/type/IBrands";
 import { FilterButtons } from "../FilterButtons/FilterButtons";
-import { ProductType } from "@/shared/type/ProductTypes";
+import { IProduct } from "@/shared/types/IProduct";
 import { FramerComponent } from "../Framer/FramerComponent";
 
 export const GridProducts = ({
   products,
   brands,
+  category,
 }: {
-  products: ProductType[];
-  brands: IBrands[];
+  products: IProduct[];
+  brands: string[];
+  category: string;
 }) => {
   const [sortOrder, setSortOrder] = useState("Novedades");
   const [selectedBrand, setSelectedBrand] = useState("Todos");
@@ -35,14 +36,14 @@ export const GridProducts = ({
     if (sortOrder === "Menor") {
       array.sort((a, b) => {
         if (a.price && b.price) {
-          return a.price - b.price;
+          return Number(a.price) - Number(b.price);
         }
         return 0;
       });
     } else if (sortOrder === "Mayor") {
       array.sort((a, b) => {
         if (a.price && b.price) {
-          return b.price - a.price;
+          return Number(b.price) - Number(a.price);
         }
         return 0;
       });
@@ -59,7 +60,10 @@ export const GridProducts = ({
 
   return (
     <div className="mt-4 w-full h-full">
+      {/* Aca estaria la opcion de poner como titulo lo que estas buscando en cuestion con {category} */}
+
       <FilterButtons
+        category={category}
         brands={brands}
         setSortOrder={setSortOrder}
         setSelectedBrand={setSelectedBrand}

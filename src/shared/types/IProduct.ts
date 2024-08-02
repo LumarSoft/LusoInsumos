@@ -1,9 +1,9 @@
-export interface ProductType {
+export interface IProduct {
   editable?: boolean;
   title?: string;
   description?: string;
   image?: string;
-  price?: number;
+  price?: string;
   stock?: number;
   color?: string;
   brand?: string;

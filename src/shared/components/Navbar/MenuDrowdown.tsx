@@ -1,209 +1,246 @@
-import React from "react";
-import {
-  Menubar,
-  MenubarContent,
-  MenubarItem,
-  MenubarMenu,
-  MenubarSub,
-  MenubarSubContent,
-  MenubarSubTrigger,
-  MenubarTrigger,
-} from "@/components/ui/menubar";
-import { ChevronRight } from "lucide-react";
+"use client";
+
 import Link from "next/link";
 
-export const MenuDrowdown = () => {
+import { cn } from "@/lib/utils";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu";
+
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card";
+import React from "react";
+
+export function NavigationMenuDemo() {
   return (
-    <Menubar className="hidden lg:flex">
-      {/*  Primero */}
-      <MenubarMenu>
-        <MenubarTrigger>
-          <Link href={"/category/liquidacion"}>LIQUIDACIÓN</Link>
-        </MenubarTrigger>
-      </MenubarMenu>
+    <NavigationMenu className="lg:flex hidden">
+      <NavigationMenuList>
+        {/* Liquidacion */}
 
-      {/* Segundo */}
-      <MenubarMenu>
-        <MenubarTrigger>
-          CELULARES <ChevronRight className="ml-auto h-4 w-4" />
-        </MenubarTrigger>
-        <MenubarContent>
-          <MenubarSub>
-            <MenubarSubTrigger>Sellados</MenubarSubTrigger>
-            <MenubarSubContent>
-              <MenubarItem>
-                <Link href={"/category/celulares/celulares_nuevos/apple"}>
-                  Apple IPhones
-                </Link>
-              </MenubarItem>
-              <MenubarSub>
-                <MenubarSubTrigger>Multimarcas</MenubarSubTrigger>
-                <MenubarSubContent>
-                  <MenubarItem>
-                    <Link href={"/category/celulares/celulares_nuevos/samsung"}>
-                      Samsung
+        <NavigationMenuItem>
+          <Link href="/category/liquidacion" legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              LIQUIDACION
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+
+        {/* Celulares */}
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>CELULARES</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+              <Link href={"/category/celulares/celulares_nuevos/apple"}>
+                <ListItem title="APPLE SELLADO">
+                  Los mejores precios de celulares apple del mercado
+                </ListItem>
+              </Link>
+
+              <Link href={"/category/celulares/celulares_usados/apple"}>
+                <ListItem title="APPLE USADO">
+                  Celulares apple en el mejor estado del mercado
+                </ListItem>
+              </Link>
+              <Link href={"/category/calulares/celulares_nuevos/multimarcas"}>
+                <ListItem title="MULTIMARCAS SELLADOS">
+                  Encontra el celular de tu marca favorita
+                </ListItem>
+              </Link>
+              <Link href={"/category/celulares/celulares_usados/multimarcas"}>
+                <ListItem title="MULTIMARCAS USADOS">
+                  Encontra el celular de tu marca favorita
+                </ListItem>
+              </Link>
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+
+        {/* Informatica de informatica tengo que sacar: Computadoras, de computadoras tiene que abrirse un submenu para seleccionar entre oficina y gamer*/}
+
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>INFORMATICA</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+              <ListItem className="w-full">
+                <HoverCard openDelay={200}>
+                  <HoverCardTrigger className="text-black font-semibold cursor-pointer w-full">
+                    Computadoras
+                  </HoverCardTrigger>
+                  <HoverCardContent className="flex flex-col">
+                    <Link href={"/category/computadoras/oficina"}>
+                      <ListItem title="Oficina">
+                        Disponible para trabajar desde donde quieras
+                      </ListItem>
                     </Link>
-                  </MenubarItem>
-                  <MenubarItem>
-                    <Link href={"/category/celulares/celulares_nuevos/xiaomi"}>
-                      Xiaomi
+                    <Link href={"/category/computadoras/gaming"}>
+                      <ListItem title="Gaming">
+                        Las mejores computadoras gaming del mercado
+                      </ListItem>
                     </Link>
-                  </MenubarItem>
-                  <MenubarItem>
-                    <Link
-                      href={"/category/celulares/celulares_nuevos/motorola"}
-                    >
-                      Motorola
+                  </HoverCardContent>
+                </HoverCard>
+              </ListItem>
+
+              <ListItem>
+                <HoverCard openDelay={200}>
+                  <HoverCardTrigger className="text-black font-semibold cursor-pointer">
+                    Notebooks
+                  </HoverCardTrigger>
+                  <HoverCardContent className="flex flex-col">
+                    <Link href={"/category/notebooks/hogar"}>
+                      <ListItem title="Oficina">
+                        Disponible para trabajar desde donde quieras
+                      </ListItem>
                     </Link>
-                  </MenubarItem>
-                </MenubarSubContent>
-              </MenubarSub>
-            </MenubarSubContent>
-          </MenubarSub>
-          <MenubarSub>
-            <MenubarSubTrigger>Usados</MenubarSubTrigger>
-            <MenubarSubContent>
-              <MenubarItem>
-                <Link href={"/category/celulares/celulares_usados/apple"}>
-                  Apple Iphones
-                </Link>
-              </MenubarItem>
+                    <Link href={"/category/notebooks/gaming"}>
+                      <ListItem title="Gaming">
+                        Las mejores notebooks gaming del mercado
+                      </ListItem>
+                    </Link>
+                  </HoverCardContent>
+                </HoverCard>
+              </ListItem>
 
-              <MenubarSub>
-                <MenubarSubTrigger>Multimarcas</MenubarSubTrigger>
-                <MenubarSubContent>
-                  <MenubarItem>Samsung</MenubarItem>
-                  <MenubarItem>Xiaomi</MenubarItem>
-                  <MenubarItem>Motorola</MenubarItem>
-                </MenubarSubContent>
-              </MenubarSub>
-            </MenubarSubContent>
-          </MenubarSub>
-        </MenubarContent>
-      </MenubarMenu>
+              <ListItem>
+                <HoverCard openDelay={200}>
+                  <HoverCardTrigger className="text-black font-semibold cursor-pointer">
+                    Hardware
+                  </HoverCardTrigger>
+                  <HoverCardContent className="flex flex-col">
+                    <Link href={"/category/hardware/procesador"}>
+                      <ListItem title="Procesadores"></ListItem>
+                    </Link>
+                    <Link href={"/category/hardware/motherboard"}>
+                      <ListItem title="Moterboard"></ListItem>
+                    </Link>
+                    <Link href={"/category/hardware/ram"}>
+                      <ListItem title="Memorias RAM"></ListItem>
+                    </Link>
+                    <Link href={"/category/hardware/discmecanico"}>
+                      <ListItem title="Almacenamiento"></ListItem>
+                    </Link>
+                    <Link href={"/category/hardware/discsolido"}>
+                      <ListItem title="Disco solido"></ListItem>
+                    </Link>
+                    <Link href={"/category/hardware/placavideo"}>
+                      <ListItem title="Placas de video"></ListItem>
+                    </Link>
+                    <Link href={"/category/hardware/gabinete"}>
+                      <ListItem title="Gabinete"></ListItem>
+                    </Link>
+                    <Link href={"/category/hardware/fuente"}>
+                      <ListItem title="Fuentes"></ListItem>
+                    </Link>
+                    <Link href={"/category/soluciones_termicas"}>
+                      <ListItem title="Soluciones termincas"></ListItem>
+                    </Link>
+                  </HoverCardContent>
+                </HoverCard>
+              </ListItem>
 
-      {/* Tercero */}
-      <MenubarMenu>
-        <MenubarTrigger>
-          INFORMATICA <ChevronRight className="ml-auto h-4 w-4" />
-        </MenubarTrigger>
-        <MenubarContent>
-          <MenubarSub>
-            <MenubarSubTrigger>Computadoras</MenubarSubTrigger>
-            <MenubarSubContent>
-              <MenubarItem>
-                <Link href={"/category/computadoras/oficina"}>
-                  Oficina
+              <ListItem>
+                <Link
+                  href={"/category/monitores"}
+                  className="text-black font-semibold cursor-pointer"
+                >
+                  Monitores
                 </Link>
-              </MenubarItem>
-              <MenubarItem>
-                <Link href={"/category/computadoras/gaming"}>
-                  Gamer/diseño
-                </Link>
-              </MenubarItem>
-            </MenubarSubContent>
-          </MenubarSub>
-          <MenubarSub>
-            <MenubarSubTrigger>Notebooks</MenubarSubTrigger>
-            <MenubarSubContent>
-              <MenubarItem>
-                <Link href={"/category/notebooks/hogar"}>
-                  Oficina
-                </Link>
-              </MenubarItem>
-              <MenubarItem>
-                <Link href={"/category/notebooks/gaming"}>
-                  Gamer/diseño
-                </Link>
-              </MenubarItem>
-            </MenubarSubContent>
-          </MenubarSub>
-          <MenubarSub>
-            <MenubarSubTrigger>Hardware-Componentes</MenubarSubTrigger>
-            <MenubarSubContent>
-              <MenubarItem>
-                <Link href={"/category/hardware/procesador"}>
-                  Procesadores
-                </Link>
-              </MenubarItem>
-              <MenubarItem>
-                <Link href={"/category/hardware/motherboard"}>
-                  Motherboard
-                </Link>
-              </MenubarItem>
-              <MenubarItem>
-                <Link href={"/category/hardware/ram"}>
-                  Memorias RAM
-                </Link>
-              </MenubarItem>
-              <MenubarItem>
-                <Link href={"/category/hardware/discmecanico"}>
-                  Almacenamiento
-                </Link>
-              </MenubarItem>
-              <MenubarItem>
-                <Link href={"/category/hardware/placavideo"}>
-                  Placas de video
-                </Link>
-              </MenubarItem>
-              <MenubarItem>
-                <Link href={"/category/hardware/gabinete"}>
-                  Gabinetes
-                </Link>
-              </MenubarItem>
-              <MenubarItem>
-                <Link href={"/category/hardware/fuente"}>
-                  Fuentes
-                </Link>
-              </MenubarItem>
-              <MenubarItem>
-                <Link href={"/category/sillas"}>Sillas gamer</Link>
-              </MenubarItem>
-              <MenubarItem>
-                <Link href={"/category/soluciones-termicas"}>
-                  Soluciones termicas
-                </Link>
-              </MenubarItem>
-            </MenubarSubContent>
-          </MenubarSub>
-          <MenubarItem>
-            <Link href={"/category/monitores"}>Monitores</Link>
-          </MenubarItem>
-          <MenubarItem>
-            <Link href={"/category/impresoras"}>Impresoras</Link>
-          </MenubarItem>
-        </MenubarContent>
-      </MenubarMenu>
+              </ListItem>
 
-      {/* Cuarto */}
-      <MenubarMenu>
-        <MenubarTrigger>
-          <Link href={"/category/electronica"}>ELECTRONICA</Link>
-        </MenubarTrigger>
-      </MenubarMenu>
+              <ListItem>
+                <Link
+                  href={"/category/impresoras"}
+                  className="text-black font-semibold cursor-pointer"
+                >
+                  Impresoras{" "}
+                </Link>
+              </ListItem>
 
-      {/* Quinto */}
-      <MenubarMenu>
-        <MenubarTrigger>
-          <Link href={"/category/juegos_digitales"}>JUEGOS DIGITALES</Link>
-        </MenubarTrigger>
-      </MenubarMenu>
+              <ListItem>
+                <Link
+                  href={"/category/sillas"}
+                  className="text-black font-semibold cursor-pointer"
+                >
+                  Sillas gamer
+                </Link>
+              </ListItem>
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
 
-      {/* Sexto */}
-      <MenubarMenu>
-        <MenubarTrigger>
-          <Link href={"/category/impresion_3d"}>IMPRESION 3D</Link>
-        </MenubarTrigger>
-      </MenubarMenu>
+        {/* Electronica */}
 
-      {/* Septimo */}
-      <MenubarMenu>
-        <MenubarTrigger>
-          <Link href={"/servicio_tecnico"}>SERVICIO TECNICO</Link>
-        </MenubarTrigger>
-      </MenubarMenu>
-    </Menubar>
+        <NavigationMenuItem>
+          <Link href="/category/electronica" legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              ELECTRONICA
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+
+        {/* Juegos digitales */}
+
+        <NavigationMenuItem>
+          <Link href="/category/juegos_digitales" legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              JUEGOS DIGITALES
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+
+        {/* IMpresion 3D */}
+
+        <NavigationMenuItem>
+          <Link href="/category/impresion_3d" legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              IMPRESION 3D
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+
+        {/* Servicio tecnico */}
+
+        <NavigationMenuItem>
+          <Link href="/servicio_tecnico" legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              SERVICIO TECNICO
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+      </NavigationMenuList>
+    </NavigationMenu>
   );
-};
+}
 
-export default MenuDrowdown;
+const ListItem = React.forwardRef<
+  React.ElementRef<"a">,
+  React.ComponentPropsWithoutRef<"a">
+>(({ className, title, children, ...props }, ref) => {
+  return (
+    <li>
+      <span
+        ref={ref}
+        className={cn(
+          "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent focus:bg-accent focus:text-accent-foreground",
+          className
+        )}
+        {...props}
+      >
+        <span className="text-sm font-medium leading-none ">{title}</span>
+        <span className="line-clamp-2 text-sm leading-snug text-muted-foreground ">
+          {children}
+        </span>
+      </span>
+    </li>
+  );
+});
+ListItem.displayName = "ListItem";

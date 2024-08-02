@@ -1,25 +1,24 @@
 import React from "react";
-import { ProductType } from "@/shared/type/ProductTypes";
+import { IProduct } from "@/shared/types/IProduct";
 import { cartStore } from "@/shared/stores/CartStore";
 import { toast } from "react-toastify";
+import { formatPrice } from "@/shared/utils/formatPrice";
 
-export const CardProduct = ({ product }: { product: ProductType }) => {
+export const CardProduct = ({ product }: { product: IProduct }) => {
   const addToCart = cartStore((state) => state.addToCart);
 
   const handleAddToCart = () => {
     addToCart({
       title: product.title || "",
-      price: product.price || 0,
+      price: product.price || "0",
       image: product.image || "",
       cant: 1,
+      currency: product.currency || "ARS",
     });
     toast.success("Producto agregado al carrito", {
       position: "top-center",
       autoClose: 2000,
     });
-  };
-  const formatPrice = (price: number) => {
-    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/, ".");
   };
 
   return (
@@ -32,7 +31,7 @@ export const CardProduct = ({ product }: { product: ProductType }) => {
         />
       </div>
       <div className="p-4 flex flex-col flex-grow">
-        <h3 className="text-center text-base font-bold text-black mb-2 line-clamp-2 h-12">
+        <h3 className="text-center text-sm lg:text-base font-bold text-black mb-2  lg:line-clamp-none h-12">
           {product.title}
         </h3>
         {product.color && (
@@ -49,8 +48,8 @@ export const CardProduct = ({ product }: { product: ProductType }) => {
         <hr className="my-2" />
         <div className="flex items-center justify-around mb-2">
           <div className="text-lg font-bold">
-            {product.currency && product.currency} ${" "}
-            {formatPrice(product.price || 0)}
+            {product.currency} {product.price === "0.0" ? "" : "$"}{" "}
+            {formatPrice(product.price ?? "")}
           </div>
         </div>
 

@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { cartStore } from "@/shared/stores/CartStore";
 import Link from "next/link";
-import { FaShoppingCart } from "react-icons/fa";
 
 export const CartIcon = () => {
   const { getTotalItems, cart } = cartStore();
@@ -16,10 +15,10 @@ export const CartIcon = () => {
 
   return (
     <Link href={"/cart"}>
-      <span className="bg-red-600 rounded-2xl text-white text-sm font-semibold h-5 w-5 absolute translate-x-5 -translate-y-2 text-center lg:translate-x-9">
+      <span className=" flex items-center justify-center bg-red-600 rounded-2xl text-white text-sm font-semibold w-5 h-5 lg:w-8 lg:h-8 absolute translate-x-5 -translate-y-2 text-center lg:translate-x-9">
         {totalItems}
       </span>
-      <FaShoppingCart className="text-cyan-600 cursor-pointer" />
+      <img src="/carrito.png" className="w-12 lg:w-16"/>
     </Link>
   );
 };

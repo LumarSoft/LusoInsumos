@@ -1,6 +1,6 @@
 import { uploadFile } from "@/services/firebase/storage/storage";
 import { pool } from "./dbConfig";
-import { ProductType } from "@/shared/type/ProductTypes";
+import { ProductType } from "@/shared/types/IProduct";
 import { getValidTableName } from "@/shared/utils/getValidTableName";
 
 // Mapa de nombres de tablas permitidos y sus respectivos nombres en la base de datos

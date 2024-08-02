@@ -1,21 +1,17 @@
-import { GridProducts } from "@/shared/components/GridProducts/GridProducts";
-import { IBrands } from "@/shared/type/IBrands";
-import { ProductType } from "@/shared/type/ProductTypes";
+import { IProduct } from "@/shared/types/IProduct";
 import { SliderBanner } from "./components/SliderBanner";
 import { SliderProductsComponent } from "./components/SliderProductsComponent";
 
 const HomeModule = ({
   products,
-  brands,
   banners,
   computer,
 }: {
-  products: ProductType[];
-  brands: IBrands[];
+  products: IProduct[];
+  brands: string[];
   banners: any[];
-  computer: ProductType[];
+  computer: IProduct[];
 }) => {
-
   const productsForSlider = products
     .sort(() => Math.random() - 0.5)
     .slice(0, 10);
@@ -36,13 +32,6 @@ const HomeModule = ({
             Computadoras destacadas
           </h3>
           <SliderProductsComponent items={computer} />
-        </div>
-
-        <div>
-          <h3 className="text-xl 2xl:text-4xl text-center pb-6 font-semibold mt-4">
-            Catalogo de celulares
-          </h3>
-          <GridProducts products={products} brands={brands} />
         </div>
       </div>
     </main>
