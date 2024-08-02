@@ -5,7 +5,6 @@ import { NextResponse } from "next/server";
 export async function GET(req: Request, context: any) {
   const { params } = context;
 
-
   try {
     const tableName = getValidTableName(params.nameTable);
     if (!tableName) {
@@ -15,24 +14,25 @@ export async function GET(req: Request, context: any) {
       );
     }
 
-    let query: string;
+    let query = "";
+    const condition = params.condition;
 
-    //En caso que params.nameTable sea celulares_usados o celulares_nuevos. Se debe tener en cuenta que tiene params.condition. Si params.conditions === "multimaras" traer todos los celulares menos los que brand === "apple"
-    if (
-      params.nameTable === "celulares_usados" ||
-      params.nameTable === "celulares_nuevos"
-    ) {
-      query = `SELECT * FROM ${tableName} WHERE brand ${
-        params.condition === "multimarcas" ? "!=" : "="
-      } ?`;
+    if (tableName === 'celulares_usados' || tableName === 'celulares_nuevos') {
+      if (condition === 'multimarcas') {
+        query = `SELECT * FROM ${tableName} WHERE brand != 'apple'`;
+      } else if (condition === 'apple') {
+        query = `SELECT * FROM ${tableName} WHERE brand = 'apple'`;
+      } else {
+        return NextResponse.json(
+          { message: "Invalid condition" },
+          { status: 400 }
+        );
+      }
     } else {
       query = `SELECT * FROM ${tableName} WHERE brand = ?`;
     }
 
-    const [rows] = await pool.query(
-      query,
-      params.condition === "multimarcas" ? [] : [params.condition]
-    );
+    const [rows] = await pool.query(query, [condition]);
 
     return NextResponse.json(rows);
   } catch (error) {
