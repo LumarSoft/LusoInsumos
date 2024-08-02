@@ -126,10 +126,10 @@ export function NavigationMenuDemo() {
                       <ListItem title="Memorias RAM"></ListItem>
                     </Link>
                     <Link href={"/category/hardware/discmecanico"}>
-                      <ListItem title="Almacenamiento"></ListItem>
+                      <ListItem title="Discos rigidos"></ListItem>
                     </Link>
                     <Link href={"/category/hardware/discsolido"}>
-                      <ListItem title="Disco solido"></ListItem>
+                      <ListItem title="Discos solidos"></ListItem>
                     </Link>
                     <Link href={"/category/hardware/placavideo"}>
                       <ListItem title="Placas de video"></ListItem>

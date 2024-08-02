@@ -154,12 +154,12 @@ export const DrawnerComponent = () => {
             },
             {
               value: "26",
-              label: "Almacenamiento",
+              label: "Discos rigidos",
               href: "/category/hardware/discmecanico",
             },
             {
               value: "38",
-              label: "Almacenamiento",
+              label: "Discos solidos",
               href: "/category/hardware/discsolido",
             },
             {
