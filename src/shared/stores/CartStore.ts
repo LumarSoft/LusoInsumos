@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
-import { ICart } from "@/shared/type/ICart";
+import { ICart } from "@/shared/types/ICart";
 
 export const cartStore = create<ICart>()(
   persist(

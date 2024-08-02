@@ -18,20 +18,9 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
-import React, { useState } from "react";
-
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+import React from "react";
 
 export function NavigationMenuDemo() {
-  const [open, setopen] = useState(false);
-
   return (
     <NavigationMenu className="lg:flex hidden">
       <NavigationMenuList>
@@ -151,9 +140,6 @@ export function NavigationMenuDemo() {
                     <Link href={"/category/hardware/fuente"}>
                       <ListItem title="Fuentes"></ListItem>
                     </Link>
-                    <Link href={"/category/sillas"}>
-                      <ListItem title="Sillas gamer"></ListItem>
-                    </Link>
                     <Link href={"/category/soluciones_termicas"}>
                       <ListItem title="Soluciones termincas"></ListItem>
                     </Link>
@@ -176,6 +162,15 @@ export function NavigationMenuDemo() {
                   className="text-black font-semibold cursor-pointer"
                 >
                   Impresoras{" "}
+                </Link>
+              </ListItem>
+
+              <ListItem>
+                <Link
+                  href={"/category/sillas"}
+                  className="text-black font-semibold cursor-pointer"
+                >
+                  Sillas gamer
                 </Link>
               </ListItem>
             </ul>
@@ -240,10 +235,10 @@ const ListItem = React.forwardRef<
         )}
         {...props}
       >
-        <div className="text-sm font-medium leading-none ">{title}</div>
-        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground ">
+        <span className="text-sm font-medium leading-none ">{title}</span>
+        <span className="line-clamp-2 text-sm leading-snug text-muted-foreground ">
           {children}
-        </p>
+        </span>
       </span>
     </li>
   );

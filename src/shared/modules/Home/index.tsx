@@ -1,4 +1,4 @@
-import { ProductType } from "@/shared/type/ProductTypes";
+import { IProduct } from "@/shared/types/IProduct";
 import { SliderBanner } from "./components/SliderBanner";
 import { SliderProductsComponent } from "./components/SliderProductsComponent";
 
@@ -7,10 +7,10 @@ const HomeModule = ({
   banners,
   computer,
 }: {
-  products: ProductType[];
+  products: IProduct[];
   brands: string[];
   banners: any[];
-  computer: ProductType[];
+  computer: IProduct[];
 }) => {
   const productsForSlider = products
     .sort(() => Math.random() - 0.5)

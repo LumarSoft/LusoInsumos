@@ -14,8 +14,6 @@ export async function GET(req: any, context: any) {
       );
     }
 
-    console.log("tableName", tableName);
-
     const query = `SELECT * FROM \`${tableName}\``;
 
     const [rows] = await pool.query(query);

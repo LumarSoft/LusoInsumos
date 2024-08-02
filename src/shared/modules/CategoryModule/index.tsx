@@ -1,8 +1,8 @@
 import { GridProducts } from "@/shared/components/GridProducts/GridProducts";
-import { ProductType } from "@/shared/type/ProductTypes";
+import { IProduct } from "@/shared/types/IProduct";
 
 interface CategoryModuleProps {
-  products: ProductType[];
+  products: IProduct[];
   category: string;
   brands: any[];
 }

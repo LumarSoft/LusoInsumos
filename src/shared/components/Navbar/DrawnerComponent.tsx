@@ -1,5 +1,6 @@
 import {
   Drawer,
+  DrawerClose,
   DrawerContent,
   DrawerHeader,
   DrawerTitle,
@@ -22,7 +23,13 @@ export const DrawnerComponent = () => {
           hasContent={!!item.children}
           paddingLeft={paddingLeft}
         >
-          {item.href ? <Link href={item.href}>{item.label}</Link> : item.label}
+          {item.href ? (
+            <DrawerClose asChild>
+              <Link href={item.href}>{item.label}</Link>
+            </DrawerClose>
+          ) : (
+            item.label
+          )}
         </AccordionTrigger>
         {item.children && (
           <AccordionContent>
@@ -68,23 +75,7 @@ export const DrawnerComponent = () => {
             {
               value: "7",
               label: "Multimarcas",
-              children: [
-                {
-                  value: "8",
-                  label: "Samsung",
-                  href: "/category/celulares/celulares_nuevos/samsung",
-                },
-                {
-                  value: "9",
-                  label: "Xiaomi",
-                  href: "/category/celulares/celulares_nuevos/xiaomi",
-                },
-                {
-                  value: "10",
-                  label: "Motorola",
-                  href: "/category/celulares/celulares_nuevos/motorola",
-                },
-              ],
+              href: "/category/celulares/celulares_nuevos/multimarcas",
             },
           ],
         },
@@ -100,23 +91,7 @@ export const DrawnerComponent = () => {
             {
               value: "12",
               label: "Multimarcas",
-              children: [
-                {
-                  value: "13",
-                  label: "Samsung",
-                  href: "/category/celulares/celulares_usados/samsung",
-                },
-                {
-                  value: "14",
-                  label: "Xiaomi",
-                  href: "/category/celulares/celulares_usados/xiaomi",
-                },
-                {
-                  value: "15",
-                  label: "Motorola",
-                  href: "/category/celulares/celulares_usados/motorola",
-                },
-              ],
+              href: "/category/celulares/celulares_usados/multimarcas",
             },
           ],
         },
@@ -183,6 +158,11 @@ export const DrawnerComponent = () => {
               href: "/category/hardware/discmecanico",
             },
             {
+              value: "38",
+              label: "Almacenamiento",
+              href: "/category/hardware/discsolido",
+            },
+            {
               value: "27",
               label: "Placas de video",
               href: "/category/hardware/placavideo",
@@ -196,11 +176,6 @@ export const DrawnerComponent = () => {
               value: "29",
               label: "Fuentes",
               href: "/category/hardware/fuente",
-            },
-            {
-              value: "30",
-              label: "Sillas gamer",
-              href: "/category/sillas",
             },
             {
               value: "31",
@@ -218,6 +193,11 @@ export const DrawnerComponent = () => {
           value: "33",
           label: "Impresoras",
           href: "/category/impresoras",
+        },
+        {
+          value: "30",
+          label: "Sillas",
+          href: "/category/sillas",
         },
       ],
     },

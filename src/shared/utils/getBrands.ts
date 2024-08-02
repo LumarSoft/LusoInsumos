@@ -1,4 +1,4 @@
-import { ProductType } from "../type/ProductTypes";
+import { ProductType } from "../types/IProduct";
 
 export const getBrands = (arrProducts: ProductType[]): string[] => {
   const brands = arrProducts
