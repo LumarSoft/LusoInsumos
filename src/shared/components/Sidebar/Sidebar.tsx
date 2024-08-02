@@ -1,15 +1,5 @@
 "use client";
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-  AlertDialogTrigger,
-} from "@/components/ui/alert-dialog";
+
 import { useRouterHelper } from "@/shared/hooks/useRouterHelper";
 import {
   DropdownMenu,
@@ -18,15 +8,13 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { RxHamburgerMenu } from "react-icons/rx";
-import { RiLogoutBoxLine } from "react-icons/ri";
-import { useUserStore } from "@/shared/stores/userStore";
 import { IRoute } from "@/shared/routes/routes";
 import Link from "next/link";
+import { LogoutModal } from "./LogoutModal";
 
 export const SidebarComponent = () => {
   const actualRoute = useRouterHelper().getCurrentRoute();
   const routesForDashboard = useRouterHelper().getOneRoute("/admin")?.subroutes;
-  const { clearUser } = useUserStore();
   const adminRoute = useRouterHelper().getOneRoute("/admin");
 
   return (
@@ -35,7 +23,7 @@ export const SidebarComponent = () => {
       <div className="w-screen h-20 flex items-center px-4 justify-between border-b lg:hidden">
         <h1 className="text-2xl tracking-tighter">{actualRoute?.name}</h1>
         <div className="flex items-center gap-4">
-          <LogoutModal clearUser={clearUser} />
+          <LogoutModal />
           <DropDown
             routes={routesForDashboard ?? []}
             adminRoute={adminRoute || {}}
@@ -74,7 +62,7 @@ export const SidebarComponent = () => {
               </Link>
             ))}
         </div>
-        <LogoutModal clearUser={clearUser} />
+        <LogoutModal/>
       </div>
     </section>
   );
@@ -106,36 +94,5 @@ const DropDown = ({
         ))}
       </DropdownMenuContent>
     </DropdownMenu>
-  );
-};
-
-export const LogoutModal = ({ clearUser }: { clearUser: () => void }) => {
-  const handleLogout = () => {
-    clearUser();
-  };
-
-  return (
-    <AlertDialog>
-      <AlertDialogTrigger className="hidden lg:block">
-        Cerrar sesion
-      </AlertDialogTrigger>
-      <AlertDialogTrigger className="block lg:hidden text-2xl">
-        <RiLogoutBoxLine />
-      </AlertDialogTrigger>
-      <AlertDialogContent>
-        <AlertDialogHeader>
-          <AlertDialogTitle>Cerrar sesion</AlertDialogTitle>
-          <AlertDialogDescription>
-            ¿Estas seguro que deseas cerrar sesion?
-          </AlertDialogDescription>
-        </AlertDialogHeader>
-        <AlertDialogFooter>
-          <AlertDialogCancel>Cancelar</AlertDialogCancel>
-          <AlertDialogAction onClick={handleLogout}>
-            Continuar
-          </AlertDialogAction>
-        </AlertDialogFooter>
-      </AlertDialogContent>
-    </AlertDialog>
   );
 };

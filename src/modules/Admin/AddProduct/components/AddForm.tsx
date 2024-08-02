@@ -62,38 +62,37 @@ export const AddForm = () => {
   };
 
   const handleSave = async () => {
-
     //Primero subimos la imagen a storage
-    let url
+    let url;
     if (image) {
       url = await uploadFile(image);
     }
 
-    console.log(url)
-
+    console.log(url);
 
     const formData = new FormData();
-    formData.append('id', generateRandomString());
-    formData.append('title', title);
-    formData.append('category', category);
-    formData.append('brand', brand);
-    formData.append('description', description);
-    formData.append('price', price);
-    formData.append('currency', currency);
-    formData.append('stock', stock);
+    formData.append("id", generateRandomString());
+    formData.append("title", title);
+    formData.append("category", category);
+    formData.append("brand", brand);
+    formData.append("description", description);
+    formData.append("price", price);
+    formData.append("currency", currency);
+    formData.append("stock", stock);
     if (image) {
-      formData.append('image', url ?? '');
+      formData.append("image", url ?? "");
     }
 
     const response = await postData(`addProduct/${category}`, formData);
 
-    if (response.ok) {
-      toast.done("Producto cargado exitosamente");
+    console.log(response);
+
+    if (response.message === "Product added") {
+      toast.success("Producto cargado exitosamente");
     } else {
-      toast.done("Ocurrió un error al cargar el producto");
+      toast.error("Ocurrió un error al cargar el producto");
     }
   };
-
 
   return (
     <Card className="max-w-3xl m-auto">

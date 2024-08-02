@@ -1,6 +1,5 @@
-"use client";
-import { DataTable } from "./components/DataTable";
-import { columns } from "./components/Columns";
+import { DataTable } from "./components/table/DataTable";
+import { columns } from "./components/table/Columns";
 
 const AdminModule = ({ products }: { products: any[] }) => {
   return (
@@ -8,6 +7,9 @@ const AdminModule = ({ products }: { products: any[] }) => {
       <h4 className="text-4xl font-semibold text-center">
         Productos editables
       </h4>
+      <p className="text-center">
+        Es posible que debas recargar la pagina para ver los cambios
+      </p>
       <DataTable columns={columns} data={products || []} />
     </main>
   );

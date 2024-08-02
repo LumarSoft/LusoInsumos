@@ -1,6 +1,6 @@
 import { uploadFile } from "@/services/firebase/storage/storage";
 import { pool } from "./dbConfig";
-import { ProductType } from "@/shared/types/IProduct";
+import { IProduct } from "@/shared/types/IProduct";
 import { getValidTableName } from "@/shared/utils/getValidTableName";
 
 // Mapa de nombres de tablas permitidos y sus respectivos nombres en la base de datos
@@ -9,7 +9,7 @@ import { getValidTableName } from "@/shared/utils/getValidTableName";
 
 export const getAllTable = async (
   nameTable: string
-): Promise<ProductType[]> => {
+): Promise<IProduct[]> => {
   const tableName = getValidTableName(nameTable);
 
   if (!tableName) {
@@ -19,12 +19,12 @@ export const getAllTable = async (
   const query = `SELECT * FROM \`${tableName}\``;
 
   const [rows] = await pool.query(query);
-  return rows as ProductType[];
+  return rows as IProduct[];
 };
 
 export const get10Products = async (
   nameTable: string
-): Promise<ProductType[]> => {
+): Promise<IProduct[]> => {
   const tableName = getValidTableName(nameTable);
 
   if (!tableName) {
@@ -34,13 +34,13 @@ export const get10Products = async (
   const query = `SELECT * FROM \`${tableName}\` LIMIT 10`;
 
   const [rows] = await pool.query(query);
-  return rows as ProductType[];
+  return rows as IProduct[];
 };
 
 export const getTableWithFilters = async (
   nameTable: string,
   condition: string
-): Promise<{ result: ProductType[]; brands: string[] }> => {
+): Promise<{ result: IProduct[]; brands: string[] }> => {
   const tableName = getValidTableName(nameTable);
 
   if (!tableName) {
@@ -50,7 +50,7 @@ export const getTableWithFilters = async (
   const query = `SELECT * FROM \`${tableName}\``;
 
   const [rows] = await pool.query(query);
-  const products = rows as ProductType[];
+  const products = rows as IProduct[];
 
   // Filtrar por condición, por ejemplo, por marca
   const result = products.filter((product) => product.brand === condition);
@@ -66,7 +66,7 @@ export const getTableWithFilters = async (
 export const getProductsByCondition = async (
   collectionName: string,
   condition: string
-): Promise<ProductType[]> => {
+): Promise<IProduct[]> => {
   const tableName = getValidTableName(collectionName);
 
   if (!tableName) {
@@ -83,7 +83,7 @@ export const getProductsByCondition = async (
   }
 
   const [rows] = await pool.query(query, [condition]);
-  return rows as ProductType[];
+  return rows as IProduct[];
 };
 
 interface ProductData {

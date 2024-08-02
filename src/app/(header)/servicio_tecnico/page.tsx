@@ -1,4 +1,4 @@
-import { ServicioTecnicoModule } from "@/shared/modules/ServicioTecnico";
+import { ServicioTecnicoModule } from "@/modules/client/ServicioTecnico";
 
 export default function Service() {
   return <ServicioTecnicoModule />;

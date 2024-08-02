@@ -1,4 +1,4 @@
-import FileModule from "@/shared/modules/File";
+import FileModule from "@/modules/Admin/File";
 
 export default function FilePage() {
   return <FileModule />;
