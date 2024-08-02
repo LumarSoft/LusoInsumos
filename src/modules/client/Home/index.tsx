@@ -1,17 +1,37 @@
+"use client";
+
 import { IProduct } from "@/shared/types/IProduct";
 import { SliderBanner } from "./components/SliderBanner";
 import { SliderProductsComponent } from "./components/SliderProductsComponent";
+import { useState, useEffect } from "react";
+import { fetchData } from "@/services/request";
+import { getAllDocs } from "@/services/firebase/firestore/firestore";
+import { IBanners } from "@/shared/types/IBanner";
 
-const HomeModule = ({
-  products,
-  banners,
-  computer,
-}: {
-  products: IProduct[];
-  brands: string[];
-  banners: any[];
-  computer: IProduct[];
-}) => {
+const HomeModule = () => {
+  const [products, setProducts] = useState<IProduct[]>([]);
+  const [computer, setComputer] = useState<IProduct[]>([]);
+  const [banners, setBanners] = useState<IBanners[]>([]);
+
+  useEffect(() => {
+    const fetchs = async () => {
+      try {
+        const phones = await fetchData("getAllTable/celulares_nuevos");
+        setProducts(phones);
+
+        const tenComputers = await fetchData("get10Products/computadoras");
+        setComputer(tenComputers);
+
+        const bannerData = await getAllDocs("banners");
+        setBanners(bannerData);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchs();
+  }, []);
+
   const productsForSlider = products
     .sort(() => Math.random() - 0.5)
     .slice(0, 10);

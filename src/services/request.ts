@@ -7,6 +7,7 @@ export const fetchData = async (endpoint: string) => {
 
   try {
     const response = await fetch(`${BASE_API_URL}/${endpoint}`, {
+      next: { revalidate: 0 },
       method: "GET",
     });
 
@@ -90,14 +91,17 @@ export const updateData = async (
   }
 };
 
-export const deleteData = async (endpoint: string, id: number) => {
+export const deleteData = async (nameTable: string, id: string) => {
   if (!BASE_API_URL) {
     return null;
   }
   try {
-    const response = await fetch(`${BASE_API_URL}/${endpoint}/${id}`, {
-      method: "DELETE",
-    });
+    const response = await fetch(
+      `${BASE_API_URL}/deleteProduct/${nameTable}/${id}`,
+      {
+        method: "DELETE",
+      }
+    );
     if (!response.ok) {
       throw new Error("Error al eliminar datos");
     }

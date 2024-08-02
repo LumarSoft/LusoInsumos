@@ -6,13 +6,13 @@ import {
 } from "@/components/ui/carousel";
 import { CardProduct } from "@/shared/components/CardProducts/CardProducts";
 import { FramerComponent } from "@/shared/components/Framer/FramerComponent";
-import { ProductType } from "@/shared/types/IProduct";
+import { IProduct } from "@/shared/types/IProduct";
 import Autoplay from "embla-carousel-autoplay";
 
 export const SliderProductsComponent = ({
   items,
 }: {
-  items: ProductType[];
+  items: IProduct[];
 }) => {
   const container = {
     hidden: { opacity: 0 },

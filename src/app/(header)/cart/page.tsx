@@ -1,6 +1,6 @@
 "use client";
 
-import CartModule from "@/shared/modules/Cart";
+import CartModule from "@/modules/client/Cart";
 
 export default function CartPage() {
   return <CartModule />;

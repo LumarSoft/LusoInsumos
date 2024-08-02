@@ -1,5 +1,5 @@
 import { fetchData } from "@/services/request";
-import CategoryModule from "@/shared/modules/CategoryModule";
+import CategoryModule from "@/modules/client/CategoryModule";
 import { getBrands } from "@/shared/utils/getBrands";
 
 export default async function Category({

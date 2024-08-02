@@ -1,6 +1,6 @@
-import { ProductType } from "../types/IProduct";
+import { IProduct } from "../types/IProduct";
 
-export const getBrands = (arrProducts: ProductType[]): string[] => {
+export const getBrands = (arrProducts: IProduct[]): string[] => {
   const brands = arrProducts
     .map((product) => product.brand)
     .filter((brand): brand is string => brand !== undefined);
