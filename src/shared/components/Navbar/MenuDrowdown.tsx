@@ -19,6 +19,7 @@ import {
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
 import React from "react";
+import { ChevronDown } from "lucide-react";
 
 export function NavigationMenuDemo() {
   return (
@@ -72,8 +73,12 @@ export function NavigationMenuDemo() {
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
               <ListItem className="w-full">
                 <HoverCard openDelay={200}>
-                  <HoverCardTrigger className="text-black font-semibold cursor-pointer w-full">
+                  <HoverCardTrigger className="text-black font-semibold cursor-pointer w-full flex items-center ">
                     Computadoras
+                    <ChevronDown
+                      className="relative top-[1px] h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180"
+                      aria-hidden="true"
+                    />
                   </HoverCardTrigger>
                   <HoverCardContent className="flex flex-col">
                     <Link href={"/category/computadoras/oficina"}>
@@ -92,8 +97,12 @@ export function NavigationMenuDemo() {
 
               <ListItem>
                 <HoverCard openDelay={200}>
-                  <HoverCardTrigger className="text-black font-semibold cursor-pointer">
+                  <HoverCardTrigger className="text-black font-semibold cursor-pointer flex items-center">
                     Notebooks
+                    <ChevronDown
+                      className="relative top-[1px] ml-1 h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180"
+                      aria-hidden="true"
+                    />
                   </HoverCardTrigger>
                   <HoverCardContent className="flex flex-col">
                     <Link href={"/category/notebooks/hogar"}>
@@ -112,8 +121,12 @@ export function NavigationMenuDemo() {
 
               <ListItem>
                 <HoverCard openDelay={200}>
-                  <HoverCardTrigger className="text-black font-semibold cursor-pointer">
-                    Hardware
+                  <HoverCardTrigger className="text-black font-semibold cursor-pointer flex items-center">
+                    Hardware{" "}
+                    <ChevronDown
+                      className="relative top-[1px] ml-1 h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180"
+                      aria-hidden="true"
+                    />
                   </HoverCardTrigger>
                   <HoverCardContent className="flex flex-col">
                     <Link href={"/category/hardware/procesador"}>
