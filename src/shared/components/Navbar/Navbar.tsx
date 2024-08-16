@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { CartIcon } from "./CartIcon";
 
 import { useMediaQuery } from "@/shared/hooks/useMediaQuery";
-import { NavigationMenuDemo } from "./MenuDrowdown";
+import { NavigationMenuComponent } from "./MenuDrowdown";
 import { DrawnerComponent } from "./DrawnerComponent";
 
 export const Navbar = () => {
@@ -41,7 +41,7 @@ export const Navbar = () => {
         <img src="/logo.png" className="h-16 2xl:h-20" />
       </Link>
 
-      <NavigationMenuDemo />
+      <NavigationMenuComponent />
 
       <div className="flex items-center text-3xl gap-6 lg:fixed bottom-10 right-10 lg:text-5xl">
         <CartIcon />
