@@ -70,6 +70,16 @@ export const AddForm = () => {
       url = await uploadFile(image);
     }
 
+    if (
+      title.length < 1 ||
+      category.length < 1 ||
+      description.length < 1 ||
+      price.length < 1 ||
+      stock.length < 1
+    ) {
+      return toast.error("Rellene correcatamente los campos");
+    }
+
     const formData = new FormData();
     formData.append("id", generateRandomString());
     formData.append("title", title);
