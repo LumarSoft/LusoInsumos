@@ -5,7 +5,6 @@ import { useRouterHelper } from "@/shared/hooks/useRouterHelper";
 import { useEffect, useState } from "react";
 import { CartIcon } from "./CartIcon";
 
-import { useMediaQuery } from "@/shared/hooks/useMediaQuery";
 import { NavigationMenuComponent } from "./MenuDrowdown";
 import { DrawnerComponent } from "./DrawnerComponent";
 
@@ -29,7 +28,6 @@ export const Navbar = () => {
     };
   }, []);
 
-  const isDesktop = useMediaQuery("(min-width: 768px)");
 
   return (
     <div

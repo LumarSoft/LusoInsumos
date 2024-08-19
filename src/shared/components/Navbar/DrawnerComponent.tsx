@@ -491,7 +491,18 @@ export const DrawnerComponent = () => {
     {
       value: "35",
       label: "Juegos digitales",
-      href: "/category/juegos_digitales",
+      children: [
+        {
+          value: "92",
+          label: "Juegos PS4",
+          href: "/category/juegos_digitales/ps4",
+        },
+        {
+          value: "93",
+          label: "Juegos PS5",
+          href: "/category/juegos_digitales/ps5",
+        },
+      ],
     },
 
     //Impresion 3D
