@@ -1,3 +1,5 @@
+export const fetchCache = 'force-no-store';
+
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { cn } from "@/lib/utils";
