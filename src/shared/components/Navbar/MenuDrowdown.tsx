@@ -443,8 +443,6 @@ export function NavigationMenuComponent() {
                   </HoverCardContent>
                 </HoverCard>
               </ListItem>
-
-              
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
@@ -452,11 +450,17 @@ export function NavigationMenuComponent() {
         {/* Juegos digitales */}
 
         <NavigationMenuItem>
-          <Link href="/category/juegos_digitales" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              JUEGOS DIGITALES
-            </NavigationMenuLink>
-          </Link>
+          <NavigationMenuTrigger>JUEGOS DIGITALES</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+              <Link href={"/category/juegos_digitales/ps4"}>
+                <ListItem title="Juegos ps4"></ListItem>
+              </Link>
+              <Link href={"/category/juegos_digitales/ps5"}>
+                <ListItem title="Juegos ps5"></ListItem>
+              </Link>
+            </ul>
+          </NavigationMenuContent>
         </NavigationMenuItem>
 
         {/* IMpresion 3D */}
