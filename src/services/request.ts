@@ -8,6 +8,11 @@ export const fetchData = async (endpoint: string) => {
   try {
     const response = await fetch(`${BASE_API_URL}/${endpoint}`, {
       method: "GET",
+      headers: {
+        "Cache-Control": "no-cache, no-store, must-revalidate",
+        Pragma: "no-cache",
+        Expires: "0",
+      },
       next: {
         revalidate: 0,
       },
