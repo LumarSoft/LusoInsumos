@@ -7,14 +7,12 @@ export default async function Subcategory({
 }: {
   params: { category: string; subcategory: string };
 }) {
-
-
   let brands;
-
 
   const products = await fetchData(
     `getProductsByCondition/${params.category}/${params.subcategory}`
   );
+
 
   if (products) {
     brands = getBrands(products);

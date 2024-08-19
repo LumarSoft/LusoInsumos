@@ -5,6 +5,7 @@ import { NextResponse } from "next/server";
 export async function GET(req: Request, context: any) {
   const { params } = context;
 
+
   try {
     const tableName = getValidTableName(params.nameTable);
     if (!tableName) {
@@ -17,10 +18,10 @@ export async function GET(req: Request, context: any) {
     let query = "";
     const condition = params.condition;
 
-    if (tableName === 'celulares_usados' || tableName === 'celulares_nuevos') {
-      if (condition === 'multimarcas') {
+    if (tableName === "celulares_usados" || tableName === "celulares_nuevos") {
+      if (condition === "multimarcas") {
         query = `SELECT * FROM ${tableName} WHERE brand != 'apple'`;
-      } else if (condition === 'apple') {
+      } else if (condition === "apple") {
         query = `SELECT * FROM ${tableName} WHERE brand = 'apple'`;
       } else {
         return NextResponse.json(

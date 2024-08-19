@@ -7,8 +7,10 @@ export const fetchData = async (endpoint: string) => {
 
   try {
     const response = await fetch(`${BASE_API_URL}/${endpoint}`, {
-      next: { revalidate: 0 },
       method: "GET",
+      next: {
+        revalidate: 0,
+      },
     });
 
     if (!response.ok) {
