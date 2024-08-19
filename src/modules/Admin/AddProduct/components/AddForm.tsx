@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -20,18 +20,21 @@ import {
 import { categories } from "@/shared/constant/categories";
 import { toast } from "react-toastify";
 import { generateRandomString } from "@/shared/utils/generateIdProduct";
-import { postData } from "@/services/request";
+import { fetchData, postData } from "@/services/request";
 import { uploadFile } from "@/services/firebase/storage/storage";
 
 export const AddForm = () => {
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
-  const [brand, setBrand] = useState("");
+  const [subcategory, setSubcategory] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [stock, setStock] = useState("");
   const [image, setImage] = useState<File | null>(null);
   const [currency, setCurrency] = useState("USD");
+  const [subcategoryData, setsubcategoryData] = useState<
+    { ID: Number; NOMBRE: string }[]
+  >([]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, files } = e.target;
@@ -46,7 +49,7 @@ export const AddForm = () => {
           setCategory(value);
           break;
         case "brand":
-          setBrand(value);
+          setSubcategory(value);
           break;
         case "description":
           setDescription(value);
@@ -62,19 +65,16 @@ export const AddForm = () => {
   };
 
   const handleSave = async () => {
-    //Primero subimos la imagen a storage
     let url;
     if (image) {
       url = await uploadFile(image);
     }
 
-    console.log(url);
-
     const formData = new FormData();
     formData.append("id", generateRandomString());
     formData.append("title", title);
     formData.append("category", category);
-    formData.append("brand", brand);
+    formData.append("brand", subcategory);
     formData.append("description", description);
     formData.append("price", price);
     formData.append("currency", currency);
@@ -85,15 +85,32 @@ export const AddForm = () => {
 
     const response = await postData(`addProduct/${category}`, formData);
 
-    console.log(response);
-
     if (response.message === "Product added") {
-      toast.success("Producto cargado exitosamente");
+      setTitle("");
+      setCategory("");
+      setSubcategory("");
+      setDescription("");
+      setPrice("");
+      setStock("");
+      setImage(null);
+      setCurrency("USD");
+
+      return toast.success("Producto cargado exitosamente");
     } else {
       toast.error("Ocurrió un error al cargar el producto");
     }
   };
 
+  useEffect(() => {
+    const fetchSubcategories = async () => {
+      const results = await fetchData(`getSubcategories/${category}`);
+      setsubcategoryData(results);
+    };
+
+    if (category.length > 0) {
+      fetchSubcategories();
+    }
+  }, [category]);
   return (
     <Card className="max-w-3xl m-auto">
       <form>
@@ -128,17 +145,27 @@ export const AddForm = () => {
             </Select>
           </Label>
 
-          <Label className="w-full">
-            Marca
-            <Input
-              type="text"
-              name="brand"
-              className="input"
-              placeholder="Marca del producto"
-              onChange={handleInputChange}
-              value={brand}
-            />
-          </Label>
+          {subcategoryData.length > 0 && (
+            <Label className="w-full">
+              Subcategoria
+              <Select onValueChange={setSubcategory}>
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Seleccione una subcategoria" />
+                </SelectTrigger>
+                <SelectContent>
+                  {subcategoryData.map((subcategory) => (
+                    <SelectItem
+                      key={subcategory.NOMBRE}
+                      value={subcategory.NOMBRE}
+                    >
+                      {subcategory.NOMBRE}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </Label>
+          )}
+
           <Label className="w-full">
             Descripción
             <Input

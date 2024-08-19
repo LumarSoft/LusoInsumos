@@ -199,7 +199,7 @@ export function NavigationMenuComponent() {
               <ListItem className="w-full">
                 <HoverCard openDelay={200}>
                   <HoverCardTrigger className="text-black font-semibold cursor-pointer w-full flex items-center ">
-                    Perisfericos
+                    Perifericos
                     <ChevronDown
                       className="relative top-[1px] h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180"
                       aria-hidden="true"
@@ -291,7 +291,7 @@ export function NavigationMenuComponent() {
                     <Link href={"/category/energia_cables/cargador_auto"}>
                       <ListItem title="Cargadores autos"></ListItem>
                     </Link>
-                    <Link href={"/category/energia_cables/cargadore_220v"}>
+                    <Link href={"/category/energia_cables/cargador_220v"}>
                       <ListItem title="Cargadores 220V"></ListItem>
                     </Link>
                     <Link href={"/category/energia_cables/pila"}>

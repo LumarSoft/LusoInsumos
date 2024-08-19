@@ -21,7 +21,7 @@ const AdminModule = () => {
   }, []);
 
   return (
-    <main className="py-10 px-20">
+    <main className="pt-28 lg:pt-10 lg:px-20 px-4">
       <h4 className="text-4xl font-semibold text-center">
         Productos editables
       </h4>

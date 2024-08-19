@@ -8,9 +8,12 @@ export async function GET() {
     let editableProducts: any[] = [];
 
     for (const tableName of nameTables) {
-      const query = `SELECT *, '${tableName}' as tableName FROM \`${tableName}\` WHERE editable = 1`;
+      const query = `SELECT *,'${tableName}' as tableName FROM \`${tableName}\` WHERE editable = 1`;
       const [rows] = await pool.query(query);
-      editableProducts = [...editableProducts, ...(Array.isArray(rows) ? rows : [])];
+      editableProducts = [
+        ...editableProducts,
+        ...(Array.isArray(rows) ? rows : []),
+      ];
     }
 
     return NextResponse.json(editableProducts);

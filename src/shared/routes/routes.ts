@@ -4,7 +4,6 @@ export enum ERoutes {
   PRODUCT = "/category/:category/:product",
   LOGIN = "/login",
   ADMIN = "/admin",
-  FILE = "/admin/file",
   ADDPRODUCT = "/admin/add-product",
   BANNERS = "/admin/banners",
 }
@@ -15,7 +14,6 @@ export type TRoutes =
   | "Product"
   | "Login"
   | "Admin"
-  | "Archivo de productos"
   | "Producto manualmente"
   | "Banners";
 
@@ -47,10 +45,6 @@ export const ROUTES: IRoute[] = [
     name: "Admin",
     path: ERoutes.ADMIN,
     subroutes: [
-      {
-        name: "Archivo de productos",
-        path: ERoutes.FILE,
-      },
       {
         name: "Producto manualmente",
         path: ERoutes.ADDPRODUCT,
