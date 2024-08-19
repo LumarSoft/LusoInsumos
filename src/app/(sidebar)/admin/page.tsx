@@ -1,6 +1,8 @@
 import AdminModule from "@/modules/Admin/home";
+import { fetchData } from "@/services/request";
 
-export default function Admin() {
+export default async function Admin() {
+  const products = await fetchData("getProductsEditables");
 
-  return <AdminModule />;
+  return <AdminModule products={products}/>;
 }

@@ -1,25 +1,8 @@
-"use client";
 import { DataTable } from "./components/table/DataTable";
 import { columns } from "./components/table/Columns";
-import { useEffect, useState } from "react";
-import { fetchData } from "@/services/request";
+import { IProductManual } from "@/shared/types/IProductManual";
 
-const AdminModule = () => {
-  const [productsEditables, setProductsEditables] = useState([]);
-
-  useEffect(() => {
-    const fetchs = async () => {
-      try {
-        const products = await fetchData("getProductsEditables");
-        setProductsEditables(products);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchs();
-  }, []);
-
+const AdminModule = ({ products }: { products: IProductManual[] }) => {
   return (
     <main className="pt-28 lg:pt-10 lg:px-20 px-4">
       <h4 className="text-4xl font-semibold text-center">
@@ -28,7 +11,7 @@ const AdminModule = () => {
       <p className="text-center">
         Es posible que debas recargar la pagina para ver los cambios
       </p>
-      <DataTable columns={columns} data={productsEditables || []} />
+      <DataTable columns={columns} data={products || []} />
     </main>
   );
 };
