@@ -5,9 +5,12 @@ import { IProductManual } from "@/shared/types/IProductManual";
 
 export default async function Admin() {
   try {
-    const response = await fetch(`${BASE_API_URL}/getProductsEditables`, {
-      cache: "no-store",
-    });
+    const response = await fetch(
+      `https://www.lusoinsumos.com/api/getProductsEditables`,
+      {
+        next: { revalidate: 0 },
+      }
+    );
 
     if (!response.ok) {
       throw new Error(`Error al obtener productos: ${response.statusText}`);
