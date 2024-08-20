@@ -1,16 +1,11 @@
 // src/app/(sidebar)/admin/page.tsx
 import AdminModule from "@/modules/Admin/home";
-import { BASE_API_URL } from "@/shared/providers/envProvider";
+import { fetchData } from "@/services/request";
 import { IProductManual } from "@/shared/types/IProductManual";
 
 export default async function Admin() {
   try {
-    const response = await fetch(
-      `http://149.50.141.19:3006/api/getProductsEditables`,
-      {
-        next: { revalidate: 0 },
-      }
-    );
+    const response = await fetchData("getProductsEditables")    
 
     if (!response.ok) {
       throw new Error(`Error al obtener productos: ${response.statusText}`);
