@@ -6,7 +6,7 @@ import { IProductManual } from "@/shared/types/IProductManual";
 export default async function Admin() {
   try {
     const response = await fetch(
-      `https://www.lusoinsumos.com/api/getProductsEditables`,
+      `http://149.50.141.19:3006/api/getProductsEditables`,
       {
         next: { revalidate: 0 },
       }

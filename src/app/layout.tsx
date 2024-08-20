@@ -1,4 +1,4 @@
-export const fetchCache = 'force-no-store';
+export const fetchCache = 'default-no-store';
 
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";

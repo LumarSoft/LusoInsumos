@@ -5,11 +5,9 @@ export async function POST(req: Request, context: any) {
   try {
     const formData = await req.formData();
     const body = Object.fromEntries(formData.entries());
-    console.log(body);
 
     const tableName = context.params.table;
 
-    console.log("Table name:", tableName);
 
     // Preparar los datos para la inserción
     const { id, title, brand, description, price, currency, stock, image } =
