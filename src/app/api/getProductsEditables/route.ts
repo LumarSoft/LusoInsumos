@@ -1,8 +1,9 @@
 import { pool } from "@/services/mysql/dbConfig";
 import { categories } from "@/shared/constant/categories";
 import { NextResponse } from "next/server";
+import { NextRequest } from "next/server";
 
-export async function GET() {
+export async function GET(_req: NextRequest) {
   try {
     const nameTables = categories;
     let editableProducts: any[] = [];
@@ -16,7 +17,14 @@ export async function GET() {
       ];
     }
 
-    return NextResponse.json(editableProducts);
+    // Desactivar caché
+    const response = NextResponse.json(editableProducts);
+    response.headers.set("Cache-Control", "no-store, no-cache, must-revalidate, proxy-revalidate");
+    response.headers.set("Pragma", "no-cache");
+    response.headers.set("Expires", "0");
+    response.headers.set("Surrogate-Control", "no-store");
+
+    return response;
   } catch (error) {
     console.error("Error al procesar la solicitud:", error);
     return NextResponse.json(
