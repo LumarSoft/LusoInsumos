@@ -21,6 +21,7 @@ export const DeleteProductDialog = ({
   product: IProductManual;
 }) => {
   const handleDelete = async (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
     const result = await deleteData(product.tableName, product.id);
 
     if (result.message === "Product deleted") {
