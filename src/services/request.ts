@@ -68,19 +68,21 @@ export const postData = async (
 };
 
 export const updateData = async (
-  endpoint: string,
-  id: number,
-  updateData: Record<string, unknown>
+  nameTable: string,
+  id: string,
+  updateData: FormData
 ) => {
   if (!BASE_API_URL) {
     return null;
   }
   try {
-    const response = await fetch(`${BASE_API_URL}/${endpoint}/${id}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(updateData),
-    });
+    const response = await fetch(
+      `${BASE_API_URL}/updateProduct/${nameTable}/${id}`,
+      {
+        method: "PUT",
+        body: updateData,
+      }
+    );
     if (!response.ok) {
       throw new Error("Error al actualizar datos");
     }

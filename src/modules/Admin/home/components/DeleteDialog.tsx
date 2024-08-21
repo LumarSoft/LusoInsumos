@@ -35,7 +35,7 @@ export const DeleteProductDialog = ({
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <Button>
+        <Button variant={"destructive"}>
           <Trash2 />
         </Button>
       </AlertDialogTrigger>

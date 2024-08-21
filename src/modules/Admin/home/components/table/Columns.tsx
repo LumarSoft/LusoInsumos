@@ -3,7 +3,7 @@
 import { ColumnDef } from "@tanstack/react-table";
 import { DeleteProductDialog } from "../DeleteDialog";
 import { IProductManual } from "@/shared/types/IProductManual";
-
+import { UpdateDialog } from "../UpdateDialog";
 
 export const columns: ColumnDef<IProductManual>[] = [
   {
@@ -13,6 +13,13 @@ export const columns: ColumnDef<IProductManual>[] = [
   {
     header: "Precio",
     accessorKey: "price",
+    cell: (row) => {
+      return (
+        <>
+          {row.row.original.currency} {row.row.original.price}
+        </>
+      );
+    },
   },
   {
     header: "Stock",
@@ -39,9 +46,18 @@ export const columns: ColumnDef<IProductManual>[] = [
     },
   },
   {
+    header: "categoria",
+    accessorKey: "tableName",
+  },
+  {
     id: "actions",
     cell: ({ row }) => {
-      return <DeleteProductDialog product={row.original} />;
+      return (
+        <div className="flex gap-2">
+          <UpdateDialog product={row.original} />
+          <DeleteProductDialog product={row.original} />
+        </div>
+      );
     },
   },
 ];
