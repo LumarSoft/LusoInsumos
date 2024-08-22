@@ -214,72 +214,72 @@ export const DrawnerComponent = () => {
       children: [
         {
           value: "39",
-          label: "Perisfericos",
+          label: "Perifericos",
           children: [
             {
               value: "40",
               label: "Mouse con cable",
-              href: "/category/periferiscos/mouse",
+              href: "/category/perifericos/mouse",
             },
             {
               value: "41",
               label: "Mouse inalambrico",
-              href: "/category/periferiscos/mouse_inalambrico",
+              href: "/category/perifericos/mouse_inalambrico",
             },
             {
               value: "42",
               label: "Mouse pads",
-              href: "/category/periferiscos/mouse_pad",
+              href: "/category/perifericos/mouse_pad",
             },
             {
               value: "43",
               label: "Teclado con cable",
-              href: "/category/periferiscos/teclado",
+              href: "/category/perifericos/teclado",
             },
             {
               value: "44",
               label: "Teclado inalambrico",
-              href: "/category/periferiscos/teclado_inalambrico",
+              href: "/category/perifericos/teclado_inalambrico",
             },
             {
               value: "45",
               label: "Parlantes",
-              href: "/category/periferiscos/parlantes",
+              href: "/category/perifericos/parlantes",
             },
             {
               value: "46",
               label: "Joysticks",
-              href: "/category/periferiscos/joystick",
+              href: "/category/perifericos/joystick",
             },
             {
               value: "47",
               label: "Webcam",
-              href: "/category/periferiscos/webcam",
+              href: "/category/perifericos/webcam",
             },
             {
               value: "48",
               label: "Auriculares",
-              href: "/category/periferiscos/auriculares",
+              href: "/category/perifericos/auriculares",
             },
             {
               value: "49",
               label: "Mouse + teclado cableados",
-              href: "/category/periferiscos/kit_cables",
+              href: "/category/perifericos/kit_cables",
             },
             {
               value: "50",
               label: "Mouse + teclado inalambricos",
-              href: "/category/periferiscos/kit_inalambrico",
+              href: "/category/perifericos/kit_inalambrico",
             },
             {
               value: "51",
               label: "Multiplicadores USB",
-              href: "/category/periferiscos/multiplicadores_USB",
+              href: "/category/perifericos/multiplicadores_USB",
             },
             {
               value: "52",
               label: "Placas de sonido USB",
-              href: "/category/periferiscos/placas_sonido",
+              href: "/category/perifericos/placas_sonido",
             },
           ],
         },
