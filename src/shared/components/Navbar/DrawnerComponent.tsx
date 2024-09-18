@@ -509,7 +509,48 @@ export const DrawnerComponent = () => {
     {
       value: "36",
       label: "Impresion 3D",
-      href: "/category/impresion_3d",
+      children: [
+        {
+          value: "94",
+          label: "Macetas",
+          href: "/category/impresion_3d/macetas",
+        },
+        {
+          value: "95",
+          label: "Sahumerios/Budas",
+          href: "/category/impresion_3d/sahumerios_budas",
+        },
+        {
+          value: "96",
+          label: "Porta Objetos",
+          href: "/category/impresion_3d/porta_objetos",
+        },
+        {
+          value: "97",
+          label: "Soporte",
+          href: "/category/impresion_3d/soporte",
+        },
+        {
+          value: "98",
+          label: "Mates",
+          href: "/category/impresion_3d/mates",
+        },
+        {
+          value: "99",
+          label: "Lamparas/Veladores",
+          href: "/category/impresion_3d/lamparas_veladores",
+        },
+        {
+          value: "100",
+          label: "Figuras/Bustos",
+          href: "/category/impresion_3d/figuras_bustos",
+        },
+        {
+          value: "101",
+          label: "Varios",
+          href: "/category/impresion_3d/varios",
+        },
+      ],
     },
 
     //Servicio tecnico

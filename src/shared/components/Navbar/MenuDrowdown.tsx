@@ -466,11 +466,35 @@ export function NavigationMenuComponent() {
         {/* IMpresion 3D */}
 
         <NavigationMenuItem>
-          <Link href="/category/impresion_3d" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              IMPRESION 3D
-            </NavigationMenuLink>
-          </Link>
+          <NavigationMenuTrigger>IMPRESION 3D</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+              <Link href={"/category/impresion_3d/macetas"}>
+                <ListItem title="Macetas"></ListItem>
+              </Link>
+              <Link href={"/category/impresion_3d/sahumerios_budas"}>
+                <ListItem title="Sahumerios/Budas"></ListItem>
+              </Link>
+              <Link href={"/category/impresion_3d/porta_objetos"}>
+                <ListItem title="Porta objetos"></ListItem>
+              </Link>
+              <Link href={"/category/impresion_3d/soportes"}>
+                <ListItem title="Soportes"></ListItem>
+              </Link>
+              <Link href={"/category/impresion_3d/mates"}>
+                <ListItem title="Mates"></ListItem>
+              </Link>
+              <Link href={"/category/impresion_3d/lamparas_veladores"}>
+                <ListItem title="Lámparas/Veladores"></ListItem>
+              </Link>
+              <Link href={"/category/impresion_3d/figuras_bustos"}>
+                <ListItem title="Figuras bustos"></ListItem>
+              </Link>
+              <Link href={"/category/impresion_3d/varios"}>
+                <ListItem title="Varios"></ListItem>
+              </Link>
+            </ul>
+          </NavigationMenuContent>
         </NavigationMenuItem>
 
         {/* Servicio tecnico */}
