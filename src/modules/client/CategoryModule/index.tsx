@@ -1,20 +1,22 @@
 import { GridProducts } from "@/shared/components/GridProducts/GridProducts";
+import { SearchProduct } from "@/shared/components/Search/SearchProduct";
 import { IProduct } from "@/shared/types/IProduct";
 
 interface CategoryModuleProps {
+  brands: any[];
   products: IProduct[];
   category: string;
-  brands: any[];
 }
 
 export default function CategoryModule({
+  brands,
   products,
   category,
-  brands,
 }: CategoryModuleProps) {
-
   return (
     <div className="px-4 md:px-28 2xl:px-80">
+      <SearchProduct />
+
       {products.length > 0 ? (
         <GridProducts products={products} brands={brands} category={category} />
       ) : (

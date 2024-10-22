@@ -4,6 +4,7 @@ import { CardProduct } from "../CardProducts/CardProducts";
 import { FilterButtons } from "../FilterButtons/FilterButtons";
 import { IProduct } from "@/shared/types/IProduct";
 import { FramerComponent } from "../Framer/FramerComponent";
+import { SearchProduct } from "../Search/SearchProduct";
 
 export const GridProducts = ({
   products,
@@ -60,6 +61,7 @@ export const GridProducts = ({
 
   return (
     <div className="mt-4 w-full h-full">
+
       <FilterButtons
         category={category}
         brands={brands}

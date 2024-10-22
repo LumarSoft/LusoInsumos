@@ -14,8 +14,6 @@ export default async function Subcategory({
   params: SubcategoryParams;
 }) {
 
-
-
   let brands: string[] = [];
 
   const products = await fetchData(

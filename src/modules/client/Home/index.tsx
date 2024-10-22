@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import { fetchData } from "@/services/request";
 import { getAllDocs } from "@/services/firebase/firestore/firestore";
 import { IBanners } from "@/shared/types/IBanner";
+import { SearchProduct } from "@/shared/components/Search/SearchProduct";
 
 const HomeModule = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
@@ -38,6 +39,8 @@ const HomeModule = () => {
 
   return (
     <main className="w-full h-full">
+      <SearchProduct />
+
       <SliderBanner banners={banners} />
       <div className="px-4 md:px-28 2xl:px-80 pt-16">
         <div>
