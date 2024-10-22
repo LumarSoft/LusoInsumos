@@ -22,46 +22,48 @@ export const CardProduct = ({ product }: { product: IProduct }) => {
   };
 
   return (
-    <div className="border border-zinc-200 rounded-md flex flex-col h-[500px] py-2">
-      <div className="aspect-w-4 aspect-h-3 h-52">
+    <div className="border border-zinc-200 rounded-md flex flex-col h-full py-2 px-1 sm:px-2">
+      <div className="aspect-w-1 aspect-h-1 mb-2">
         <img
           src={product.image}
           alt={product.title}
           className="w-full h-full object-contain"
         />
       </div>
-      <div className="p-4 flex flex-col flex-grow">
-        <h3 className="text-center text-sm lg:text-base font-bold text-black mb-2  lg:line-clamp-none h-12">
+      <div className="flex flex-col flex-grow">
+        <h3 className="text-center text-xs sm:text-sm font-bold text-black mb-1 line-clamp-2 min-h-[2.5em]">
           {product.title}
         </h3>
         {product.color && (
-          <div className="text-center mb-2">
-            <div className="inline-flex w-fit items-center whitespace-nowrap rounded-full border px-2.5 py-0.5 text-xs font-semibold bg-background text-black">
+          <div className="text-center mb-1">
+            <div className="inline-flex w-fit items-center whitespace-nowrap rounded-full border px-1.5 py-0.5 text-xs font-semibold bg-background text-black">
               {product.color}
             </div>
           </div>
         )}
-        <p className="text-gray-600 font-semibold text-sm text-center mb-2 flex-grow line-clamp-3 min-h-[3em]">
+        {/* <p className="text-gray-600 font-semibold text-xs text-center mb-1 line-clamp-2 min-h-[2em]">
           {product.description}
-        </p>
+        </p> */}
 
-        <hr className="my-2" />
-        <div className="flex items-center justify-around mb-2">
-          <div className="text-lg font-bold">
-            {product.currency} {product.price === "0.0" ? "" : "$"}{" "}
-            {formatPrice(product.price ?? "")}
+        <div className="mt-auto">
+          <hr className="my-1" />
+          <div className="flex items-center justify-around mb-1">
+            <div className="text-xs sm:text-base font-bold">
+              {product.currency} {product.price === "0.0" ? "" : "$"}{" "}
+              {formatPrice(product.price ?? "")}
+            </div>
           </div>
-        </div>
 
-        <button
-          className="w-full bg-black rounded-md py-2 text-white text-sm font-semibold hover:bg-zinc-700 transition duration-300 ease-in-out"
-          onClick={handleAddToCart}
-        >
-          Agregar a carrito
-        </button>
+          <button
+            className="w-full bg-black rounded-md py-1 text-white text-xs sm:text-sm font-semibold hover:bg-zinc-700 transition duration-300 ease-in-out"
+            onClick={handleAddToCart}
+          >
+            Agregar
+          </button>
 
-        <div className="mt-2 text-sm text-muted-foreground text-center">
-          En Stock: <b>{product.stock}</b>
+          <div className="mt-1 text-xs text-muted-foreground text-center">
+            Stock: <b>{product.stock}</b>
+          </div>
         </div>
       </div>
     </div>

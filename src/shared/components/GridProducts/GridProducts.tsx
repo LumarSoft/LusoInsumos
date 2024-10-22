@@ -60,8 +60,6 @@ export const GridProducts = ({
 
   return (
     <div className="mt-4 w-full h-full">
-      {/* Aca estaria la opcion de poner como titulo lo que estas buscando en cuestion con {category} */}
-
       <FilterButtons
         category={category}
         brands={brands}
@@ -69,7 +67,7 @@ export const GridProducts = ({
         setSelectedBrand={setSelectedBrand}
       />
       <FramerComponent
-        style="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-4 md:gap-6 p-2 sm:p-4"
+        style="grid grid-cols-2 lg:grid-cols-4 gap-1 sm:gap-2 md:gap-3 p-1 sm:p-2 md:p-3"
         animationVariants={container}
         animationInitial="hidden"
         animationWhileInView="show"
