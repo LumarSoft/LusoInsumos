@@ -98,6 +98,9 @@ dependencies:
   tailwindcss-animate:
     specifier: ^1.0.7
     version: 1.0.7(tailwindcss@3.4.4)
+  undici:
+    specifier: ^6.19.8
+    version: 6.20.1
   usehooks-ts:
     specifier: ^3.1.0
     version: 3.1.0(react@18.3.1)
@@ -4968,6 +4971,11 @@ packages:
     engines: {node: '>=14.0'}
     dependencies:
       '@fastify/busboy': 2.1.1
+    dev: false
+
+  /undici@6.20.1:
+    resolution: {integrity: sha512-AjQF1QsmqfJys+LXfGTNum+qw4S88CojRInG/6t31W/1fk6G59s92bnAvGz5Cmur+kQv2SURXEvvudLmbrE8QA==}
+    engines: {node: '>=18.17'}
     dev: false
 
   /uri-js@4.4.1:
