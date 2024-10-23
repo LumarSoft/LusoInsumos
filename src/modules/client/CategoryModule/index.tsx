@@ -23,7 +23,7 @@ export default function CategoryModule({
   category,
 }: CategoryModuleProps) {
   return (
-    <div className="px-4 md:px-28 2xl:px-80">
+    <div className="px-4 md:px-28 2xl:px-80 pt-20 lg:pt-36">
       <SearchProduct />
 
       {products.length > 0 ? (

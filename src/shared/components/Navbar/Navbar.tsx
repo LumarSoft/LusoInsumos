@@ -7,7 +7,6 @@ import { CartIcon } from "./CartIcon";
 
 import { NavigationMenuComponent } from "./MenuDrowdown";
 import { DrawnerComponent } from "./DrawnerComponent";
-import { SearchProduct } from "../Search/SearchProduct";
 
 export const Navbar = () => {
   const homeRoute = useRouterHelper().getOneRoute("/");
@@ -30,9 +29,9 @@ export const Navbar = () => {
   }, []);
 
   return (
-    <div
-      className={`w-full fixed lg:h-36 flex lg:flex-col lg:items-center px-4 pt-4 md:px-28 2xl:px-80 justify-between top-0 left-0 right-0 z-50 transition-shadow duration-500 bg-white ${
-        scrolled ? "shadow-xl" : ""
+    <nav
+      className={`w-full h-20 flex justify-between px-4 lg:flex-col items-center fixed z-50 lg:h-36 transition-shadow duration-500 bg-white ${
+        scrolled ? " shadow-xl" : ""
       }`}
     >
       <Link href={homeRoute?.path || "/"}>
@@ -45,6 +44,6 @@ export const Navbar = () => {
         <CartIcon />
         <DrawnerComponent />
       </div>
-    </div>
+    </nav>
   );
 };

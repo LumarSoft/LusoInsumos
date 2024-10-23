@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 
 export default function HeaderLayout({ children }: { children: ReactNode }) {
   return (
-    <div className="pt-20 2xl:pt-36">
+    <div className="">
       <Navbar />
       {children}
     </div>

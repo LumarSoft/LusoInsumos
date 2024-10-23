@@ -38,7 +38,7 @@ const HomeModule = () => {
     .slice(0, 10);
 
   return (
-    <main className="w-full h-full">
+    <main className="w-full h-full pt-20 lg:pt-36">
       <SearchProduct />
 
       <SliderBanner banners={banners} />
