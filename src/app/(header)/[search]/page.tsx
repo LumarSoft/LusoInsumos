@@ -4,16 +4,16 @@ import { fetchData } from "@/services/request";
 export default async function Page({
   searchParams,
 }: {
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+  searchParams: { q: string };
 }) {
-  const resolvedSearchParams = await searchParams;
-  const products = await fetchData(`getSearch/${resolvedSearchParams.q}`);
+  const searchTerm = encodeURIComponent(searchParams.q);
+  const products = await fetchData(`getSearch/${searchTerm}`);
 
   return (
     <CategoryModule
       brands={[]}
       products={products || []}
-      category={`Resultado de: ${resolvedSearchParams.q}`}
+      category={`Resultado de: ${searchTerm}`}
     />
   );
 }

@@ -16,7 +16,9 @@ export const SearchProduct = () => {
     e.preventDefault();
 
     if (search) {
-      router.push(`/search?q=${search}`);
+      // Codificar el término de búsqueda para manejar caracteres especiales
+      const encodedSearch = encodeURIComponent(search);
+      router.push(`/search?q=${encodedSearch}`);
     }
   };
 
