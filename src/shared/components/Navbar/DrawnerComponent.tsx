@@ -185,7 +185,7 @@ export const DrawnerComponent = () => {
             {
               value: "31",
               label: "Soluciones termicas",
-              href: "/category/soluciones-termicas",
+              href: "/category/soluciones_termicas",
             },
           ],
         },

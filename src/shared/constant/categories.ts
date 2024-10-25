@@ -155,7 +155,7 @@ export const accordionData = [
           {
             value: "31",
             label: "Soluciones termicas",
-            href: "/category/soluciones-termicas",
+            href: "/category/soluciones_termicas",
           },
         ],
       },
