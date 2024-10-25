@@ -154,7 +154,7 @@ export function NavigationMenuComponent() {
                       <ListItem title="Fuentes"></ListItem>
                     </Link>
                     <Link href={"/category/soluciones_termicas"}>
-                      <ListItem title="Soluciones termincas"></ListItem>
+                      <ListItem title="Soluciones termicas"></ListItem>
                     </Link>
                   </HoverCardContent>
                 </HoverCard>
