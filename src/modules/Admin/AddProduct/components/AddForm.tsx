@@ -27,7 +27,6 @@ export const AddForm = () => {
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
   const [subcategory, setSubcategory] = useState("");
-  const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [stock, setStock] = useState("");
   const [image, setImage] = useState<File | null>(null);
@@ -51,9 +50,7 @@ export const AddForm = () => {
         case "brand":
           setSubcategory(value);
           break;
-        case "description":
-          setDescription(value);
-          break;
+
         case "price":
           setPrice(value);
           break;
@@ -73,7 +70,6 @@ export const AddForm = () => {
     if (
       title.length < 1 ||
       category.length < 1 ||
-      description.length < 1 ||
       price.length < 1 ||
       stock.length < 1
     ) {
@@ -85,7 +81,6 @@ export const AddForm = () => {
     formData.append("title", title);
     formData.append("category", category);
     formData.append("brand", subcategory);
-    formData.append("description", description);
     formData.append("price", price);
     formData.append("currency", currency);
     formData.append("stock", stock);
@@ -99,7 +94,6 @@ export const AddForm = () => {
       setTitle("");
       setCategory("");
       setSubcategory("");
-      setDescription("");
       setPrice("");
       setStock("");
       setImage(null);
@@ -176,16 +170,6 @@ export const AddForm = () => {
             </Label>
           )}
 
-          <Label className="w-full">
-            Descripción
-            <Input
-              type="text"
-              name="description"
-              placeholder="Descripción del producto"
-              onChange={handleInputChange}
-              value={description}
-            />
-          </Label>
           <Label>
             Moneda
             <Select onValueChange={setCurrency}>

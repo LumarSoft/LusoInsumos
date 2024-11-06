@@ -174,7 +174,7 @@ export function NavigationMenuComponent() {
                   href={"/category/impresoras"}
                   className="text-black font-semibold cursor-pointer"
                 >
-                  Impresoras{" "}
+                  Impresoras/Tóners{" "}
                 </Link>
               </ListItem>
 

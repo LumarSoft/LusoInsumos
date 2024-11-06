@@ -196,7 +196,7 @@ export const DrawnerComponent = () => {
         },
         {
           value: "33",
-          label: "Impresoras",
+          label: "Impresoras/Tóners",
           href: "/category/impresoras",
         },
         {

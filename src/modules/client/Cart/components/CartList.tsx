@@ -2,9 +2,7 @@ import { cartStore } from "@/shared/stores/CartStore";
 import { formatPrice } from "@/shared/utils/formatPrice";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { AlertTriangle, ShoppingCart } from "lucide-react";
-import { Trash } from "lucide-react"; 
 
 export const CartList = () => {
   const cart = cartStore((state) => state.cart);
