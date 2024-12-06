@@ -44,16 +44,21 @@ const HomeModule = () => {
       <SliderBanner banners={banners} />
       <div className="px-4 md:px-28 2xl:px-80 pt-16">
         <div>
-          <h3 className="text-xl 2xl:text-4xl text-center pb-6 font-semibold oswald">
-            Celulares destacados
-          </h3>
+          <div className="flex justify-center">
+            <h3 className="text-xl inline px-2 rounded-md 2xl:text-4xl text-center mb-3 font-semibold oswald bg-red-500 text-white uppercase py-2">
+              Celulares destacados
+            </h3>
+          </div>
+
           <SliderProductsComponent items={productsForSlider} />
         </div>
 
         <div>
-          <h3 className="text-xl 2xl:text-4xl text-center pb-6 font-semibold mt-4 oswald">
-            Computadoras destacadas
-          </h3>
+          <div className="flex justify-center">
+            <h3 className="text-xl 2xl:text-4xl px-2 rounded-md text-center mb-3 font-semibold mt-4 oswald bg-red-500 text-white uppercase py-2">
+              Computadoras destacadas
+            </h3>
+          </div>
           <SliderProductsComponent items={computer} />
         </div>
       </div>
