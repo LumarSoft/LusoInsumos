@@ -10,4 +10,5 @@ export interface IProduct {
   category?: string;
   code?: string;
   currency?: string;
+  video?: string;
 }
