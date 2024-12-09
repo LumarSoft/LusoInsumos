@@ -20,78 +20,72 @@ export const SliderBanner = ({ banners }: { banners: any[] }) => {
     (banner) => banner.category === "mobile"
   );
 
-  //En caso que la cantidad de banners desktop sea 1
-  if (desktopBanners.length === 1) {
-    return (
-      <FramerComponent
-        animationInitial={{ opacity: 0 }}
-        animationAnimate={{ opacity: 1 }}
-        style="hidden lg:block"
-      >
-        <Image
-          src={desktopBanners[0].url}
-          alt={desktopBanners[0].alt}
-          height={300}
-          width={1920}
-        />
-      </FramerComponent>
-    );
-  }
-
-  //En caso que la cantidad de banners mobile sea 1
-  if (mobileBanners.length === 1) {
-    return (
-      <FramerComponent
-        animationInitial={{ opacity: 0 }}
-        animationAnimate={{ opacity: 1 }}
-        style="block lg:hidden"
-      >
-        <Image
-          src={mobileBanners[0].url}
-          alt={mobileBanners[0].alt}
-          height={300}
-          width={1920}
-        />
-      </FramerComponent>
-    );
-  }
-
-  // En caso que la cantidad de banners sea mayor a 1
   return (
     <FramerComponent
       animationInitial={{ opacity: 0 }}
       animationAnimate={{ opacity: 1 }}
     >
-      <Carousel className={`hidden lg:flex`}>
-        <CarouselContent>
-          {desktopBanners.map((banner, index) => (
-            <CarouselItem key={index}>
-              <Image
-                src={banner.url}
-                alt={banner.alt}
-                height={300}
-                width={1920}
-                className="object-cover"
-              />
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-      </Carousel>
-      <Carousel className={`flex lg:hidden`}>
-        <CarouselContent>
-          {mobileBanners.map((banner, index) => (
-            <CarouselItem key={index}>
-              <Image
-                src={banner.url}
-                alt={banner.alt}
-                height={300}
-                width={1920}
-                className="object-cover"
-              />
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-      </Carousel>
+      {/* Mostrar el banner de desktop si hay exactamente 1 */}
+      {desktopBanners.length === 1 && (
+        <div className="hidden lg:block">
+          <Image
+            src={desktopBanners[0].url}
+            alt={desktopBanners[0].alt}
+            height={300}
+            width={1920}
+          />
+        </div>
+      )}
+
+      {/* Mostrar el banner de mobile si hay exactamente 1 */}
+      {mobileBanners.length === 1 && (
+        <div className="block lg:hidden">
+          <Image
+            src={mobileBanners[0].url}
+            alt={mobileBanners[0].alt}
+            height={300}
+            width={1920}
+          />
+        </div>
+      )}
+
+      {/* Mostrar el carrusel de desktop si hay más de 1 */}
+      {desktopBanners.length > 1 && (
+        <Carousel className="hidden lg:flex">
+          <CarouselContent>
+            {desktopBanners.map((banner, index) => (
+              <CarouselItem key={index}>
+                <Image
+                  src={banner.url}
+                  alt={banner.alt}
+                  height={300}
+                  width={1920}
+                  className="object-cover"
+                />
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
+      )}
+
+      {/* Mostrar el carrusel de mobile si hay más de 1 */}
+      {mobileBanners.length > 1 && (
+        <Carousel className="flex lg:hidden">
+          <CarouselContent>
+            {mobileBanners.map((banner, index) => (
+              <CarouselItem key={index}>
+                <Image
+                  src={banner.url}
+                  alt={banner.alt}
+                  height={300}
+                  width={1920}
+                  className="object-cover"
+                />
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
+      )}
     </FramerComponent>
   );
 };
