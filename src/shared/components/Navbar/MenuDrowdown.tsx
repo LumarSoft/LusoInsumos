@@ -28,7 +28,7 @@ export function NavigationMenuComponent() {
         {/* Liquidacion */}
 
         <NavigationMenuItem>
-          <Link href="/category/apple" legacyBehavior passHref>
+          <Link href="/category/apple_informatica" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
               APPLE
             </NavigationMenuLink>
