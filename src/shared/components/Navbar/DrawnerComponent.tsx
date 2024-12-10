@@ -54,11 +54,10 @@ export const DrawnerComponent = () => {
   };
 
   const accordionData = [
-    // Liquidacion
     {
       value: "item-1",
       label: "Apple",
-      href: "/category/apple",
+      href: "/category/apple_informatica",
     },
 
     // Celulares
