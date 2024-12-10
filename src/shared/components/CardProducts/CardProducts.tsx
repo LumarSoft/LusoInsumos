@@ -27,7 +27,8 @@ export const CardProduct = ({ product }: { product: IProduct }) => {
       window.open(product.video, "_blank");
     }
   };
-
+  const isValidValue = (value: string | null | undefined) =>
+    value && value !== "null";
   return (
     <>
       <div className="border border-zinc-200 rounded-md flex flex-col h-full py-2 px-1 sm:px-2">
@@ -50,6 +51,11 @@ export const CardProduct = ({ product }: { product: IProduct }) => {
             </div>
           )}
 
+          {isValidValue(product.description) && (
+            <div className="text-center text-xs sm:text-sm text-muted-foreground line-clamp-3">
+              {product.description}
+            </div>
+          )}
           <div className="mt-auto">
             <hr className="my-1" />
             <div className="flex items-center justify-around mb-1">
