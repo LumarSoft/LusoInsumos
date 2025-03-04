@@ -108,18 +108,7 @@ export const DrawnerComponent = () => {
         {
           value: "16",
           label: "Computadoras",
-          children: [
-            {
-              value: "17",
-              label: "Oficina",
-              href: "/category/computadoras/oficina",
-            },
-            {
-              value: "18",
-              label: "Gamer/Diseño",
-              href: "/category/computadoras/gaming",
-            },
-          ],
+          href: "/category/computadoras",
         },
         {
           value: "19",
