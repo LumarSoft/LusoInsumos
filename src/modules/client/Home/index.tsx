@@ -42,21 +42,27 @@ const HomeModule = () => {
       <SearchProduct />
 
       <SliderBanner banners={banners} />
-      <div className="px-4 md:px-28 2xl:px-80 pt-16">
+      <div className="px-4 md:px-28 2xl:px-80 pt-10">
         <div>
-          <div className="flex justify-center">
-            <h3 className="text-xl inline px-2 rounded-md 2xl:text-4xl text-center mb-3 font-semibold oswald bg-red-500 text-white uppercase py-2">
-              Celulares destacados
+          <div className="flex justify-center mb-6">
+            <h3 className="relative inline-block text-2xl 2xl:text-4xl text-center font-bold text-white uppercase tracking-wider">
+              <span className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-80 rounded-lg transform -skew-x-6"></span>
+              <span className="relative z-10 px-6 py-2">
+                Lo último en smartphones
+              </span>
             </h3>
           </div>
 
           <SliderProductsComponent items={productsForSlider} />
         </div>
 
-        <div>
-          <div className="flex justify-center">
-            <h3 className="text-xl 2xl:text-4xl px-2 rounded-md text-center mb-3 font-semibold mt-4 oswald bg-red-500 text-white uppercase py-2">
-              Computadoras destacadas
+        <div className="mt-16">
+          <div className="flex justify-center mb-6">
+            <h3 className="relative inline-block text-2xl 2xl:text-4xl text-center font-bold text-white uppercase tracking-wider">
+              <span className="absolute inset-0 bg-gradient-to-r from-green-600 to-teal-600 opacity-80 rounded-lg transform -skew-x-6"></span>
+              <span className="relative z-10 px-6 py-2">
+                Potencia tu trabajo con nuestras PCs
+              </span>
             </h3>
           </div>
           <SliderProductsComponent items={computer} />
