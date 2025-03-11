@@ -71,28 +71,13 @@ export function NavigationMenuComponent() {
           <NavigationMenuTrigger>INFORMATICA</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-              <ListItem className="w-full">
-                <HoverCard openDelay={200}>
-                  <HoverCardTrigger className="text-black font-semibold cursor-pointer w-full flex items-center ">
-                    Computadoras
-                    <ChevronDown
-                      className="relative top-[1px] h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180"
-                      aria-hidden="true"
-                    />
-                  </HoverCardTrigger>
-                  <HoverCardContent className="flex flex-col">
-                    <Link href={"/category/computadoras/oficina"}>
-                      <ListItem title="Oficina">
-                        Disponible para trabajar desde donde quieras
-                      </ListItem>
-                    </Link>
-                    <Link href={"/category/computadoras/gaming"}>
-                      <ListItem title="Gaming">
-                        Las mejores computadoras gaming del mercado
-                      </ListItem>
-                    </Link>
-                  </HoverCardContent>
-                </HoverCard>
+            <ListItem>
+                <Link
+                  href={"/category/computadoras"}
+                  className="text-black font-semibold cursor-pointer"
+                >
+                  Computadoras
+                </Link>
               </ListItem>
 
               <ListItem>
