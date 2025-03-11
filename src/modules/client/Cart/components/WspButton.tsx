@@ -1,10 +1,12 @@
 import { Button } from "@/components/ui/button";
+import { paymentTypeStore } from "@/shared/components/PaymentTypeSelector/PaymentTypeStore";
 import { cartStore } from "@/shared/stores/CartStore";
 import { formatPrice } from "@/shared/utils/formatPrice";
 import { MessageCircle } from "lucide-react";
 
 const WspButton = () => {
   const cart = cartStore((state) => state.cart);
+  const { paymentType } = paymentTypeStore();
 
   const buildMessage = () => {
     let message = " *Hola LusoInsumos!, quiero realizar una compra* \n\n";
@@ -18,6 +20,9 @@ const WspButton = () => {
         item.currency
       }`;
     });
+
+    // Add payment type information
+    message += "\n\n*Método de pago seleccionado:* " + paymentType;
 
     return message;
   };
