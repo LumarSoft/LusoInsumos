@@ -1,12 +1,15 @@
 import { Button } from "@/components/ui/button";
-import { paymentTypeStore } from "@/shared/components/PaymentTypeSelector/PaymentTypeStore";
 import { cartStore } from "@/shared/stores/CartStore";
+import { paymentTypeStore } from "@/shared/components/PaymentTypeSelector/PaymentTypeStore";
 import { formatPrice } from "@/shared/utils/formatPrice";
 import { MessageCircle } from "lucide-react";
+import { useState } from "react";
 
 const WspButton = () => {
   const cart = cartStore((state) => state.cart);
-  const { paymentType } = paymentTypeStore();
+  const { paymentType, deliveryMethod, deliveryAddress, deliverySchedule } =
+    paymentTypeStore();
+  const [showValidationError, setShowValidationError] = useState(false);
 
   const buildMessage = () => {
     let message = " *Hola LusoInsumos!, quiero realizar una compra* \n\n";
@@ -24,6 +27,15 @@ const WspButton = () => {
     // Add payment type information
     message += "\n\n*Método de pago seleccionado:* " + paymentType;
 
+    // Add delivery method information
+    message += "\n*Método de entrega:* " + deliveryMethod;
+
+    // Add delivery details if courier delivery is selected
+    if (deliveryMethod === "Envío con cadete") {
+      message += "\n*Dirección de entrega:* " + deliveryAddress;
+      message += "\n*Horarios disponibles:* " + deliverySchedule;
+    }
+
     return message;
   };
 
@@ -32,6 +44,16 @@ const WspButton = () => {
   )}`;
 
   const sendOrder = () => {
+    // Validate delivery information if courier delivery is selected
+    if (
+      deliveryMethod === "Envío con cadete" &&
+      (!deliveryAddress || !deliverySchedule)
+    ) {
+      setShowValidationError(true);
+      return;
+    }
+
+    setShowValidationError(false);
     window.open(whatsappUrl, "_blank");
   };
 
@@ -40,7 +62,12 @@ const WspButton = () => {
   }
 
   return (
-    <div className="flex justify-center ">
+    <div className="flex flex-col items-center justify-center">
+      {showValidationError && (
+        <div className="text-red-500 mb-2 text-center">
+          Por favor complete la dirección y horarios de entrega
+        </div>
+      )}
       <Button
         onClick={sendOrder}
         className="mb-4 w-full md:w-auto bg-green-600 hover:bg-green-700 text-white font-medium px-6 py-6 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 flex items-center justify-center gap-2 min-w-[200px]"
