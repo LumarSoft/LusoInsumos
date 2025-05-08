@@ -25,28 +25,27 @@ export function NavigationMenuComponent() {
   return (
     <NavigationMenu className="lg:flex hidden">
       <NavigationMenuList>
-        {/* Liquidacion */}
-
+        {/* APPLE */}
         <NavigationMenuItem>
-          <Link href="/category/apple_informatica" legacyBehavior passHref>
+          <Link href="/category/apple" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
               APPLE
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
 
-        {/* Celulares */}
+        {/* CELULARES */}
         <NavigationMenuItem>
           <NavigationMenuTrigger>CELULARES</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-              <Link href={"/category/celulares/celulares_nuevos/apple"}>
+              <Link href={"/category/celulares/celulares_nuevos/iphone"}>
                 <ListItem title="APPLE SELLADO">
                   Los mejores precios de celulares apple del mercado
                 </ListItem>
               </Link>
 
-              <Link href={"/category/celulares/celulares_usados/apple"}>
+              <Link href={"/category/celulares/celulares_usados/iphone"}>
                 <ListItem title="APPLE USADO">
                   Celulares apple en el mejor estado del mercado
                 </ListItem>
@@ -65,13 +64,12 @@ export function NavigationMenuComponent() {
           </NavigationMenuContent>
         </NavigationMenuItem>
 
-        {/* Informatica de informatica tengo que sacar: Computadoras, de computadoras tiene que abrirse un submenu para seleccionar entre oficina y gamer*/}
-
+        {/* INFORMÁTICA */}
         <NavigationMenuItem>
-          <NavigationMenuTrigger>INFORMATICA</NavigationMenuTrigger>
+          <NavigationMenuTrigger>INFORMÁTICA</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-            <ListItem>
+              <ListItem>
                 <Link
                   href={"/category/computadoras"}
                   className="text-black font-semibold cursor-pointer"
@@ -80,69 +78,66 @@ export function NavigationMenuComponent() {
                 </Link>
               </ListItem>
 
-              <ListItem>
+              <ListItem className="w-full">
                 <HoverCard openDelay={200}>
-                  <HoverCardTrigger className="text-black font-semibold cursor-pointer flex items-center">
-                    Notebooks
+                  <HoverCardTrigger className="text-black font-semibold cursor-pointer w-full flex items-center">
+                    Hardware
                     <ChevronDown
                       className="relative top-[1px] ml-1 h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180"
                       aria-hidden="true"
                     />
                   </HoverCardTrigger>
                   <HoverCardContent className="flex flex-col">
-                    <Link href={"/category/notebooks/hogar"}>
-                      <ListItem title="Oficina">
-                        Disponible para trabajar desde donde quieras
-                      </ListItem>
+                    <Link href={"/category/hardware/combos-actualizacion"}>
+                      <ListItem title="Combos Actualización"></ListItem>
                     </Link>
-                    <Link href={"/category/notebooks/gaming"}>
-                      <ListItem title="Gaming">
-                        Las mejores notebooks gaming del mercado
-                      </ListItem>
+                    <Link href={"/category/hardware/procesadores"}>
+                      <ListItem title="MicrosProcesadores"></ListItem>
+                    </Link>
+                    <Link href={"/category/informatica/hardware/motherboards"}>
+                      <ListItem title="Motherboards"></ListItem>
+                    </Link>
+                    <Link href={"/category/informatica/hardware/memorias-ram"}>
+                      <ListItem title="Memorias RAM"></ListItem>
+                    </Link>
+                    <Link href={"/category/informatica/hardware/discos-rigidos"}>
+                      <ListItem title="Discos HDD"></ListItem>
+                    </Link>
+                    <Link href={"/category/informatica/hardware/discos-solidos"}>
+                      <ListItem title="Discos SSD"></ListItem>
+                    </Link>
+                    <Link href={"/category/informatica/hardware/placas_video"}>
+                      <ListItem title="Placas de video"></ListItem>
+                    </Link>
+                    <Link href={"/category/informatica/hardware/gabinetes"}>
+                      <ListItem title="Gabinetes"></ListItem>
+                    </Link>
+                    <Link href={"/category/informatica/hardware/fuentes-de-alimentacion"}>
+                      <ListItem title="Fuentes de Alimentación"></ListItem>
+                    </Link>
+                    <Link href={"/category/informatica/hardware/cooling-y-mod"}>
+                      <ListItem title="COOLING y MOD"></ListItem>
                     </Link>
                   </HoverCardContent>
                 </HoverCard>
               </ListItem>
 
               <ListItem>
-                <HoverCard openDelay={200}>
-                  <HoverCardTrigger className="text-black font-semibold cursor-pointer flex items-center">
-                    Hardware{" "}
-                    <ChevronDown
-                      className="relative top-[1px] ml-1 h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180"
-                      aria-hidden="true"
-                    />
-                  </HoverCardTrigger>
-                  <HoverCardContent className="flex flex-col">
-                    <Link href={"/category/hardware/procesador"}>
-                      <ListItem title="Procesadores"></ListItem>
-                    </Link>
-                    <Link href={"/category/hardware/motherboard"}>
-                      <ListItem title="Moterboard"></ListItem>
-                    </Link>
-                    <Link href={"/category/hardware/ram"}>
-                      <ListItem title="Memorias RAM"></ListItem>
-                    </Link>
-                    <Link href={"/category/hardware/discmecanico"}>
-                      <ListItem title="Discos rigidos"></ListItem>
-                    </Link>
-                    <Link href={"/category/hardware/discsolido"}>
-                      <ListItem title="Discos solidos"></ListItem>
-                    </Link>
-                    <Link href={"/category/hardware/placavideo"}>
-                      <ListItem title="Placas de video"></ListItem>
-                    </Link>
-                    <Link href={"/category/hardware/gabinete"}>
-                      <ListItem title="Gabinete"></ListItem>
-                    </Link>
-                    <Link href={"/category/hardware/fuente"}>
-                      <ListItem title="Fuentes"></ListItem>
-                    </Link>
-                    <Link href={"/category/soluciones_termicas"}>
-                      <ListItem title="Soluciones termicas"></ListItem>
-                    </Link>
-                  </HoverCardContent>
-                </HoverCard>
+                <Link
+                  href={"/category/impresoras"}
+                  className="text-black font-semibold cursor-pointer"
+                >
+                  Impresoras, tóners y tintas
+                </Link>
+              </ListItem>
+
+              <ListItem>
+                <Link
+                  href={"/category/notebooks"}
+                  className="text-black font-semibold cursor-pointer"
+                >
+                  Notebooks
+                </Link>
               </ListItem>
 
               <ListItem>
@@ -156,90 +151,80 @@ export function NavigationMenuComponent() {
 
               <ListItem>
                 <Link
-                  href={"/category/impresoras"}
-                  className="text-black font-semibold cursor-pointer"
-                >
-                  Impresoras/Tóners{" "}
-                </Link>
-              </ListItem>
-
-              <ListItem>
-                <Link
                   href={"/category/sillas"}
                   className="text-black font-semibold cursor-pointer"
                 >
-                  Sillas gamer
+                  Sillas
                 </Link>
+              </ListItem>
+
+              <ListItem className="w-full">
+                <HoverCard openDelay={200}>
+                  <HoverCardTrigger className="text-black font-semibold cursor-pointer w-full flex items-center">
+                    Periféricos
+                    <ChevronDown
+                      className="relative top-[1px] ml-1 h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180"
+                      aria-hidden="true"
+                    />
+                  </HoverCardTrigger>
+                  <HoverCardContent className="flex flex-col">
+                    <Link href={"/category/informatica/perifericos/auriculares"}>
+                      <ListItem title="Auriculares"></ListItem>
+                    </Link>
+                    <Link href={"/category/informatica/perifericos/kit-teclado-mouse"}>
+                      <ListItem title="Kit teclado + mouse"></ListItem>
+                    </Link>
+                    <Link href={"/category/informatica/perifericos/mouse"}>
+                      <ListItem title="Mouse"></ListItem>
+                    </Link>
+                    <Link href={"/category/informatica/perifericos/microfonos"}>
+                      <ListItem title="Microfonos"></ListItem>
+                    </Link>
+                    <Link href={"/category/informatica/perifericos/mouse-pad"}>
+                      <ListItem title="MousePad"></ListItem>
+                    </Link>
+                    <Link href={"/category/informatica/perifericos/parlantes"}>
+                      <ListItem title="Parlantes"></ListItem>
+                    </Link>
+                    <Link href={"/category/informatica/perifericos/teclados"}>
+                      <ListItem title="Teclados"></ListItem>
+                    </Link>
+                    <Link href={"/category/informatica/perifericos/tabletas-digitalizadoras"}>
+                      <ListItem title="Digitalizadoras"></ListItem>
+                    </Link>
+                    <Link href={"/category/informatica/perifericos/joystick"}>
+                      <ListItem title="Joysticks"></ListItem>
+                    </Link>
+                    <Link href={"/category/informatica/perifericos/webcam"}>
+                      <ListItem title="Webcam"></ListItem>
+                    </Link>
+                  </HoverCardContent>
+                </HoverCard>
               </ListItem>
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
 
-        {/* Electronica */}
-
+        {/* ELECTRÓNICA */}
         <NavigationMenuItem>
-          <NavigationMenuTrigger>ELECTRONICA</NavigationMenuTrigger>
+          <NavigationMenuTrigger>ELECTRÓNICA</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-              <ListItem className="w-full">
-                <HoverCard openDelay={200}>
-                  <HoverCardTrigger className="text-black font-semibold cursor-pointer w-full flex items-center ">
-                    Perifericos
-                    <ChevronDown
-                      className="relative top-[1px] h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180"
-                      aria-hidden="true"
-                    />
-                  </HoverCardTrigger>
-                  <HoverCardContent className="flex flex-col">
-                    <Link href={"/category/perifericos/mouse"}>
-                      <ListItem title="Mouse con cable"></ListItem>
-                    </Link>
-                    <Link href={"/category/perifericos/mouse_inalambrico"}>
-                      <ListItem title="Mouse inalambrico"></ListItem>
-                    </Link>
-                    <Link href={"/category/perifericos/mouse_pad"}>
-                      <ListItem title="Mouse pads"></ListItem>
-                    </Link>
-                    <Link href={"/category/perifericos/teclado"}>
-                      <ListItem title="Teclado con cable"></ListItem>
-                    </Link>
-                    <Link href={"/category/perifericos/teclado_inalambrico"}>
-                      <ListItem title="Teclado inalambrico"></ListItem>
-                    </Link>
-                    <Link href={"/category/perifericos/parlantes"}>
-                      <ListItem title="Parlantes"></ListItem>
-                    </Link>
-                    <Link href={"/category/perifericos/joystick"}>
-                      <ListItem title="Joysticks"></ListItem>
-                    </Link>
-                    <Link href={"/category/perifericos/webcam"}>
-                      <ListItem title="Webcam"></ListItem>
-                    </Link>
-                    <Link href={"/category/perifericos/auriculares"}>
-                      <ListItem title="Auriculares"></ListItem>
-                    </Link>
-                    <Link href={"/category/perifericos/kit_cables"}>
-                      <ListItem title="Mouse + teclado cableados"></ListItem>
-                    </Link>
-                    <Link href={"/category/perifericos/kit_inalambrico"}>
-                      <ListItem title="Mouse + teclado inalambricos"></ListItem>
-                    </Link>
-                    <Link href={"/category/perifericos/multiplicadores_USB"}>
-                      <ListItem title="Multiplicadores USB"></ListItem>
-                    </Link>
-                    <Link href={"/category/perifericos/placas_sonido"}>
-                      <ListItem title="Placas de sonido USB"></ListItem>
-                    </Link>
-                  </HoverCardContent>
-                </HoverCard>
+              <ListItem>
+                <Link
+                  href={"/category/cargadores_y_baterias"}
+                  className="text-black font-semibold cursor-pointer"
+                >
+                  Cargadores y Baterías
+                </Link>
               </ListItem>
 
               <ListItem className="w-full">
                 <HoverCard openDelay={200}>
-                  <HoverCardTrigger className="text-black font-semibold cursor-pointer w-full flex items-center ">
+                  <HoverCardTrigger className="text-black font-semibold cursor-pointer w-full flex items-center">
                     Internet
                     <ChevronDown
-                      className="relative top-[1px] h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180"
+                      className="relative top-[1px] ml-1 h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180"
                       aria-hidden="true"
                     />
                   </HoverCardTrigger>
@@ -248,12 +233,12 @@ export function NavigationMenuComponent() {
                       <ListItem title="Routers"></ListItem>
                     </Link>
                     <Link href={"/category/internet/extensores"}>
-                      <ListItem title="Extensor"></ListItem>
+                      <ListItem title="Extensores"></ListItem>
                     </Link>
                     <Link href={"/category/internet/mesh"}>
                       <ListItem title="Mesh"></ListItem>
                     </Link>
-                    <Link href={"/category/internet/placa_red"}>
+                    <Link href={"/category/internet/placas_red"}>
                       <ListItem title="Placas de red"></ListItem>
                     </Link>
                   </HoverCardContent>
@@ -262,31 +247,28 @@ export function NavigationMenuComponent() {
 
               <ListItem className="w-full">
                 <HoverCard openDelay={200}>
-                  <HoverCardTrigger className="text-black font-semibold cursor-pointer w-full flex items-center ">
-                    Energia y cables
+                  <HoverCardTrigger className="text-black font-semibold cursor-pointer w-full flex items-center">
+                    Energía y cables
                     <ChevronDown
-                      className="relative top-[1px] h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180"
+                      className="relative top-[1px] ml-1 h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180"
                       aria-hidden="true"
                     />
                   </HoverCardTrigger>
                   <HoverCardContent className="flex flex-col">
-                    <Link href={"/category/energia_cables/cargador_notebook"}>
-                      <ListItem title="Cargadores Notebooks"></ListItem>
-                    </Link>
-                    <Link href={"/category/energia_cables/cargador_auto"}>
+                    <Link href={"/category/electronica/energia_cables/cargadores_autos"}>
                       <ListItem title="Cargadores autos"></ListItem>
                     </Link>
-                    <Link href={"/category/energia_cables/cargador_220v"}>
-                      <ListItem title="Cargadores 220V"></ListItem>
+                    <Link href={"/category/electronica/energia_cables/cargadores_c_v8"}>
+                      <ListItem title="Cargadores C y V8"></ListItem>
                     </Link>
-                    <Link href={"/category/energia_cables/pila"}>
+                    <Link href={"/category/electronica/energia_cables/pilas"}>
                       <ListItem title="Pilas"></ListItem>
                     </Link>
-                    <Link href={"/category/energia_cables/cable"}>
+                    <Link href={"/category/electronica/energia_cables/cables"}>
                       <ListItem title="Cables"></ListItem>
                     </Link>
-                    <Link href={"/category/energia_cables/energia"}>
-                      <ListItem title="Enería"></ListItem>
+                    <Link href={"/category/electronica/energia_cables/energia"}>
+                      <ListItem title="Energia"></ListItem>
                     </Link>
                   </HoverCardContent>
                 </HoverCard>
@@ -294,25 +276,25 @@ export function NavigationMenuComponent() {
 
               <ListItem className="w-full">
                 <HoverCard openDelay={200}>
-                  <HoverCardTrigger className="text-black font-semibold cursor-pointer w-full flex items-center ">
+                  <HoverCardTrigger className="text-black font-semibold cursor-pointer w-full flex items-center">
                     Leds
                     <ChevronDown
-                      className="relative top-[1px] h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180"
+                      className="relative top-[1px] ml-1 h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180"
                       aria-hidden="true"
                     />
                   </HoverCardTrigger>
                   <HoverCardContent className="flex flex-col">
-                    <Link href={"/category/leds/espejos_led"}>
-                      <ListItem title="Espejos leds"></ListItem>
+                    <Link href={"/category/electronica/leds/espejos_leds"}>
+                      <ListItem title="Espejos Leds"></ListItem>
                     </Link>
-                    <Link href={"/category/leds/aros_led"}>
-                      <ListItem title="Aros led"></ListItem>
+                    <Link href={"/category/electronica/leds/aros_leds"}>
+                      <ListItem title="Aros Leds"></ListItem>
                     </Link>
-                    <Link href={"/category/leds/luces_tiras"}>
+                    <Link href={"/category/electronica/leds/luces_tiras"}>
                       <ListItem title="Luces tiras"></ListItem>
                     </Link>
-                    <Link href={"/category/leds/lamparas"}>
-                      <ListItem title="Lampras inteligentes"></ListItem>
+                    <Link href={"/category/electronica/leds/lamparas_inteligentes"}>
+                      <ListItem title="Lamparas inteligentes"></ListItem>
                     </Link>
                   </HoverCardContent>
                 </HoverCard>
@@ -320,21 +302,21 @@ export function NavigationMenuComponent() {
 
               <ListItem className="w-full">
                 <HoverCard openDelay={200}>
-                  <HoverCardTrigger className="text-black font-semibold cursor-pointer w-full flex items-center ">
+                  <HoverCardTrigger className="text-black font-semibold cursor-pointer w-full flex items-center">
                     Almacenamiento
                     <ChevronDown
-                      className="relative top-[1px] h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180"
+                      className="relative top-[1px] ml-1 h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180"
                       aria-hidden="true"
                     />
                   </HoverCardTrigger>
                   <HoverCardContent className="flex flex-col">
-                    <Link href={"/category/almacenamiento/micro_sd"}>
+                    <Link href={"/category/electronica/almacenamiento/micro_sd"}>
                       <ListItem title="Memorias Micro SD"></ListItem>
                     </Link>
-                    <Link href={"/category/almacenamiento/pendrives"}>
+                    <Link href={"/category/electronica/almacenamiento/pendrives"}>
                       <ListItem title="Pendrives"></ListItem>
                     </Link>
-                    <Link href={"/category/almacenamiento/carry_disk"}>
+                    <Link href={"/category/electronica/almacenamiento/carry_disk"}>
                       <ListItem title="Carry disk/Caddy"></ListItem>
                     </Link>
                   </HoverCardContent>
@@ -343,21 +325,21 @@ export function NavigationMenuComponent() {
 
               <ListItem className="w-full">
                 <HoverCard openDelay={200}>
-                  <HoverCardTrigger className="text-black font-semibold cursor-pointer w-full flex items-center ">
+                  <HoverCardTrigger className="text-black font-semibold cursor-pointer w-full flex items-center">
                     Bluetooth
                     <ChevronDown
-                      className="relative top-[1px] h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180"
+                      className="relative top-[1px] ml-1 h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180"
                       aria-hidden="true"
                     />
                   </HoverCardTrigger>
                   <HoverCardContent className="flex flex-col">
-                    <Link href={"/category/bluetooth/adaptadores_bluetooth"}>
+                    <Link href={"/category/electronica/bluetooth/adaptadores"}>
                       <ListItem title="Adaptadores"></ListItem>
                     </Link>
-                    <Link href={"/category/bluetooth/auriculares_bluetooth"}>
+                    <Link href={"/category/electronica/bluetooth/auriculares"}>
                       <ListItem title="Auriculares"></ListItem>
                     </Link>
-                    <Link href={"/category/bluetooth/parlantes_bluetooth"}>
+                    <Link href={"/category/electronica/bluetooth/parlantes"}>
                       <ListItem title="Parlantes"></ListItem>
                     </Link>
                   </HoverCardContent>
@@ -366,7 +348,7 @@ export function NavigationMenuComponent() {
 
               <ListItem>
                 <Link
-                  href={"/category/smartwatchs"}
+                  href={"/category/electronica/smartwatchs"}
                   className="text-black font-semibold cursor-pointer"
                 >
                   Smartwatchs
@@ -375,54 +357,48 @@ export function NavigationMenuComponent() {
 
               <ListItem>
                 <Link
-                  href={"/category/seguridad"}
+                  href={"/category/electronica/conversores_smart"}
                   className="text-black font-semibold cursor-pointer"
                 >
-                  Seguridad
+                  Conversores Smart
+                </Link>
+              </ListItem>
+
+              <ListItem>
+                <Link
+                  href={"/category/electronica/camaras_seguridad"}
+                  className="text-black font-semibold cursor-pointer"
+                >
+                  Cámaras seguridad
                 </Link>
               </ListItem>
 
               <ListItem className="w-full">
                 <HoverCard openDelay={200}>
-                  <HoverCardTrigger className="text-black font-semibold cursor-pointer w-full flex items-center ">
+                  <HoverCardTrigger className="text-black font-semibold cursor-pointer w-full flex items-center">
                     Varios
                     <ChevronDown
-                      className="relative top-[1px] h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180"
+                      className="relative top-[1px] ml-1 h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180"
                       aria-hidden="true"
                     />
                   </HoverCardTrigger>
                   <HoverCardContent className="flex flex-col">
-                    <Link href={"/category/varios/soporte_tv"}>
+                    <Link href={"/category/electronica/varios/soporte_tv"}>
                       <ListItem title="Soporte TV"></ListItem>
                     </Link>
-                    <Link href={"/category/varios/control_remoto"}>
-                      <ListItem title="Control remotos"></ListItem>
+                    <Link href={"/category/electronica/varios/controles_remotos"}>
+                      <ListItem title="Controles remotos"></ListItem>
                     </Link>
-                    <Link href={"/category/varios/conversores_smart"}>
-                      <ListItem title="Conversores Smart"></ListItem>
-                    </Link>
-                    <Link href={"/category/varios/balanzas"}>
+                    <Link href={"/category/electronica/varios/balanzas"}>
                       <ListItem title="Balanzas"></ListItem>
                     </Link>
-                    <Link href={"/category/varios/carteles"}>
+                    <Link href={"/category/electronica/varios/carteles"}>
                       <ListItem title="Carteles"></ListItem>
                     </Link>
-                    <Link href={"/category/varios/mascaras"}>
-                      <ListItem title="Máscaras"></ListItem>
-                    </Link>
-                    <Link href={"/category/varios/pizarras"}>
+                    <Link href={"/category/electronica/varios/pizarras"}>
                       <ListItem title="Pizarras"></ListItem>
                     </Link>
-                    <Link href={"/category/varios/adaptadores"}>
-                      <ListItem title="Adaptadores"></ListItem>
-                    </Link>
-                    <Link href={"/category/varios/soportes_notebooks"}>
-                      <ListItem title="Soportes notebooks"></ListItem>
-                    </Link>
-                    <Link href={"/category/varios/videoconsolas"}>
-                      <ListItem title="Videoconsolas"></ListItem>
-                    </Link>
-                    <Link href={"/category/varios/varios"}>
+                    <Link href={"/category/electronica/varios/varios"}>
                       <ListItem title="Varios"></ListItem>
                     </Link>
                   </HoverCardContent>
@@ -432,28 +408,52 @@ export function NavigationMenuComponent() {
           </NavigationMenuContent>
         </NavigationMenuItem>
 
-        {/* Juegos digitales */}
-
+        {/* VIDEOJUEGOS */}
         <NavigationMenuItem>
-          <NavigationMenuTrigger>JUEGOS DIGITALES</NavigationMenuTrigger>
+          <NavigationMenuTrigger>VIDEOJUEGOS</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-              <Link href={"/category/juegos_digitales/ps4"}>
-                <ListItem title="Juegos PS4"></ListItem>
+              <Link href={"/category/videojuegos/consolas"}>
+                <ListItem title="Consolas"></ListItem>
               </Link>
-              <Link href={"/category/juegos_digitales/ps5"}>
-                <ListItem title="Juegos PS5"></ListItem>
-              </Link>
+              
+              <ListItem className="w-full">
+                <HoverCard openDelay={200}>
+                  <HoverCardTrigger className="text-black font-semibold cursor-pointer w-full flex items-center">
+                    Juegos digitales
+                    <ChevronDown
+                      className="relative top-[1px] ml-1 h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180"
+                      aria-hidden="true"
+                    />
+                  </HoverCardTrigger>
+                  <HoverCardContent className="flex flex-col">
+                    <Link href={"/category/videojuegos/juegos-digitales/ps4"}>
+                      <ListItem title="Juegos PS4"></ListItem>
+                    </Link>
+                    <Link href={"/category/videojuegos/juegos-digitales/ps5"}>
+                      <ListItem title="Juegos PS5"></ListItem>
+                    </Link>
+                  </HoverCardContent>
+                </HoverCard>
+              </ListItem>
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
 
-        {/* Servicio tecnico */}
+        {/* PERFUMES */}
+        <NavigationMenuItem>
+          <Link href="/category/perfumes" legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              PERFUMES
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
 
+        {/* SERVICIO TÉCNICO */}
         <NavigationMenuItem>
           <Link href="/servicio_tecnico" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              SERVICIO TECNICO
+              SERVICIO TÉCNICO
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
