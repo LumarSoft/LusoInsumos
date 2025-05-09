@@ -68,22 +68,22 @@ export const DrawnerComponent = () => {
         {
           value: "apple-sellados",
           label: "Apple sellados",
-          href: "/category/celulares/apple_sellados",
+          href: "/category/celulares/celulares_nuevos/iphone",
         },
         {
           value: "multimarcas-sellados",
           label: "Multimarcas sellados",
-          href: "/category/celulares/multimarcas_sellados",
+          href: "/category/celulares/celulares_nuevos/multimarcas",
         },
         {
           value: "apple-usados",
           label: "Apple usados",
-          href: "/category/celulares/apple_usados",
+          href: "/category/celulares/celulares_usados/iphone",
         },
         {
           value: "multimarcas-usados",
           label: "Multimarcas usados",
-          href: "/category/celulares/multimarcas_usados",
+          href: "/category/celulares/celulares_usados/multimarcas",
         },
       ],
     },
@@ -96,7 +96,7 @@ export const DrawnerComponent = () => {
         {
           value: "computadoras",
           label: "Computadoras",
-          href: "/category/informatica/computadoras",
+          href: "/category/computadoras",
         },
         {
           value: "hardware",
@@ -105,12 +105,12 @@ export const DrawnerComponent = () => {
             {
               value: "combos-actualizacion",
               label: "Combos Actualización",
-              href: "/category/informatica/hardware/combos_actualizacion",
+              href: "/category/hardware/combos-actualizacion",
             },
             {
               value: "procesadores",
               label: "MicrosProcesadores",
-              href: "/category/informatica/hardware/procesadores",
+              href: "/category/hardware/procesadores",
             },
             {
               value: "motherboards",
@@ -120,17 +120,17 @@ export const DrawnerComponent = () => {
             {
               value: "ram",
               label: "Memorias RAM",
-              href: "/category/informatica/hardware/ram",
+              href: "/category/informatica/hardware/memorias-ram",
             },
             {
               value: "discos-hdd",
               label: "Discos HDD",
-              href: "/category/informatica/hardware/discos_hdd",
+              href: "/category/informatica/hardware/discos-rigidos",
             },
             {
               value: "discos-ssd",
               label: "Discos SSD",
-              href: "/category/informatica/hardware/discos_ssd",
+              href: "/category/informatica/hardware/discos-solidos",
             },
             {
               value: "placas-video",
@@ -145,34 +145,34 @@ export const DrawnerComponent = () => {
             {
               value: "fuentes",
               label: "Fuentes de Alimentación",
-              href: "/category/informatica/hardware/fuentes",
+              href: "/category/informatica/hardware/fuentes-de-alimentacion",
             },
             {
               value: "cooling-mod",
               label: "COOLING y MOD",
-              href: "/category/informatica/hardware/cooling_mod",
+              href: "/category/informatica/hardware/cooling-y-mod",
             },
           ],
         },
         {
           value: "impresoras",
           label: "Impresoras, tóners y tintas",
-          href: "/category/informatica/impresoras",
+          href: "/category/impresoras",
         },
         {
           value: "notebooks",
           label: "Notebooks",
-          href: "/category/informatica/notebooks",
+          href: "/category/notebooks",
         },
         {
           value: "monitores",
           label: "Monitores",
-          href: "/category/informatica/monitores",
+          href: "/category/monitores",
         },
         {
           value: "sillas",
           label: "Sillas",
-          href: "/category/informatica/sillas",
+          href: "/category/sillas",
         },
         {
           value: "perifericos",
@@ -186,7 +186,7 @@ export const DrawnerComponent = () => {
             {
               value: "kit-teclado-mouse",
               label: "Kit teclado + mouse",
-              href: "/category/informatica/perifericos/kit_teclado_mouse",
+              href: "/category/informatica/perifericos/kit-teclado-mouse",
             },
             {
               value: "mouse",
@@ -201,7 +201,7 @@ export const DrawnerComponent = () => {
             {
               value: "mousepad",
               label: "MousePad",
-              href: "/category/informatica/perifericos/mousepad",
+              href: "/category/informatica/perifericos/mouse-pad",
             },
             {
               value: "parlantes",
@@ -216,12 +216,12 @@ export const DrawnerComponent = () => {
             {
               value: "tabletas",
               label: "Tabletas Digitalizadoras",
-              href: "/category/informatica/perifericos/tabletas",
+              href: "/category/informatica/perifericos/tabletas-digitalizadoras",
             },
             {
               value: "joysticks",
               label: "Joysticks",
-              href: "/category/informatica/perifericos/joysticks",
+              href: "/category/informatica/perifericos/joystick",
             },
             {
               value: "webcam",
@@ -241,7 +241,7 @@ export const DrawnerComponent = () => {
         {
           value: "cargadores-baterias",
           label: "Cargadores y Baterías",
-          href: "/category/electronica/cargadores_baterias",
+          href: "/category/cargadores_y_baterias",
         },
         {
           value: "internet",
@@ -250,22 +250,22 @@ export const DrawnerComponent = () => {
             {
               value: "routers",
               label: "Routers",
-              href: "/category/electronica/internet/routers",
+              href: "/category/internet/router",
             },
             {
               value: "extensores",
               label: "Extensores",
-              href: "/category/electronica/internet/extensores",
+              href: "/category/internet/extensores",
             },
             {
               value: "mesh",
               label: "Mesh",
-              href: "/category/electronica/internet/mesh",
+              href: "/category/internet/mesh",
             },
             {
               value: "placas-red",
               label: "Placas de red",
-              href: "/category/electronica/internet/placas_red",
+              href: "/category/internet/placas_red",
             },
           ],
         },
@@ -439,12 +439,12 @@ export const DrawnerComponent = () => {
             {
               value: "juegos-ps4",
               label: "Juegos PS4",
-              href: "/category/videojuegos/juegos_digitales/ps4",
+              href: "/category/videojuegos/juegos-digitales/ps4",
             },
             {
               value: "juegos-ps5",
               label: "Juegos PS5",
-              href: "/category/videojuegos/juegos_digitales/ps5",
+              href: "/category/videojuegos/juegos-digitales/ps5",
             },
           ],
         },
