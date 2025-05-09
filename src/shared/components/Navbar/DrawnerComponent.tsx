@@ -56,447 +56,412 @@ export const DrawnerComponent = () => {
   const accordionData = [
     {
       value: "item-1",
-      label: "Apple",
-      href: "/category/apple_informatica",
+      label: "APPLE",
+      href: "/category/apple",
     },
 
-    // Celulares
+    // CELULARES
     {
       value: "item-2",
-      label: "Celulares",
+      label: "CELULARES",
       children: [
         {
-          value: "4",
-          label: "Sellados",
-          children: [
-            {
-              value: "6",
-              label: "Apple IPhones",
-              href: "/category/celulares/celulares_nuevos/apple",
-            },
-            {
-              value: "7",
-              label: "Multimarcas",
-              href: "/category/celulares/celulares_nuevos/multimarcas",
-            },
-          ],
+          value: "apple-sellados",
+          label: "Apple sellados",
+          href: "/category/celulares/apple_sellados",
         },
         {
-          value: "5",
-          label: "Usados",
-          children: [
-            {
-              value: "11",
-              label: "Apple Iphones",
-              href: "/category/celulares/celulares_usados/apple",
-            },
-            {
-              value: "12",
-              label: "Multimarcas",
-              href: "/category/celulares/celulares_usados/multimarcas",
-            },
-          ],
+          value: "multimarcas-sellados",
+          label: "Multimarcas sellados",
+          href: "/category/celulares/multimarcas_sellados",
+        },
+        {
+          value: "apple-usados",
+          label: "Apple usados",
+          href: "/category/celulares/apple_usados",
+        },
+        {
+          value: "multimarcas-usados",
+          label: "Multimarcas usados",
+          href: "/category/celulares/multimarcas_usados",
         },
       ],
     },
 
-    // Informatica
+    // INFORMÁTICA
     {
       value: "item-3",
-      label: "Informatica",
+      label: "INFORMÁTICA",
       children: [
         {
-          value: "16",
+          value: "computadoras",
           label: "Computadoras",
-          href: "/category/computadoras",
+          href: "/category/informatica/computadoras",
         },
         {
-          value: "19",
-          label: "Notebooks",
+          value: "hardware",
+          label: "Hardware",
           children: [
             {
-              value: "20",
-              label: "Oficina",
-              href: "/category/notebooks/hogar",
+              value: "combos-actualizacion",
+              label: "Combos Actualización",
+              href: "/category/informatica/hardware/combos_actualizacion",
             },
             {
-              value: "21",
-              label: "Gamer/Diseño",
-              href: "/category/notebooks/gaming",
-            },
-          ],
-        },
-        {
-          value: "22",
-          label: "Hardware-Componentes",
-          children: [
-            {
-              value: "23",
-              label: "Procesadores",
-              href: "/category/hardware/procesador",
+              value: "procesadores",
+              label: "MicrosProcesadores",
+              href: "/category/informatica/hardware/procesadores",
             },
             {
-              value: "24",
-              label: "Motherboard",
-              href: "/category/hardware/motherboard",
+              value: "motherboards",
+              label: "Motherboards",
+              href: "/category/informatica/hardware/motherboards",
             },
             {
-              value: "25",
+              value: "ram",
               label: "Memorias RAM",
-              href: "/category/hardware/ram",
+              href: "/category/informatica/hardware/ram",
             },
             {
-              value: "26",
-              label: "Discos rigidos",
-              href: "/category/hardware/discmecanico",
+              value: "discos-hdd",
+              label: "Discos HDD",
+              href: "/category/informatica/hardware/discos_hdd",
             },
             {
-              value: "38",
-              label: "Discos solidos",
-              href: "/category/hardware/discsolido",
+              value: "discos-ssd",
+              label: "Discos SSD",
+              href: "/category/informatica/hardware/discos_ssd",
             },
             {
-              value: "27",
+              value: "placas-video",
               label: "Placas de video",
-              href: "/category/hardware/placavideo",
+              href: "/category/informatica/hardware/placas_video",
             },
             {
-              value: "28",
+              value: "gabinetes",
               label: "Gabinetes",
-              href: "/category/hardware/gabinete",
+              href: "/category/informatica/hardware/gabinetes",
             },
             {
-              value: "29",
-              label: "Fuentes",
-              href: "/category/hardware/fuente",
+              value: "fuentes",
+              label: "Fuentes de Alimentación",
+              href: "/category/informatica/hardware/fuentes",
             },
             {
-              value: "31",
-              label: "Soluciones termicas",
-              href: "/category/soluciones_termicas",
+              value: "cooling-mod",
+              label: "COOLING y MOD",
+              href: "/category/informatica/hardware/cooling_mod",
             },
           ],
         },
         {
-          value: "32",
+          value: "impresoras",
+          label: "Impresoras, tóners y tintas",
+          href: "/category/informatica/impresoras",
+        },
+        {
+          value: "notebooks",
+          label: "Notebooks",
+          href: "/category/informatica/notebooks",
+        },
+        {
+          value: "monitores",
           label: "Monitores",
-          href: "/category/monitores",
+          href: "/category/informatica/monitores",
         },
         {
-          value: "33",
-          label: "Impresoras/Tóners",
-          href: "/category/impresoras",
-        },
-        {
-          value: "30",
+          value: "sillas",
           label: "Sillas",
-          href: "/category/sillas",
+          href: "/category/informatica/sillas",
+        },
+        {
+          value: "perifericos",
+          label: "Periféricos",
+          children: [
+            {
+              value: "auriculares",
+              label: "Auriculares",
+              href: "/category/informatica/perifericos/auriculares",
+            },
+            {
+              value: "kit-teclado-mouse",
+              label: "Kit teclado + mouse",
+              href: "/category/informatica/perifericos/kit_teclado_mouse",
+            },
+            {
+              value: "mouse",
+              label: "Mouse",
+              href: "/category/informatica/perifericos/mouse",
+            },
+            {
+              value: "microfonos",
+              label: "Microfonos",
+              href: "/category/informatica/perifericos/microfonos",
+            },
+            {
+              value: "mousepad",
+              label: "MousePad",
+              href: "/category/informatica/perifericos/mousepad",
+            },
+            {
+              value: "parlantes",
+              label: "Parlantes",
+              href: "/category/informatica/perifericos/parlantes",
+            },
+            {
+              value: "teclados",
+              label: "Teclados",
+              href: "/category/informatica/perifericos/teclados",
+            },
+            {
+              value: "tabletas",
+              label: "Tabletas Digitalizadoras",
+              href: "/category/informatica/perifericos/tabletas",
+            },
+            {
+              value: "joysticks",
+              label: "Joysticks",
+              href: "/category/informatica/perifericos/joysticks",
+            },
+            {
+              value: "webcam",
+              label: "Webcam",
+              href: "/category/informatica/perifericos/webcam",
+            },
+          ],
         },
       ],
     },
 
-    // Electronica
+    // ELECTRÓNICA
     {
-      value: "34",
-      label: "Electronica",
+      value: "item-4",
+      label: "ELECTRÓNICA",
       children: [
         {
-          value: "39",
-          label: "Perifericos",
-          children: [
-            {
-              value: "40",
-              label: "Mouse con cable",
-              href: "/category/perifericos/mouse",
-            },
-            {
-              value: "41",
-              label: "Mouse inalambrico",
-              href: "/category/perifericos/mouse_inalambrico",
-            },
-            {
-              value: "42",
-              label: "Mouse pads",
-              href: "/category/perifericos/mouse_pad",
-            },
-            {
-              value: "43",
-              label: "Teclado con cable",
-              href: "/category/perifericos/teclado",
-            },
-            {
-              value: "44",
-              label: "Teclado inalambrico",
-              href: "/category/perifericos/teclado_inalambrico",
-            },
-            {
-              value: "45",
-              label: "Parlantes",
-              href: "/category/perifericos/parlantes",
-            },
-            {
-              value: "46",
-              label: "Joysticks",
-              href: "/category/perifericos/joystick",
-            },
-            {
-              value: "47",
-              label: "Webcam",
-              href: "/category/perifericos/webcam",
-            },
-            {
-              value: "48",
-              label: "Auriculares",
-              href: "/category/perifericos/auriculares",
-            },
-            {
-              value: "49",
-              label: "Mouse + teclado cableados",
-              href: "/category/perifericos/kit_cables",
-            },
-            {
-              value: "50",
-              label: "Mouse + teclado inalambricos",
-              href: "/category/perifericos/kit_inalambrico",
-            },
-            {
-              value: "51",
-              label: "Multiplicadores USB",
-              href: "/category/perifericos/multiplicadores_USB",
-            },
-            {
-              value: "52",
-              label: "Placas de sonido USB",
-              href: "/category/perifericos/placas_sonido",
-            },
-          ],
+          value: "cargadores-baterias",
+          label: "Cargadores y Baterías",
+          href: "/category/electronica/cargadores_baterias",
         },
         {
-          value: "53",
+          value: "internet",
           label: "Internet",
           children: [
             {
-              value: "54",
+              value: "routers",
               label: "Routers",
-              href: "/category/internet/router",
+              href: "/category/electronica/internet/routers",
             },
             {
-              value: "55",
-              label: "Extensor",
-              href: "/category/internet/extensores",
+              value: "extensores",
+              label: "Extensores",
+              href: "/category/electronica/internet/extensores",
             },
             {
-              value: "56",
+              value: "mesh",
               label: "Mesh",
-              href: "/category/internet/mesh",
+              href: "/category/electronica/internet/mesh",
             },
             {
-              value: "57",
+              value: "placas-red",
               label: "Placas de red",
-              href: "/category/internet/placa_red",
+              href: "/category/electronica/internet/placas_red",
             },
           ],
         },
         {
-          value: "58",
-          label: "Energia y cables",
+          value: "energia-cables",
+          label: "Energía y cables",
           children: [
             {
-              value: "59",
-              label: "Cargadores Notebooks",
-              href: "/category/energia_cables/cargador_notebook",
-            },
-            {
-              value: "60",
+              value: "cargadores-autos",
               label: "Cargadores autos",
-              href: "/category/energia_cables/cargador_auto",
+              href: "/category/electronica/energia_cables/cargadores_autos",
             },
             {
-              value: "61",
-              label: "Cargadores 220V",
-              href: "/category/energia_cables/cargadore_220v",
+              value: "cargadores-c-v8",
+              label: "Cargadores C y V8",
+              href: "/category/electronica/energia_cables/cargadores_c_v8",
             },
             {
-              value: "62",
+              value: "pilas",
               label: "Pilas",
-              href: "/category/energia_cables/pila",
+              href: "/category/electronica/energia_cables/pilas",
             },
             {
-              value: "63",
+              value: "cables",
               label: "Cables",
-              href: "/category/energia_cables/cable",
+              href: "/category/electronica/energia_cables/cables",
             },
             {
-              value: "64",
-              label: "Enería",
-              href: "/category/energia_cables/energia",
+              value: "energia",
+              label: "Energia",
+              href: "/category/electronica/energia_cables/energia",
             },
           ],
         },
         {
-          value: "65",
+          value: "leds",
           label: "Leds",
           children: [
             {
-              value: "66",
-              label: "Espejos leds",
-              href: "/category/leds/espejos_led",
+              value: "espejos-leds",
+              label: "Espejos Leds",
+              href: "/category/electronica/leds/espejos_leds",
             },
             {
-              value: "67",
-              label: "Aros led",
-              href: "/category/leds/aros_led",
+              value: "aros-leds",
+              label: "Aros Leds",
+              href: "/category/electronica/leds/aros_leds",
             },
             {
-              value: "68",
+              value: "luces-tiras",
               label: "Luces tiras",
-              href: "/category/leds/luces_tiras",
+              href: "/category/electronica/leds/luces_tiras",
             },
             {
-              value: "69",
+              value: "lamparas-inteligentes",
               label: "Lamparas inteligentes",
-              href: "/category/leds/lamparas",
+              href: "/category/electronica/leds/lamparas_inteligentes",
             },
           ],
         },
         {
-          value: "70",
+          value: "almacenamiento",
           label: "Almacenamiento",
           children: [
             {
-              value: "71",
+              value: "micro-sd",
               label: "Memorias Micro SD",
-              href: "/category/almacenamiento/micro_sd",
+              href: "/category/electronica/almacenamiento/micro_sd",
             },
             {
-              value: "72",
+              value: "pendrives",
               label: "Pendrives",
-              href: "/category/almacenamiento/pendrives",
+              href: "/category/electronica/almacenamiento/pendrives",
             },
             {
-              value: "73",
+              value: "carry-disk",
               label: "Carry disk/Caddy",
-              href: "/category/almacenamiento/carry_disk",
+              href: "/category/electronica/almacenamiento/carry_disk",
             },
           ],
         },
         {
-          value: "74",
+          value: "bluetooth",
           label: "Bluetooth",
           children: [
             {
-              value: "75",
+              value: "adaptadores",
               label: "Adaptadores",
-              href: "/category/bluetooth/adaptadores_bluetooth",
+              href: "/category/electronica/bluetooth/adaptadores",
             },
             {
-              value: "76",
+              value: "auriculares-bt",
               label: "Auriculares",
-              href: "/category/bluetooth/auriculares_bluetooth",
+              href: "/category/electronica/bluetooth/auriculares",
             },
             {
-              value: "77",
+              value: "parlantes-bt",
               label: "Parlantes",
-              href: "/category/bluetooth/parlantes_bluetooth",
+              href: "/category/electronica/bluetooth/parlantes",
             },
           ],
         },
         {
-          value: "78",
+          value: "smartwatchs",
           label: "Smartwatchs",
-          href: "/category/smartwatchs",
+          href: "/category/electronica/smartwatchs",
         },
         {
-          value: "79",
-          label: "Seguridad",
-          href: "/category/seguridad",
+          value: "conversores-smart",
+          label: "Conversores Smart",
+          href: "/category/electronica/conversores_smart",
         },
         {
-          value: "80",
+          value: "camaras-seguridad",
+          label: "Cámaras seguridad",
+          href: "/category/electronica/camaras_seguridad",
+        },
+        {
+          value: "varios-electronica",
           label: "Varios",
           children: [
             {
-              value: "81",
+              value: "soporte-tv",
               label: "Soporte TV",
-              href: "/category/varios/soporte_tv",
+              href: "/category/electronica/varios/soporte_tv",
             },
             {
-              value: "82",
-              label: "Control remotos",
-              href: "/category/varios/control_remoto",
+              value: "controles-remotos",
+              label: "Controles remotos",
+              href: "/category/electronica/varios/controles_remotos",
             },
             {
-              value: "83",
-              label: "Conversores Smart",
-              href: "/category/varios/conversores_smart",
-            },
-            {
-              value: "84",
+              value: "balanzas",
               label: "Balanzas",
-              href: "/category/varios/balanzas",
+              href: "/category/electronica/varios/balanzas",
             },
             {
-              value: "85",
+              value: "carteles",
               label: "Carteles",
-              href: "/category/varios/carteles",
+              href: "/category/electronica/varios/carteles",
             },
             {
-              value: "86",
-              label: "Máscaras",
-              href: "/category/varios/mascaras",
-            },
-            {
-              value: "87",
+              value: "pizarras",
               label: "Pizarras",
-              href: "/category/varios/pizarras",
+              href: "/category/electronica/varios/pizarras",
             },
             {
-              value: "88",
-              label: "Adaptadores",
-              href: "/category/varios/adaptadores",
-            },
-            {
-              value: "89",
-              label: "Soportes notebooks",
-              href: "/category/varios/soportes_notebooks",
-            },
-            {
-              value: "90",
-              label: "Videoconsolas",
-              href: "/category/varios/videoconsolas",
-            },
-            {
-              value: "91",
+              value: "varios",
               label: "Varios",
-              href: "/category/varios/varios",
+              href: "/category/electronica/varios/varios",
             },
           ],
         },
       ],
     },
 
-    //Juegos
+    // VIDEOJUEGOS
     {
-      value: "35",
-      label: "Juegos digitales",
+      value: "item-5",
+      label: "VIDEOJUEGOS",
       children: [
         {
-          value: "92",
-          label: "Juegos PS4",
-          href: "/category/juegos_digitales/ps4",
+          value: "consolas",
+          label: "Consolas",
+          href: "/category/videojuegos/consolas",
         },
         {
-          value: "93",
-          label: "Juegos PS5",
-          href: "/category/juegos_digitales/ps5",
+          value: "juegos-digitales",
+          label: "Juegos digitales",
+          children: [
+            {
+              value: "juegos-ps4",
+              label: "Juegos PS4",
+              href: "/category/videojuegos/juegos_digitales/ps4",
+            },
+            {
+              value: "juegos-ps5",
+              label: "Juegos PS5",
+              href: "/category/videojuegos/juegos_digitales/ps5",
+            },
+          ],
         },
       ],
     },
 
-    //Servicio tecnico
+    // PERFUMES
     {
-      value: "37",
-      label: "Servicio tecnico",
+      value: "item-6",
+      label: "PERFUMES",
+      href: "/category/perfumes",
+    },
+
+    // SERVICIO TÉCNICO
+    {
+      value: "item-7",
+      label: "SERVICIO TÉCNICO",
       href: "/servicio_tecnico",
     },
   ];
@@ -508,7 +473,7 @@ export const DrawnerComponent = () => {
       </DrawerTrigger>
       <DrawerContent>
         <DrawerHeader>
-          <DrawerTitle>Categorias</DrawerTitle>
+          <DrawerTitle>Categorías</DrawerTitle>
         </DrawerHeader>
         <Accordion type="single" collapsible className="w-full">
           {renderAccordionItems(accordionData)}
