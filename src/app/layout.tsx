@@ -5,28 +5,25 @@ import { Inter } from "next/font/google";
 import { cn } from "@/lib/utils";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
+import MaintenancePage from "@/modules/Maintenance";
 const inter = Inter({ subsets: ["latin"] });
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Luso Insumos - Tienda de Electrónica y Servicio Técnico",
-  description: "Descubre la mejor tienda de productos electrónicos y servicios técnicos en Luso Insumos. Ofrecemos una amplia gama de dispositivos, accesorios y soluciones técnicas para todas tus necesidades. Calidad garantizada y atención personalizada.",
+  title: "Luso Insumos - Sitio en Mantenimiento",
+  description: "Estamos trabajando para mejorar nuestra plataforma. Pronto estaremos de regreso con nuevas funcionalidades.",
 };
 
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+// Mostrar página de mantenimiento en todo el sitio
+export default function RootLayout() {
   return (
-    <html lang="en">
+    <html lang="es">
       <body
         className={cn(
-          `${inter.className} min-h-screen bg-background font-sans antialiased h-screen`
+          `${inter.className} min-h-screen bg-white font-sans antialiased h-screen`
         )}
       >
-        {children}
+        <MaintenancePage />
         <ToastContainer />
       </body>
     </html>
