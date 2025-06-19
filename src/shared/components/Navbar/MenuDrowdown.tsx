@@ -27,7 +27,7 @@ export function NavigationMenuComponent() {
       <NavigationMenuList>
         {/* APPLE */}
         <NavigationMenuItem>
-          <Link href="/category/apple" legacyBehavior passHref>
+          <Link href="/category/apple_informatica" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
               APPLE
             </NavigationMenuLink>
@@ -39,13 +39,13 @@ export function NavigationMenuComponent() {
           <NavigationMenuTrigger>CELULARES</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-              <Link href={"/category/celulares/celulares_nuevos/iphone"}>
+              <Link href={"/category/celulares/celulares_nuevos/apple"}>
                 <ListItem title="APPLE SELLADO">
                   Los mejores precios de celulares apple del mercado
                 </ListItem>
               </Link>
 
-              <Link href={"/category/celulares/celulares_usados/iphone"}>
+              <Link href={"/category/celulares/celulares_usados/apple"}>
                 <ListItem title="APPLE USADO">
                   Celulares apple en el mejor estado del mercado
                 </ListItem>
@@ -94,7 +94,7 @@ export function NavigationMenuComponent() {
                     <Link href={"/category/hardware/procesadores"}>
                       <ListItem title="MicrosProcesadores"></ListItem>
                     </Link>
-                    <Link href={"/category/informatica/hardware/motherboards"}>
+                    <Link href={"/category/informatica/hardware/motherboard"}>
                       <ListItem title="Motherboards"></ListItem>
                     </Link>
                     <Link href={"/category/informatica/hardware/memorias-ram"}>
@@ -106,7 +106,7 @@ export function NavigationMenuComponent() {
                     <Link href={"/category/informatica/hardware/discos-solidos"}>
                       <ListItem title="Discos SSD"></ListItem>
                     </Link>
-                    <Link href={"/category/informatica/hardware/placas_video"}>
+                    <Link href={"/category/informatica/hardware/placas-video"}>
                       <ListItem title="Placas de video"></ListItem>
                     </Link>
                     <Link href={"/category/informatica/hardware/gabinetes"}>
@@ -357,7 +357,7 @@ export function NavigationMenuComponent() {
 
               <ListItem>
                 <Link
-                  href={"/category/electronica/conversores_smart"}
+                  href={"/category/conversores_smart"}
                   className="text-black font-semibold cursor-pointer"
                 >
                   Conversores Smart
@@ -366,7 +366,7 @@ export function NavigationMenuComponent() {
 
               <ListItem>
                 <Link
-                  href={"/category/electronica/camaras_seguridad"}
+                  href={"/category/camaras_seguridad"}
                   className="text-black font-semibold cursor-pointer"
                 >
                   Cámaras seguridad
@@ -413,7 +413,7 @@ export function NavigationMenuComponent() {
           <NavigationMenuTrigger>VIDEOJUEGOS</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-              <Link href={"/category/videojuegos/consolas"}>
+              <Link href={"/category/consolas"}>
                 <ListItem title="Consolas"></ListItem>
               </Link>
               
@@ -427,10 +427,10 @@ export function NavigationMenuComponent() {
                     />
                   </HoverCardTrigger>
                   <HoverCardContent className="flex flex-col">
-                    <Link href={"/category/videojuegos/juegos-digitales/ps4"}>
+                    <Link href={"/category/juegos_digitales/ps4"}>
                       <ListItem title="Juegos PS4"></ListItem>
                     </Link>
-                    <Link href={"/category/videojuegos/juegos-digitales/ps5"}>
+                    <Link href={"/category/juegos_digitales/ps5"}>
                       <ListItem title="Juegos PS5"></ListItem>
                     </Link>
                   </HoverCardContent>

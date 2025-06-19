@@ -57,7 +57,7 @@ export const DrawnerComponent = () => {
     {
       value: "item-1",
       label: "APPLE",
-      href: "/category/apple",
+      href: "/category/apple_informatica",
     },
 
     // CELULARES
@@ -68,7 +68,7 @@ export const DrawnerComponent = () => {
         {
           value: "apple-sellados",
           label: "Apple sellados",
-          href: "/category/celulares/celulares_nuevos/iphone",
+          href: "/category/celulares/celulares_nuevos/apple",
         },
         {
           value: "multimarcas-sellados",
@@ -78,7 +78,7 @@ export const DrawnerComponent = () => {
         {
           value: "apple-usados",
           label: "Apple usados",
-          href: "/category/celulares/celulares_usados/iphone",
+          href: "/category/celulares/celulares_usados/apple",
         },
         {
           value: "multimarcas-usados",
@@ -115,7 +115,7 @@ export const DrawnerComponent = () => {
             {
               value: "motherboards",
               label: "Motherboards",
-              href: "/category/informatica/hardware/motherboards",
+              href: "/category/informatica/hardware/motherboard",
             },
             {
               value: "ram",
@@ -135,7 +135,7 @@ export const DrawnerComponent = () => {
             {
               value: "placas-video",
               label: "Placas de video",
-              href: "/category/informatica/hardware/placas_video",
+              href: "/category/informatica/hardware/placas-video",
             },
             {
               value: "gabinetes",
@@ -376,12 +376,12 @@ export const DrawnerComponent = () => {
         {
           value: "conversores-smart",
           label: "Conversores Smart",
-          href: "/category/electronica/conversores_smart",
+          href: "/category/conversores_smart",
         },
         {
           value: "camaras-seguridad",
           label: "Cámaras seguridad",
-          href: "/category/electronica/camaras_seguridad",
+          href: "/category/camaras_seguridad",
         },
         {
           value: "varios-electronica",
@@ -430,7 +430,7 @@ export const DrawnerComponent = () => {
         {
           value: "consolas",
           label: "Consolas",
-          href: "/category/videojuegos/consolas",
+          href: "/category/consolas",
         },
         {
           value: "juegos-digitales",
@@ -439,12 +439,12 @@ export const DrawnerComponent = () => {
             {
               value: "juegos-ps4",
               label: "Juegos PS4",
-              href: "/category/videojuegos/juegos-digitales/ps4",
+              href: "/category/juegos_digitales/ps4",
             },
             {
               value: "juegos-ps5",
               label: "Juegos PS5",
-              href: "/category/videojuegos/juegos-digitales/ps5",
+              href: "/category/juegos_digitales/ps5",
             },
           ],
         },
