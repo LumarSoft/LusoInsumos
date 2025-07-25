@@ -7,6 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 const inter = Inter({ subsets: ["latin"] });
 import "./globals.css";
+import MaintenancePage from "@/modules/Maintenance";
 
 export const metadata: Metadata = {
   title: "Luso Insumos - Tienda de Electrónica y Servicio Técnico",
@@ -26,8 +27,7 @@ export default function RootLayout({
           `${inter.className} min-h-screen bg-background font-sans antialiased h-screen`
         )}
       >
-        {children}
-        <ToastContainer />
+      <MaintenancePage />
       </body>
     </html>
   );
